@@ -1,0 +1,2 @@
+# gowiki
+go wiki
