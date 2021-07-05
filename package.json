@@ -2,7 +2,6 @@
   "name": "gowiki",
   "version": "1.0.0",
   "description": "gowiki with Go backend and Reactjs frontend",
-  "main": "index.js",
   "repository": "git@github.com:denniswon/gowiki.git",
   "author": "Jong Hyuck Won <jhwon0820@gmail.com>",
   "license": "MIT"

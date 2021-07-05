@@ -3,14 +3,14 @@ tmp_dir = "tmp"
 
 [build]
   bin = "./tmp"
-  cmd = "go build -o ./tmp/wiki ."
+  cmd = "go build -o ./tmp/main ."
   delay = 1000
   exclude_dir = ["assets", "tmp", "vendor"]
   exclude_file = []
   exclude_regex = []
   exclude_unchanged = false
   follow_symlink = false
-  full_bin = "./tmp/wiki"
+  full_bin = "./tmp/main"
   include_dir = []
   include_ext = ["go", "tpl", "tmpl", "html"]
   kill_delay = "0s"
