@@ -1,6 +1,5 @@
 import path from 'path'
 import os from 'os'
-import merge from 'webpack-merge'
 
 import webpack, { Configuration as WebpackConfiguration } from 'webpack'
 import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server'
@@ -8,8 +7,9 @@ import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-serv
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
 import TerserPlugin from 'terser-webpack-plugin'
 import BundleAnalyzerPlugin from 'webpack-bundle-analyzer'
-import MomentLocalesPlugin from 'moment-locales-webpack-plugin'
 import MomentTimezoneDataPlugin from 'moment-timezone-data-webpack-plugin'
+
+const MomentLocalesPlugin = require('moment-locales-webpack-plugin')
 
 interface Configuration extends WebpackConfiguration {
   devServer?: WebpackDevServerConfiguration;
