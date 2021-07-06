@@ -4,5 +4,8 @@
   "description": "gowiki with Go backend and Reactjs frontend",
   "repository": "git@github.com:denniswon/gowiki.git",
   "author": "Jong Hyuck Won <jhwon0820@gmail.com>",
+  "scripts": {
+    "frontend": "cd frontend && yarn"
+  },
   "license": "MIT"
 }

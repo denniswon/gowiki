@@ -1,8 +1,7 @@
 import React from 'react'
-import logo from './logo.svg'
-import './App.css'
 
 import { connect, sendMsg } from './api'
+import { Button, Container } from './components'
 
 type Props = {
 }
@@ -16,9 +15,9 @@ const App: React.FunctionComponent<Props> = (props: Props) => {
   }
 
   return (
-    <div className='App'>
-      <button onClick={send}>Hit</button>
-    </div>
+    <Container className='App'>
+      <Button onClick={send} primary>Hit</Button>
+    </Container>
   )
 }
 

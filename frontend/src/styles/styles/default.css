@@ -1,0 +1,11 @@
+html{ background:white; box-sizing: border-box; }
+
+body{ overflow: auto; overscroll-behavior-y: none; }
+a{ text-decoration:none; color:inherit;}
+*, *:before, *:after{ box-sizing: inherit; outline:none; }
+svg{ box-sizing: content-box; }
+button, input{ margin:0; padding:0; outline:0; border:0; font:inherit; }
+
+video::-webkit-media-controls {
+  display:none !important;
+}
