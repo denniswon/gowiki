@@ -1,4 +1,5 @@
 {
+  "extends": "./tsconfig.paths.json",
   "compilerOptions": {
     "target": "esnext",
     "module": "commonjs",
@@ -6,7 +7,6 @@
 
     "rootDir": ".",
     "outDir": "dist",
-    "baseUrl": ".",
 
     "allowSyntheticDefaultImports": true,
     "preserveSymlinks": true,
@@ -21,26 +21,6 @@
     "lib": ["es2017", "dom"],
     "types": ["react", "zustand", "node"],
     "typeRoots": ["node_modules/@types"],
-    "paths": {
-      "api/*": ["./src/api/*"],
-      "components/*": ["./src/components/*"],
-      "config/*": ["./src/config/*"],
-      "fonts/*": ["./src/fonts/*"],
-      "images/*": ["./src/images/*"],
-      "videos/*": ["./src/videos/*"],
-      "models/*": ["./src/models/*"],
-      "services": ["./src/services"],
-      "services/*": ["./src/services/*"],
-      "sounds/*": ["./src/sounds/*"],
-      "public": ["./public"],
-      "stores/*": ["./src/stores/*"],
-      "styles": ["./src/styles"],
-      "styles/*": ["./src/styles/*"],
-      "styles-global": ["./src/styles-global"],
-      "styles-global/*": ["./src/styles-global/*"],
-      "utils": ["./src/utils"],
-      "utils/*": ["./src/utils/*"]
-    }
   },
   "include": ["src"],
   "exclude": ["dist", "node_modules"]

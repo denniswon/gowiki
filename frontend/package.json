@@ -29,7 +29,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postinstall": "patch-package"
   },
   "eslintConfig": {
     "extends": [
@@ -79,6 +80,7 @@
     "fork-ts-checker-webpack-plugin": "^6.2.12",
     "moment-locales-webpack-plugin": "^1.2.0",
     "moment-timezone-data-webpack-plugin": "^1.5.0",
+    "patch-package": "^6.4.7",
     "postcss": "^8.3.5",
     "postcss-cli": "^8.3.1",
     "style-loader": "^3.0.0",
