@@ -3,9 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "bundle": "webpack",
-    "start": "webpack serve --open",
     "tsc": "./node_modules/typescript/bin/tsc",
+    "build": "webpack --config webpack.dev.config.js --mode development",
+    "deploy": "NODE_ENV=production parallel-webpack --config webpack.prod.config.js --mode production --no-stats",
+    "dev-server": "webpack serve --open --config webpack.dev.config.js --hot --stdin",
+    "test-server": "webpack serve --open --config webpack.test.config.js --hot --stdin",
+    "watch": "webpack --config webpack.dev.config.js --mode development --watch",
+    "test": "jest",
     "postinstall": "patch-package"
   },
   "dependencies": {
@@ -48,6 +52,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.14.7",
     "@babel/plugin-proposal-optional-chaining": "^7.14.5",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/plugin-transform-modules-commonjs": "^7.14.5",
     "@babel/plugin-transform-runtime": "^7.14.5",
     "@babel/plugin-transform-spread": "^7.14.6",
     "@babel/preset-env": "^7.14.7",

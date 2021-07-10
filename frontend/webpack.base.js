@@ -2,10 +2,9 @@ const path = require('path')
 const webpack = require('webpack')
 const TerserPlugin = require('terser-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-const GenerateJsonPlugin = require('./appData.generateJson.js')
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin')
 const MomentTimezoneDataPlugin = require('moment-timezone-data-webpack-plugin')
-const merge = require('webpack-merge')
+const { merge } = require('webpack-merge')
 
 const currentYear = new Date().getFullYear()
 const analyzer = process.env.ANALYZER == 'true'
@@ -22,14 +21,6 @@ const assetHost = process.env.ASSET_HOST || (isDev && !process.env.SERVE_STATIC 
 const appEntries = {
   entry: {
     main: ['react-hot-loader/patch', './src/index'],
-  },
-  externals: {
-  },
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-      }
-    },
   }
 }
 
@@ -59,7 +50,7 @@ const baseConfig = {
                 '@babel/preset-env',
                 {
                   useBuiltIns: 'usage',
-                  corejs: 2,
+                  corejs: 3,
                 }
               ],
               '@babel/preset-typescript',
@@ -100,7 +91,10 @@ const baseConfig = {
         include: [
           path.join(__dirname, 'src'),
         ],
-        loader: 'file-loader?name=sounds/[name].[ext]'
+        loader: 'file-loader',
+        options: {
+          name: 'sounds/[name].[ext]',
+        }
       },
       {
         test: /\.(woff|woff2|eot|ttf)$/,
@@ -108,7 +102,10 @@ const baseConfig = {
           path.join(__dirname, 'src'),
         ],
         exclude: /node_modules/,
-        loader: 'file-loader?name=fonts/[name].[ext]'
+        loader: 'file-loader',
+        options: {
+          name: 'fonts/[name].[ext]',
+        }
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
@@ -116,12 +113,15 @@ const baseConfig = {
           path.join(__dirname, 'src'),
         ],
         exclude: /node_modules/,
-        loader: 'url-loader?limit=8192&name=images/[name].[ext]'
+        loader: 'url-loader',
+        options: {
+          name: 'images/[name].[ext]',
+          limit: 8192
+        }
       }
     ]
   },
   plugins: [
-    new webpack.NamedModulesPlugin(),
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new webpack.DefinePlugin({
       IS_DEV: JSON.stringify(isDev),
@@ -131,7 +131,6 @@ const baseConfig = {
       ORIGIN_HOST: JSON.stringify(''),
       ASSET_HOST: JSON.stringify(assetHost)
     }),
-    new GenerateJsonPlugin(),
     new MomentLocalesPlugin(),
     new MomentTimezoneDataPlugin({
       startYear: currentYear,
@@ -158,9 +157,19 @@ const baseConfig = {
       styles: path.resolve(__dirname, 'src/styles/'),
       'styles-global': path.resolve(__dirname, 'src/styles-global/'),
       utils: path.resolve(__dirname, 'src/utils/'),
+    },
+    // Some libraries import Node modules but don't use them in the browser.
+    // Tell Webpack to provide empty mocks for them so importing them works.
+    fallback: {
+      dgram: false,
+      fs: false,
+      net: false,
+      tls: false,
+      child_process: false
     }
   },
   optimization: {
+    moduleIds: 'named',
     minimizer: [
       new TerserPlugin({
         terserOptions: {
@@ -169,15 +178,6 @@ const baseConfig = {
         }
       }),
     ],
-  },
-  // Some libraries import Node modules but don't use them in the browser.
-  // Tell Webpack to provide empty mocks for them so importing them works.
-  node: {
-    dgram: 'empty',
-    fs: 'empty',
-    net: 'empty',
-    tls: 'empty',
-    child_process: 'empty',
   },
   // Adjust webpack watch options
   watchOptions: {
