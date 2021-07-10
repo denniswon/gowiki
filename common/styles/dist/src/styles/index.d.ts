@@ -1,0 +1,2293 @@
+import * as text from './text';
+export declare const m: {
+    themes: {
+        whiteBackground: import("./theme").Theme;
+        darkBackground: import("./theme").Theme;
+    };
+    Img: import("styled-components").StyledComponent<"img", any, {
+        center?: boolean;
+    } & {
+        w?: string | number | string[] | number[];
+        maxw?: string | number | string[] | number[];
+        minw?: string | number | string[] | number[];
+        h?: string | number | string[] | number[];
+        minh?: string | number | string[] | number[];
+        maxh?: string | number | string[] | number[];
+        display?: string | string[];
+        sz?: string | number | string[] | number[];
+        verticalAlign?: string | string[];
+    } & import("../../../styles-global/src/styledSystems").TypographyProps & {
+        m?: string | number | string[] | number[];
+        mh?: string | number | string[] | number[];
+        mv?: string | number | string[] | number[];
+        mt?: string | number | string[] | number[];
+        mr?: string | number | string[] | number[];
+        mb?: string | number | string[] | number[];
+        ml?: string | number | string[] | number[];
+        p?: string | number | string[] | number[];
+        ph?: string | number | string[] | number[];
+        pv?: string | number | string[] | number[];
+        pt?: string | number | string[] | number[];
+        pr?: string | number | string[] | number[];
+        pb?: string | number | string[] | number[];
+        pl?: string | number | string[] | number[];
+    } & {
+        border?: string | number | string[] | number[];
+        borderTop?: string | number | string[] | number[];
+        borderRight?: string | number | string[] | number[];
+        borderBottom?: string | number | string[] | number[];
+        borderLeft?: string | number | string[] | number[];
+        borderWidth?: string | number | string[] | number[];
+        borderStyle?: string | number | string[] | number[];
+        borderColor?: string;
+        borderRadius?: string | number | string[] | number[];
+    } & {
+        bg?: string;
+        color?: string;
+        background?: string | string[];
+        bs?: string | string[];
+        br?: string | number | string[] | number[];
+        opacity?: string | number | string[] | number[];
+        op?: string | number | string[] | number[];
+        overflow?: "auto" | "hidden" | "scroll" | "visible";
+        boxShadow?: string | string[];
+        backgroundImage?: string | string[];
+        backgroundSize?: string | string[];
+        backgroundPosition?: string | string[];
+        backgroundRepeat?: string | string[];
+        anchor?: boolean;
+    } & {
+        pos?: string | string[];
+        zi?: number | number[];
+        top?: string | number | string[] | number[];
+        right?: string | number | string[] | number[];
+        bottom?: string | number | string[] | number[];
+        left?: string | number | string[] | number[];
+    } & {
+        order?: number | number[];
+        flexWrap?: string | string[];
+        flexShrink?: string | number | string[] | number[];
+        flexBasis?: string | string[];
+        flexDirection?: string | string[];
+        alignSelf?: string | string[];
+    } & import("../../../styles-global/src/types").QuickTypographyProps & import("../../../styles-global/src/types").QuickFlexProps & import("../../../styles-global/src/types").QuickPositionProps & import("../../../styles-global/src/types").MediaProps & {
+        withShadow?: boolean;
+        withStroke?: boolean;
+    }, never>;
+    ImgFrame: import("styled-components").StyledComponent<any, any, object & {
+        center?: boolean;
+    } & {
+        w?: string | number | string[] | number[];
+        maxw?: string | number | string[] | number[];
+        minw?: string | number | string[] | number[];
+        h?: string | number | string[] | number[];
+        minh?: string | number | string[] | number[];
+        maxh?: string | number | string[] | number[];
+        display?: string | string[];
+        sz?: string | number | string[] | number[];
+        verticalAlign?: string | string[];
+    } & import("../../../styles-global/src/styledSystems").TypographyProps & {
+        m?: string | number | string[] | number[];
+        mh?: string | number | string[] | number[];
+        mv?: string | number | string[] | number[];
+        mt?: string | number | string[] | number[];
+        mr?: string | number | string[] | number[];
+        mb?: string | number | string[] | number[];
+        ml?: string | number | string[] | number[];
+        p?: string | number | string[] | number[];
+        ph?: string | number | string[] | number[];
+        pv?: string | number | string[] | number[];
+        pt?: string | number | string[] | number[];
+        pr?: string | number | string[] | number[];
+        pb?: string | number | string[] | number[];
+        pl?: string | number | string[] | number[];
+    } & {
+        border?: string | number | string[] | number[];
+        borderTop?: string | number | string[] | number[];
+        borderRight?: string | number | string[] | number[];
+        borderBottom?: string | number | string[] | number[];
+        borderLeft?: string | number | string[] | number[];
+        borderWidth?: string | number | string[] | number[];
+        borderStyle?: string | number | string[] | number[];
+        borderColor?: string;
+        borderRadius?: string | number | string[] | number[];
+    } & {
+        bg?: string;
+        color?: string;
+        background?: string | string[];
+        bs?: string | string[];
+        br?: string | number | string[] | number[];
+        opacity?: string | number | string[] | number[];
+        op?: string | number | string[] | number[];
+        overflow?: "auto" | "hidden" | "scroll" | "visible";
+        boxShadow?: string | string[];
+        backgroundImage?: string | string[];
+        backgroundSize?: string | string[];
+        backgroundPosition?: string | string[];
+        backgroundRepeat?: string | string[];
+        anchor?: boolean;
+    } & {
+        pos?: string | string[];
+        zi?: number | number[];
+        top?: string | number | string[] | number[];
+        right?: string | number | string[] | number[];
+        bottom?: string | number | string[] | number[];
+        left?: string | number | string[] | number[];
+    } & {
+        order?: number | number[];
+        flexWrap?: string | string[];
+        flexShrink?: string | number | string[] | number[];
+        flexBasis?: string | string[];
+        flexDirection?: string | string[];
+        alignSelf?: string | string[];
+    } & import("../../../styles-global/src/types").QuickTypographyProps & import("../../../styles-global/src/types").QuickFlexProps & import("../../../styles-global/src/types").QuickPositionProps & import("../../../styles-global/src/types").MediaProps, string | number | symbol>;
+    Video: import("styled-components").StyledComponent<"video", any, import("../../../styles-global/src").BoxProps, never>;
+    Divider: import("styled-components").StyledComponent<any, any, any, string | number | symbol>;
+    resetTextAttributes: import("styled-components").FlattenSimpleInterpolation;
+    tExtraBold: import("styled-components").FlattenSimpleInterpolation;
+    tBold: import("styled-components").FlattenSimpleInterpolation;
+    tSemi: import("styled-components").FlattenSimpleInterpolation;
+    tMedium: import("styled-components").FlattenSimpleInterpolation;
+    tRegular: import("styled-components").FlattenSimpleInterpolation;
+    t80: import("styled-components").FlattenSimpleInterpolation;
+    t48: import("styled-components").FlattenSimpleInterpolation;
+    t32: import("styled-components").FlattenSimpleInterpolation;
+    t28: import("styled-components").FlattenSimpleInterpolation;
+    t24: import("styled-components").FlattenSimpleInterpolation;
+    t22: import("styled-components").FlattenSimpleInterpolation;
+    t20: import("styled-components").FlattenSimpleInterpolation;
+    t18: import("styled-components").FlattenSimpleInterpolation;
+    t16: import("styled-components").FlattenSimpleInterpolation;
+    t15: import("styled-components").FlattenSimpleInterpolation;
+    t14: import("styled-components").FlattenSimpleInterpolation;
+    t13: import("styled-components").FlattenSimpleInterpolation;
+    t12: import("styled-components").FlattenSimpleInterpolation;
+    t11: import("styled-components").FlattenSimpleInterpolation;
+    t10: import("styled-components").FlattenSimpleInterpolation;
+    globalTextStyles: import("styled-components").FlattenSimpleInterpolation;
+    T80: import("styled-components").StyledComponent<any, any, object & {
+        center?: boolean;
+    } & {
+        w?: string | number | string[] | number[];
+        maxw?: string | number | string[] | number[];
+        minw?: string | number | string[] | number[];
+        h?: string | number | string[] | number[];
+        minh?: string | number | string[] | number[];
+        maxh?: string | number | string[] | number[];
+        display?: string | string[];
+        sz?: string | number | string[] | number[];
+        verticalAlign?: string | string[];
+    } & import("../../../styles-global/src/styledSystems").TypographyProps & {
+        m?: string | number | string[] | number[];
+        mh?: string | number | string[] | number[];
+        mv?: string | number | string[] | number[];
+        mt?: string | number | string[] | number[];
+        mr?: string | number | string[] | number[];
+        mb?: string | number | string[] | number[];
+        ml?: string | number | string[] | number[];
+        p?: string | number | string[] | number[];
+        ph?: string | number | string[] | number[];
+        pv?: string | number | string[] | number[];
+        pt?: string | number | string[] | number[];
+        pr?: string | number | string[] | number[];
+        pb?: string | number | string[] | number[];
+        pl?: string | number | string[] | number[];
+    } & {
+        border?: string | number | string[] | number[];
+        borderTop?: string | number | string[] | number[];
+        borderRight?: string | number | string[] | number[];
+        borderBottom?: string | number | string[] | number[];
+        borderLeft?: string | number | string[] | number[];
+        borderWidth?: string | number | string[] | number[];
+        borderStyle?: string | number | string[] | number[];
+        borderColor?: string;
+        borderRadius?: string | number | string[] | number[];
+    } & {
+        bg?: string;
+        color?: string;
+        background?: string | string[];
+        bs?: string | string[];
+        br?: string | number | string[] | number[];
+        opacity?: string | number | string[] | number[];
+        op?: string | number | string[] | number[];
+        overflow?: "auto" | "hidden" | "scroll" | "visible";
+        boxShadow?: string | string[];
+        backgroundImage?: string | string[];
+        backgroundSize?: string | string[];
+        backgroundPosition?: string | string[];
+        backgroundRepeat?: string | string[];
+        anchor?: boolean;
+    } & {
+        pos?: string | string[];
+        zi?: number | number[];
+        top?: string | number | string[] | number[];
+        right?: string | number | string[] | number[];
+        bottom?: string | number | string[] | number[];
+        left?: string | number | string[] | number[];
+    } & {
+        order?: number | number[];
+        flexWrap?: string | string[];
+        flexShrink?: string | number | string[] | number[];
+        flexBasis?: string | string[];
+        flexDirection?: string | string[];
+        alignSelf?: string | string[];
+    } & import("../../../styles-global/src/types").QuickTypographyProps & import("../../../styles-global/src/types").QuickFlexProps & import("../../../styles-global/src/types").QuickPositionProps & import("../../../styles-global/src/types").MediaProps & text.TextComponentProps, string | number | symbol>;
+    T48: import("styled-components").StyledComponent<any, any, object & {
+        center?: boolean;
+    } & {
+        w?: string | number | string[] | number[];
+        maxw?: string | number | string[] | number[];
+        minw?: string | number | string[] | number[];
+        h?: string | number | string[] | number[];
+        minh?: string | number | string[] | number[];
+        maxh?: string | number | string[] | number[];
+        display?: string | string[];
+        sz?: string | number | string[] | number[];
+        verticalAlign?: string | string[];
+    } & import("../../../styles-global/src/styledSystems").TypographyProps & {
+        m?: string | number | string[] | number[];
+        mh?: string | number | string[] | number[];
+        mv?: string | number | string[] | number[];
+        mt?: string | number | string[] | number[];
+        mr?: string | number | string[] | number[];
+        mb?: string | number | string[] | number[];
+        ml?: string | number | string[] | number[];
+        p?: string | number | string[] | number[];
+        ph?: string | number | string[] | number[];
+        pv?: string | number | string[] | number[];
+        pt?: string | number | string[] | number[];
+        pr?: string | number | string[] | number[];
+        pb?: string | number | string[] | number[];
+        pl?: string | number | string[] | number[];
+    } & {
+        border?: string | number | string[] | number[];
+        borderTop?: string | number | string[] | number[];
+        borderRight?: string | number | string[] | number[];
+        borderBottom?: string | number | string[] | number[];
+        borderLeft?: string | number | string[] | number[];
+        borderWidth?: string | number | string[] | number[];
+        borderStyle?: string | number | string[] | number[];
+        borderColor?: string;
+        borderRadius?: string | number | string[] | number[];
+    } & {
+        bg?: string;
+        color?: string;
+        background?: string | string[];
+        bs?: string | string[];
+        br?: string | number | string[] | number[];
+        opacity?: string | number | string[] | number[];
+        op?: string | number | string[] | number[];
+        overflow?: "auto" | "hidden" | "scroll" | "visible";
+        boxShadow?: string | string[];
+        backgroundImage?: string | string[];
+        backgroundSize?: string | string[];
+        backgroundPosition?: string | string[];
+        backgroundRepeat?: string | string[];
+        anchor?: boolean;
+    } & {
+        pos?: string | string[];
+        zi?: number | number[];
+        top?: string | number | string[] | number[];
+        right?: string | number | string[] | number[];
+        bottom?: string | number | string[] | number[];
+        left?: string | number | string[] | number[];
+    } & {
+        order?: number | number[];
+        flexWrap?: string | string[];
+        flexShrink?: string | number | string[] | number[];
+        flexBasis?: string | string[];
+        flexDirection?: string | string[];
+        alignSelf?: string | string[];
+    } & import("../../../styles-global/src/types").QuickTypographyProps & import("../../../styles-global/src/types").QuickFlexProps & import("../../../styles-global/src/types").QuickPositionProps & import("../../../styles-global/src/types").MediaProps & text.TextComponentProps, string | number | symbol>;
+    T32: import("styled-components").StyledComponent<any, any, object & {
+        center?: boolean;
+    } & {
+        w?: string | number | string[] | number[];
+        maxw?: string | number | string[] | number[];
+        minw?: string | number | string[] | number[];
+        h?: string | number | string[] | number[];
+        minh?: string | number | string[] | number[];
+        maxh?: string | number | string[] | number[];
+        display?: string | string[];
+        sz?: string | number | string[] | number[];
+        verticalAlign?: string | string[];
+    } & import("../../../styles-global/src/styledSystems").TypographyProps & {
+        m?: string | number | string[] | number[];
+        mh?: string | number | string[] | number[];
+        mv?: string | number | string[] | number[];
+        mt?: string | number | string[] | number[];
+        mr?: string | number | string[] | number[];
+        mb?: string | number | string[] | number[];
+        ml?: string | number | string[] | number[];
+        p?: string | number | string[] | number[];
+        ph?: string | number | string[] | number[];
+        pv?: string | number | string[] | number[];
+        pt?: string | number | string[] | number[];
+        pr?: string | number | string[] | number[];
+        pb?: string | number | string[] | number[];
+        pl?: string | number | string[] | number[];
+    } & {
+        border?: string | number | string[] | number[];
+        borderTop?: string | number | string[] | number[];
+        borderRight?: string | number | string[] | number[];
+        borderBottom?: string | number | string[] | number[];
+        borderLeft?: string | number | string[] | number[];
+        borderWidth?: string | number | string[] | number[];
+        borderStyle?: string | number | string[] | number[];
+        borderColor?: string;
+        borderRadius?: string | number | string[] | number[];
+    } & {
+        bg?: string;
+        color?: string;
+        background?: string | string[];
+        bs?: string | string[];
+        br?: string | number | string[] | number[];
+        opacity?: string | number | string[] | number[];
+        op?: string | number | string[] | number[];
+        overflow?: "auto" | "hidden" | "scroll" | "visible";
+        boxShadow?: string | string[];
+        backgroundImage?: string | string[];
+        backgroundSize?: string | string[];
+        backgroundPosition?: string | string[];
+        backgroundRepeat?: string | string[];
+        anchor?: boolean;
+    } & {
+        pos?: string | string[];
+        zi?: number | number[];
+        top?: string | number | string[] | number[];
+        right?: string | number | string[] | number[];
+        bottom?: string | number | string[] | number[];
+        left?: string | number | string[] | number[];
+    } & {
+        order?: number | number[];
+        flexWrap?: string | string[];
+        flexShrink?: string | number | string[] | number[];
+        flexBasis?: string | string[];
+        flexDirection?: string | string[];
+        alignSelf?: string | string[];
+    } & import("../../../styles-global/src/types").QuickTypographyProps & import("../../../styles-global/src/types").QuickFlexProps & import("../../../styles-global/src/types").QuickPositionProps & import("../../../styles-global/src/types").MediaProps & text.TextComponentProps, string | number | symbol>;
+    T28: import("styled-components").StyledComponent<any, any, object & {
+        center?: boolean;
+    } & {
+        w?: string | number | string[] | number[];
+        maxw?: string | number | string[] | number[];
+        minw?: string | number | string[] | number[];
+        h?: string | number | string[] | number[];
+        minh?: string | number | string[] | number[];
+        maxh?: string | number | string[] | number[];
+        display?: string | string[];
+        sz?: string | number | string[] | number[];
+        verticalAlign?: string | string[];
+    } & import("../../../styles-global/src/styledSystems").TypographyProps & {
+        m?: string | number | string[] | number[];
+        mh?: string | number | string[] | number[];
+        mv?: string | number | string[] | number[];
+        mt?: string | number | string[] | number[];
+        mr?: string | number | string[] | number[];
+        mb?: string | number | string[] | number[];
+        ml?: string | number | string[] | number[];
+        p?: string | number | string[] | number[];
+        ph?: string | number | string[] | number[];
+        pv?: string | number | string[] | number[];
+        pt?: string | number | string[] | number[];
+        pr?: string | number | string[] | number[];
+        pb?: string | number | string[] | number[];
+        pl?: string | number | string[] | number[];
+    } & {
+        border?: string | number | string[] | number[];
+        borderTop?: string | number | string[] | number[];
+        borderRight?: string | number | string[] | number[];
+        borderBottom?: string | number | string[] | number[];
+        borderLeft?: string | number | string[] | number[];
+        borderWidth?: string | number | string[] | number[];
+        borderStyle?: string | number | string[] | number[];
+        borderColor?: string;
+        borderRadius?: string | number | string[] | number[];
+    } & {
+        bg?: string;
+        color?: string;
+        background?: string | string[];
+        bs?: string | string[];
+        br?: string | number | string[] | number[];
+        opacity?: string | number | string[] | number[];
+        op?: string | number | string[] | number[];
+        overflow?: "auto" | "hidden" | "scroll" | "visible";
+        boxShadow?: string | string[];
+        backgroundImage?: string | string[];
+        backgroundSize?: string | string[];
+        backgroundPosition?: string | string[];
+        backgroundRepeat?: string | string[];
+        anchor?: boolean;
+    } & {
+        pos?: string | string[];
+        zi?: number | number[];
+        top?: string | number | string[] | number[];
+        right?: string | number | string[] | number[];
+        bottom?: string | number | string[] | number[];
+        left?: string | number | string[] | number[];
+    } & {
+        order?: number | number[];
+        flexWrap?: string | string[];
+        flexShrink?: string | number | string[] | number[];
+        flexBasis?: string | string[];
+        flexDirection?: string | string[];
+        alignSelf?: string | string[];
+    } & import("../../../styles-global/src/types").QuickTypographyProps & import("../../../styles-global/src/types").QuickFlexProps & import("../../../styles-global/src/types").QuickPositionProps & import("../../../styles-global/src/types").MediaProps & text.TextComponentProps, string | number | symbol>;
+    T24: import("styled-components").StyledComponent<any, any, object & {
+        center?: boolean;
+    } & {
+        w?: string | number | string[] | number[];
+        maxw?: string | number | string[] | number[];
+        minw?: string | number | string[] | number[];
+        h?: string | number | string[] | number[];
+        minh?: string | number | string[] | number[];
+        maxh?: string | number | string[] | number[];
+        display?: string | string[];
+        sz?: string | number | string[] | number[];
+        verticalAlign?: string | string[];
+    } & import("../../../styles-global/src/styledSystems").TypographyProps & {
+        m?: string | number | string[] | number[];
+        mh?: string | number | string[] | number[];
+        mv?: string | number | string[] | number[];
+        mt?: string | number | string[] | number[];
+        mr?: string | number | string[] | number[];
+        mb?: string | number | string[] | number[];
+        ml?: string | number | string[] | number[];
+        p?: string | number | string[] | number[];
+        ph?: string | number | string[] | number[];
+        pv?: string | number | string[] | number[];
+        pt?: string | number | string[] | number[];
+        pr?: string | number | string[] | number[];
+        pb?: string | number | string[] | number[];
+        pl?: string | number | string[] | number[];
+    } & {
+        border?: string | number | string[] | number[];
+        borderTop?: string | number | string[] | number[];
+        borderRight?: string | number | string[] | number[];
+        borderBottom?: string | number | string[] | number[];
+        borderLeft?: string | number | string[] | number[];
+        borderWidth?: string | number | string[] | number[];
+        borderStyle?: string | number | string[] | number[];
+        borderColor?: string;
+        borderRadius?: string | number | string[] | number[];
+    } & {
+        bg?: string;
+        color?: string;
+        background?: string | string[];
+        bs?: string | string[];
+        br?: string | number | string[] | number[];
+        opacity?: string | number | string[] | number[];
+        op?: string | number | string[] | number[];
+        overflow?: "auto" | "hidden" | "scroll" | "visible";
+        boxShadow?: string | string[];
+        backgroundImage?: string | string[];
+        backgroundSize?: string | string[];
+        backgroundPosition?: string | string[];
+        backgroundRepeat?: string | string[];
+        anchor?: boolean;
+    } & {
+        pos?: string | string[];
+        zi?: number | number[];
+        top?: string | number | string[] | number[];
+        right?: string | number | string[] | number[];
+        bottom?: string | number | string[] | number[];
+        left?: string | number | string[] | number[];
+    } & {
+        order?: number | number[];
+        flexWrap?: string | string[];
+        flexShrink?: string | number | string[] | number[];
+        flexBasis?: string | string[];
+        flexDirection?: string | string[];
+        alignSelf?: string | string[];
+    } & import("../../../styles-global/src/types").QuickTypographyProps & import("../../../styles-global/src/types").QuickFlexProps & import("../../../styles-global/src/types").QuickPositionProps & import("../../../styles-global/src/types").MediaProps & text.TextComponentProps, string | number | symbol>;
+    T18: import("styled-components").StyledComponent<any, any, object & {
+        center?: boolean;
+    } & {
+        w?: string | number | string[] | number[];
+        maxw?: string | number | string[] | number[];
+        minw?: string | number | string[] | number[];
+        h?: string | number | string[] | number[];
+        minh?: string | number | string[] | number[];
+        maxh?: string | number | string[] | number[];
+        display?: string | string[];
+        sz?: string | number | string[] | number[];
+        verticalAlign?: string | string[];
+    } & import("../../../styles-global/src/styledSystems").TypographyProps & {
+        m?: string | number | string[] | number[];
+        mh?: string | number | string[] | number[];
+        mv?: string | number | string[] | number[];
+        mt?: string | number | string[] | number[];
+        mr?: string | number | string[] | number[];
+        mb?: string | number | string[] | number[];
+        ml?: string | number | string[] | number[];
+        p?: string | number | string[] | number[];
+        ph?: string | number | string[] | number[];
+        pv?: string | number | string[] | number[];
+        pt?: string | number | string[] | number[];
+        pr?: string | number | string[] | number[];
+        pb?: string | number | string[] | number[];
+        pl?: string | number | string[] | number[];
+    } & {
+        border?: string | number | string[] | number[];
+        borderTop?: string | number | string[] | number[];
+        borderRight?: string | number | string[] | number[];
+        borderBottom?: string | number | string[] | number[];
+        borderLeft?: string | number | string[] | number[];
+        borderWidth?: string | number | string[] | number[];
+        borderStyle?: string | number | string[] | number[];
+        borderColor?: string;
+        borderRadius?: string | number | string[] | number[];
+    } & {
+        bg?: string;
+        color?: string;
+        background?: string | string[];
+        bs?: string | string[];
+        br?: string | number | string[] | number[];
+        opacity?: string | number | string[] | number[];
+        op?: string | number | string[] | number[];
+        overflow?: "auto" | "hidden" | "scroll" | "visible";
+        boxShadow?: string | string[];
+        backgroundImage?: string | string[];
+        backgroundSize?: string | string[];
+        backgroundPosition?: string | string[];
+        backgroundRepeat?: string | string[];
+        anchor?: boolean;
+    } & {
+        pos?: string | string[];
+        zi?: number | number[];
+        top?: string | number | string[] | number[];
+        right?: string | number | string[] | number[];
+        bottom?: string | number | string[] | number[];
+        left?: string | number | string[] | number[];
+    } & {
+        order?: number | number[];
+        flexWrap?: string | string[];
+        flexShrink?: string | number | string[] | number[];
+        flexBasis?: string | string[];
+        flexDirection?: string | string[];
+        alignSelf?: string | string[];
+    } & import("../../../styles-global/src/types").QuickTypographyProps & import("../../../styles-global/src/types").QuickFlexProps & import("../../../styles-global/src/types").QuickPositionProps & import("../../../styles-global/src/types").MediaProps & text.TextComponentProps, string | number | symbol>;
+    T20: import("styled-components").StyledComponent<any, any, object & {
+        center?: boolean;
+    } & {
+        w?: string | number | string[] | number[];
+        maxw?: string | number | string[] | number[];
+        minw?: string | number | string[] | number[];
+        h?: string | number | string[] | number[];
+        minh?: string | number | string[] | number[];
+        maxh?: string | number | string[] | number[];
+        display?: string | string[];
+        sz?: string | number | string[] | number[];
+        verticalAlign?: string | string[];
+    } & import("../../../styles-global/src/styledSystems").TypographyProps & {
+        m?: string | number | string[] | number[];
+        mh?: string | number | string[] | number[];
+        mv?: string | number | string[] | number[];
+        mt?: string | number | string[] | number[];
+        mr?: string | number | string[] | number[];
+        mb?: string | number | string[] | number[];
+        ml?: string | number | string[] | number[];
+        p?: string | number | string[] | number[];
+        ph?: string | number | string[] | number[];
+        pv?: string | number | string[] | number[];
+        pt?: string | number | string[] | number[];
+        pr?: string | number | string[] | number[];
+        pb?: string | number | string[] | number[];
+        pl?: string | number | string[] | number[];
+    } & {
+        border?: string | number | string[] | number[];
+        borderTop?: string | number | string[] | number[];
+        borderRight?: string | number | string[] | number[];
+        borderBottom?: string | number | string[] | number[];
+        borderLeft?: string | number | string[] | number[];
+        borderWidth?: string | number | string[] | number[];
+        borderStyle?: string | number | string[] | number[];
+        borderColor?: string;
+        borderRadius?: string | number | string[] | number[];
+    } & {
+        bg?: string;
+        color?: string;
+        background?: string | string[];
+        bs?: string | string[];
+        br?: string | number | string[] | number[];
+        opacity?: string | number | string[] | number[];
+        op?: string | number | string[] | number[];
+        overflow?: "auto" | "hidden" | "scroll" | "visible";
+        boxShadow?: string | string[];
+        backgroundImage?: string | string[];
+        backgroundSize?: string | string[];
+        backgroundPosition?: string | string[];
+        backgroundRepeat?: string | string[];
+        anchor?: boolean;
+    } & {
+        pos?: string | string[];
+        zi?: number | number[];
+        top?: string | number | string[] | number[];
+        right?: string | number | string[] | number[];
+        bottom?: string | number | string[] | number[];
+        left?: string | number | string[] | number[];
+    } & {
+        order?: number | number[];
+        flexWrap?: string | string[];
+        flexShrink?: string | number | string[] | number[];
+        flexBasis?: string | string[];
+        flexDirection?: string | string[];
+        alignSelf?: string | string[];
+    } & import("../../../styles-global/src/types").QuickTypographyProps & import("../../../styles-global/src/types").QuickFlexProps & import("../../../styles-global/src/types").QuickPositionProps & import("../../../styles-global/src/types").MediaProps & text.TextComponentProps, string | number | symbol>;
+    T16: import("styled-components").StyledComponent<any, any, object & {
+        center?: boolean;
+    } & {
+        w?: string | number | string[] | number[];
+        maxw?: string | number | string[] | number[];
+        minw?: string | number | string[] | number[];
+        h?: string | number | string[] | number[];
+        minh?: string | number | string[] | number[];
+        maxh?: string | number | string[] | number[];
+        display?: string | string[];
+        sz?: string | number | string[] | number[];
+        verticalAlign?: string | string[];
+    } & import("../../../styles-global/src/styledSystems").TypographyProps & {
+        m?: string | number | string[] | number[];
+        mh?: string | number | string[] | number[];
+        mv?: string | number | string[] | number[];
+        mt?: string | number | string[] | number[];
+        mr?: string | number | string[] | number[];
+        mb?: string | number | string[] | number[];
+        ml?: string | number | string[] | number[];
+        p?: string | number | string[] | number[];
+        ph?: string | number | string[] | number[];
+        pv?: string | number | string[] | number[];
+        pt?: string | number | string[] | number[];
+        pr?: string | number | string[] | number[];
+        pb?: string | number | string[] | number[];
+        pl?: string | number | string[] | number[];
+    } & {
+        border?: string | number | string[] | number[];
+        borderTop?: string | number | string[] | number[];
+        borderRight?: string | number | string[] | number[];
+        borderBottom?: string | number | string[] | number[];
+        borderLeft?: string | number | string[] | number[];
+        borderWidth?: string | number | string[] | number[];
+        borderStyle?: string | number | string[] | number[];
+        borderColor?: string;
+        borderRadius?: string | number | string[] | number[];
+    } & {
+        bg?: string;
+        color?: string;
+        background?: string | string[];
+        bs?: string | string[];
+        br?: string | number | string[] | number[];
+        opacity?: string | number | string[] | number[];
+        op?: string | number | string[] | number[];
+        overflow?: "auto" | "hidden" | "scroll" | "visible";
+        boxShadow?: string | string[];
+        backgroundImage?: string | string[];
+        backgroundSize?: string | string[];
+        backgroundPosition?: string | string[];
+        backgroundRepeat?: string | string[];
+        anchor?: boolean;
+    } & {
+        pos?: string | string[];
+        zi?: number | number[];
+        top?: string | number | string[] | number[];
+        right?: string | number | string[] | number[];
+        bottom?: string | number | string[] | number[];
+        left?: string | number | string[] | number[];
+    } & {
+        order?: number | number[];
+        flexWrap?: string | string[];
+        flexShrink?: string | number | string[] | number[];
+        flexBasis?: string | string[];
+        flexDirection?: string | string[];
+        alignSelf?: string | string[];
+    } & import("../../../styles-global/src/types").QuickTypographyProps & import("../../../styles-global/src/types").QuickFlexProps & import("../../../styles-global/src/types").QuickPositionProps & import("../../../styles-global/src/types").MediaProps & text.TextComponentProps, string | number | symbol>;
+    T15: import("styled-components").StyledComponent<any, any, object & {
+        center?: boolean;
+    } & {
+        w?: string | number | string[] | number[];
+        maxw?: string | number | string[] | number[];
+        minw?: string | number | string[] | number[];
+        h?: string | number | string[] | number[];
+        minh?: string | number | string[] | number[];
+        maxh?: string | number | string[] | number[];
+        display?: string | string[];
+        sz?: string | number | string[] | number[];
+        verticalAlign?: string | string[];
+    } & import("../../../styles-global/src/styledSystems").TypographyProps & {
+        m?: string | number | string[] | number[];
+        mh?: string | number | string[] | number[];
+        mv?: string | number | string[] | number[];
+        mt?: string | number | string[] | number[];
+        mr?: string | number | string[] | number[];
+        mb?: string | number | string[] | number[];
+        ml?: string | number | string[] | number[];
+        p?: string | number | string[] | number[];
+        ph?: string | number | string[] | number[];
+        pv?: string | number | string[] | number[];
+        pt?: string | number | string[] | number[];
+        pr?: string | number | string[] | number[];
+        pb?: string | number | string[] | number[];
+        pl?: string | number | string[] | number[];
+    } & {
+        border?: string | number | string[] | number[];
+        borderTop?: string | number | string[] | number[];
+        borderRight?: string | number | string[] | number[];
+        borderBottom?: string | number | string[] | number[];
+        borderLeft?: string | number | string[] | number[];
+        borderWidth?: string | number | string[] | number[];
+        borderStyle?: string | number | string[] | number[];
+        borderColor?: string;
+        borderRadius?: string | number | string[] | number[];
+    } & {
+        bg?: string;
+        color?: string;
+        background?: string | string[];
+        bs?: string | string[];
+        br?: string | number | string[] | number[];
+        opacity?: string | number | string[] | number[];
+        op?: string | number | string[] | number[];
+        overflow?: "auto" | "hidden" | "scroll" | "visible";
+        boxShadow?: string | string[];
+        backgroundImage?: string | string[];
+        backgroundSize?: string | string[];
+        backgroundPosition?: string | string[];
+        backgroundRepeat?: string | string[];
+        anchor?: boolean;
+    } & {
+        pos?: string | string[];
+        zi?: number | number[];
+        top?: string | number | string[] | number[];
+        right?: string | number | string[] | number[];
+        bottom?: string | number | string[] | number[];
+        left?: string | number | string[] | number[];
+    } & {
+        order?: number | number[];
+        flexWrap?: string | string[];
+        flexShrink?: string | number | string[] | number[];
+        flexBasis?: string | string[];
+        flexDirection?: string | string[];
+        alignSelf?: string | string[];
+    } & import("../../../styles-global/src/types").QuickTypographyProps & import("../../../styles-global/src/types").QuickFlexProps & import("../../../styles-global/src/types").QuickPositionProps & import("../../../styles-global/src/types").MediaProps & text.TextComponentProps, string | number | symbol>;
+    T14: import("styled-components").StyledComponent<any, any, object & {
+        center?: boolean;
+    } & {
+        w?: string | number | string[] | number[];
+        maxw?: string | number | string[] | number[];
+        minw?: string | number | string[] | number[];
+        h?: string | number | string[] | number[];
+        minh?: string | number | string[] | number[];
+        maxh?: string | number | string[] | number[];
+        display?: string | string[];
+        sz?: string | number | string[] | number[];
+        verticalAlign?: string | string[];
+    } & import("../../../styles-global/src/styledSystems").TypographyProps & {
+        m?: string | number | string[] | number[];
+        mh?: string | number | string[] | number[];
+        mv?: string | number | string[] | number[];
+        mt?: string | number | string[] | number[];
+        mr?: string | number | string[] | number[];
+        mb?: string | number | string[] | number[];
+        ml?: string | number | string[] | number[];
+        p?: string | number | string[] | number[];
+        ph?: string | number | string[] | number[];
+        pv?: string | number | string[] | number[];
+        pt?: string | number | string[] | number[];
+        pr?: string | number | string[] | number[];
+        pb?: string | number | string[] | number[];
+        pl?: string | number | string[] | number[];
+    } & {
+        border?: string | number | string[] | number[];
+        borderTop?: string | number | string[] | number[];
+        borderRight?: string | number | string[] | number[];
+        borderBottom?: string | number | string[] | number[];
+        borderLeft?: string | number | string[] | number[];
+        borderWidth?: string | number | string[] | number[];
+        borderStyle?: string | number | string[] | number[];
+        borderColor?: string;
+        borderRadius?: string | number | string[] | number[];
+    } & {
+        bg?: string;
+        color?: string;
+        background?: string | string[];
+        bs?: string | string[];
+        br?: string | number | string[] | number[];
+        opacity?: string | number | string[] | number[];
+        op?: string | number | string[] | number[];
+        overflow?: "auto" | "hidden" | "scroll" | "visible";
+        boxShadow?: string | string[];
+        backgroundImage?: string | string[];
+        backgroundSize?: string | string[];
+        backgroundPosition?: string | string[];
+        backgroundRepeat?: string | string[];
+        anchor?: boolean;
+    } & {
+        pos?: string | string[];
+        zi?: number | number[];
+        top?: string | number | string[] | number[];
+        right?: string | number | string[] | number[];
+        bottom?: string | number | string[] | number[];
+        left?: string | number | string[] | number[];
+    } & {
+        order?: number | number[];
+        flexWrap?: string | string[];
+        flexShrink?: string | number | string[] | number[];
+        flexBasis?: string | string[];
+        flexDirection?: string | string[];
+        alignSelf?: string | string[];
+    } & import("../../../styles-global/src/types").QuickTypographyProps & import("../../../styles-global/src/types").QuickFlexProps & import("../../../styles-global/src/types").QuickPositionProps & import("../../../styles-global/src/types").MediaProps & text.TextComponentProps, string | number | symbol>;
+    T13: import("styled-components").StyledComponent<any, any, object & {
+        center?: boolean;
+    } & {
+        w?: string | number | string[] | number[];
+        maxw?: string | number | string[] | number[];
+        minw?: string | number | string[] | number[];
+        h?: string | number | string[] | number[];
+        minh?: string | number | string[] | number[];
+        maxh?: string | number | string[] | number[];
+        display?: string | string[];
+        sz?: string | number | string[] | number[];
+        verticalAlign?: string | string[];
+    } & import("../../../styles-global/src/styledSystems").TypographyProps & {
+        m?: string | number | string[] | number[];
+        mh?: string | number | string[] | number[];
+        mv?: string | number | string[] | number[];
+        mt?: string | number | string[] | number[];
+        mr?: string | number | string[] | number[];
+        mb?: string | number | string[] | number[];
+        ml?: string | number | string[] | number[];
+        p?: string | number | string[] | number[];
+        ph?: string | number | string[] | number[];
+        pv?: string | number | string[] | number[];
+        pt?: string | number | string[] | number[];
+        pr?: string | number | string[] | number[];
+        pb?: string | number | string[] | number[];
+        pl?: string | number | string[] | number[];
+    } & {
+        border?: string | number | string[] | number[];
+        borderTop?: string | number | string[] | number[];
+        borderRight?: string | number | string[] | number[];
+        borderBottom?: string | number | string[] | number[];
+        borderLeft?: string | number | string[] | number[];
+        borderWidth?: string | number | string[] | number[];
+        borderStyle?: string | number | string[] | number[];
+        borderColor?: string;
+        borderRadius?: string | number | string[] | number[];
+    } & {
+        bg?: string;
+        color?: string;
+        background?: string | string[];
+        bs?: string | string[];
+        br?: string | number | string[] | number[];
+        opacity?: string | number | string[] | number[];
+        op?: string | number | string[] | number[];
+        overflow?: "auto" | "hidden" | "scroll" | "visible";
+        boxShadow?: string | string[];
+        backgroundImage?: string | string[];
+        backgroundSize?: string | string[];
+        backgroundPosition?: string | string[];
+        backgroundRepeat?: string | string[];
+        anchor?: boolean;
+    } & {
+        pos?: string | string[];
+        zi?: number | number[];
+        top?: string | number | string[] | number[];
+        right?: string | number | string[] | number[];
+        bottom?: string | number | string[] | number[];
+        left?: string | number | string[] | number[];
+    } & {
+        order?: number | number[];
+        flexWrap?: string | string[];
+        flexShrink?: string | number | string[] | number[];
+        flexBasis?: string | string[];
+        flexDirection?: string | string[];
+        alignSelf?: string | string[];
+    } & import("../../../styles-global/src/types").QuickTypographyProps & import("../../../styles-global/src/types").QuickFlexProps & import("../../../styles-global/src/types").QuickPositionProps & import("../../../styles-global/src/types").MediaProps & text.TextComponentProps, string | number | symbol>;
+    T12: import("styled-components").StyledComponent<any, any, object & {
+        center?: boolean;
+    } & {
+        w?: string | number | string[] | number[];
+        maxw?: string | number | string[] | number[];
+        minw?: string | number | string[] | number[];
+        h?: string | number | string[] | number[];
+        minh?: string | number | string[] | number[];
+        maxh?: string | number | string[] | number[];
+        display?: string | string[];
+        sz?: string | number | string[] | number[];
+        verticalAlign?: string | string[];
+    } & import("../../../styles-global/src/styledSystems").TypographyProps & {
+        m?: string | number | string[] | number[];
+        mh?: string | number | string[] | number[];
+        mv?: string | number | string[] | number[];
+        mt?: string | number | string[] | number[];
+        mr?: string | number | string[] | number[];
+        mb?: string | number | string[] | number[];
+        ml?: string | number | string[] | number[];
+        p?: string | number | string[] | number[];
+        ph?: string | number | string[] | number[];
+        pv?: string | number | string[] | number[];
+        pt?: string | number | string[] | number[];
+        pr?: string | number | string[] | number[];
+        pb?: string | number | string[] | number[];
+        pl?: string | number | string[] | number[];
+    } & {
+        border?: string | number | string[] | number[];
+        borderTop?: string | number | string[] | number[];
+        borderRight?: string | number | string[] | number[];
+        borderBottom?: string | number | string[] | number[];
+        borderLeft?: string | number | string[] | number[];
+        borderWidth?: string | number | string[] | number[];
+        borderStyle?: string | number | string[] | number[];
+        borderColor?: string;
+        borderRadius?: string | number | string[] | number[];
+    } & {
+        bg?: string;
+        color?: string;
+        background?: string | string[];
+        bs?: string | string[];
+        br?: string | number | string[] | number[];
+        opacity?: string | number | string[] | number[];
+        op?: string | number | string[] | number[];
+        overflow?: "auto" | "hidden" | "scroll" | "visible";
+        boxShadow?: string | string[];
+        backgroundImage?: string | string[];
+        backgroundSize?: string | string[];
+        backgroundPosition?: string | string[];
+        backgroundRepeat?: string | string[];
+        anchor?: boolean;
+    } & {
+        pos?: string | string[];
+        zi?: number | number[];
+        top?: string | number | string[] | number[];
+        right?: string | number | string[] | number[];
+        bottom?: string | number | string[] | number[];
+        left?: string | number | string[] | number[];
+    } & {
+        order?: number | number[];
+        flexWrap?: string | string[];
+        flexShrink?: string | number | string[] | number[];
+        flexBasis?: string | string[];
+        flexDirection?: string | string[];
+        alignSelf?: string | string[];
+    } & import("../../../styles-global/src/types").QuickTypographyProps & import("../../../styles-global/src/types").QuickFlexProps & import("../../../styles-global/src/types").QuickPositionProps & import("../../../styles-global/src/types").MediaProps & text.TextComponentProps, string | number | symbol>;
+    T11: import("styled-components").StyledComponent<any, any, object & {
+        center?: boolean;
+    } & {
+        w?: string | number | string[] | number[];
+        maxw?: string | number | string[] | number[];
+        minw?: string | number | string[] | number[];
+        h?: string | number | string[] | number[];
+        minh?: string | number | string[] | number[];
+        maxh?: string | number | string[] | number[];
+        display?: string | string[];
+        sz?: string | number | string[] | number[];
+        verticalAlign?: string | string[];
+    } & import("../../../styles-global/src/styledSystems").TypographyProps & {
+        m?: string | number | string[] | number[];
+        mh?: string | number | string[] | number[];
+        mv?: string | number | string[] | number[];
+        mt?: string | number | string[] | number[];
+        mr?: string | number | string[] | number[];
+        mb?: string | number | string[] | number[];
+        ml?: string | number | string[] | number[];
+        p?: string | number | string[] | number[];
+        ph?: string | number | string[] | number[];
+        pv?: string | number | string[] | number[];
+        pt?: string | number | string[] | number[];
+        pr?: string | number | string[] | number[];
+        pb?: string | number | string[] | number[];
+        pl?: string | number | string[] | number[];
+    } & {
+        border?: string | number | string[] | number[];
+        borderTop?: string | number | string[] | number[];
+        borderRight?: string | number | string[] | number[];
+        borderBottom?: string | number | string[] | number[];
+        borderLeft?: string | number | string[] | number[];
+        borderWidth?: string | number | string[] | number[];
+        borderStyle?: string | number | string[] | number[];
+        borderColor?: string;
+        borderRadius?: string | number | string[] | number[];
+    } & {
+        bg?: string;
+        color?: string;
+        background?: string | string[];
+        bs?: string | string[];
+        br?: string | number | string[] | number[];
+        opacity?: string | number | string[] | number[];
+        op?: string | number | string[] | number[];
+        overflow?: "auto" | "hidden" | "scroll" | "visible";
+        boxShadow?: string | string[];
+        backgroundImage?: string | string[];
+        backgroundSize?: string | string[];
+        backgroundPosition?: string | string[];
+        backgroundRepeat?: string | string[];
+        anchor?: boolean;
+    } & {
+        pos?: string | string[];
+        zi?: number | number[];
+        top?: string | number | string[] | number[];
+        right?: string | number | string[] | number[];
+        bottom?: string | number | string[] | number[];
+        left?: string | number | string[] | number[];
+    } & {
+        order?: number | number[];
+        flexWrap?: string | string[];
+        flexShrink?: string | number | string[] | number[];
+        flexBasis?: string | string[];
+        flexDirection?: string | string[];
+        alignSelf?: string | string[];
+    } & import("../../../styles-global/src/types").QuickTypographyProps & import("../../../styles-global/src/types").QuickFlexProps & import("../../../styles-global/src/types").QuickPositionProps & import("../../../styles-global/src/types").MediaProps & text.TextComponentProps, string | number | symbol>;
+    T10: import("styled-components").StyledComponent<any, any, object & {
+        center?: boolean;
+    } & {
+        w?: string | number | string[] | number[];
+        maxw?: string | number | string[] | number[];
+        minw?: string | number | string[] | number[];
+        h?: string | number | string[] | number[];
+        minh?: string | number | string[] | number[];
+        maxh?: string | number | string[] | number[];
+        display?: string | string[];
+        sz?: string | number | string[] | number[];
+        verticalAlign?: string | string[];
+    } & import("../../../styles-global/src/styledSystems").TypographyProps & {
+        m?: string | number | string[] | number[];
+        mh?: string | number | string[] | number[];
+        mv?: string | number | string[] | number[];
+        mt?: string | number | string[] | number[];
+        mr?: string | number | string[] | number[];
+        mb?: string | number | string[] | number[];
+        ml?: string | number | string[] | number[];
+        p?: string | number | string[] | number[];
+        ph?: string | number | string[] | number[];
+        pv?: string | number | string[] | number[];
+        pt?: string | number | string[] | number[];
+        pr?: string | number | string[] | number[];
+        pb?: string | number | string[] | number[];
+        pl?: string | number | string[] | number[];
+    } & {
+        border?: string | number | string[] | number[];
+        borderTop?: string | number | string[] | number[];
+        borderRight?: string | number | string[] | number[];
+        borderBottom?: string | number | string[] | number[];
+        borderLeft?: string | number | string[] | number[];
+        borderWidth?: string | number | string[] | number[];
+        borderStyle?: string | number | string[] | number[];
+        borderColor?: string;
+        borderRadius?: string | number | string[] | number[];
+    } & {
+        bg?: string;
+        color?: string;
+        background?: string | string[];
+        bs?: string | string[];
+        br?: string | number | string[] | number[];
+        opacity?: string | number | string[] | number[];
+        op?: string | number | string[] | number[];
+        overflow?: "auto" | "hidden" | "scroll" | "visible";
+        boxShadow?: string | string[];
+        backgroundImage?: string | string[];
+        backgroundSize?: string | string[];
+        backgroundPosition?: string | string[];
+        backgroundRepeat?: string | string[];
+        anchor?: boolean;
+    } & {
+        pos?: string | string[];
+        zi?: number | number[];
+        top?: string | number | string[] | number[];
+        right?: string | number | string[] | number[];
+        bottom?: string | number | string[] | number[];
+        left?: string | number | string[] | number[];
+    } & {
+        order?: number | number[];
+        flexWrap?: string | string[];
+        flexShrink?: string | number | string[] | number[];
+        flexBasis?: string | string[];
+        flexDirection?: string | string[];
+        alignSelf?: string | string[];
+    } & import("../../../styles-global/src/types").QuickTypographyProps & import("../../../styles-global/src/types").QuickFlexProps & import("../../../styles-global/src/types").QuickPositionProps & import("../../../styles-global/src/types").MediaProps & text.TextComponentProps, string | number | symbol>;
+    BaseText: import("styled-components").StyledComponent<any, any, object & {
+        center?: boolean;
+    } & {
+        w?: string | number | string[] | number[];
+        maxw?: string | number | string[] | number[];
+        minw?: string | number | string[] | number[];
+        h?: string | number | string[] | number[];
+        minh?: string | number | string[] | number[];
+        maxh?: string | number | string[] | number[];
+        display?: string | string[];
+        sz?: string | number | string[] | number[];
+        verticalAlign?: string | string[];
+    } & import("../../../styles-global/src/styledSystems").TypographyProps & {
+        m?: string | number | string[] | number[];
+        mh?: string | number | string[] | number[];
+        mv?: string | number | string[] | number[];
+        mt?: string | number | string[] | number[];
+        mr?: string | number | string[] | number[];
+        mb?: string | number | string[] | number[];
+        ml?: string | number | string[] | number[];
+        p?: string | number | string[] | number[];
+        ph?: string | number | string[] | number[];
+        pv?: string | number | string[] | number[];
+        pt?: string | number | string[] | number[];
+        pr?: string | number | string[] | number[];
+        pb?: string | number | string[] | number[];
+        pl?: string | number | string[] | number[];
+    } & {
+        border?: string | number | string[] | number[];
+        borderTop?: string | number | string[] | number[];
+        borderRight?: string | number | string[] | number[];
+        borderBottom?: string | number | string[] | number[];
+        borderLeft?: string | number | string[] | number[];
+        borderWidth?: string | number | string[] | number[];
+        borderStyle?: string | number | string[] | number[];
+        borderColor?: string;
+        borderRadius?: string | number | string[] | number[];
+    } & {
+        bg?: string;
+        color?: string;
+        background?: string | string[];
+        bs?: string | string[];
+        br?: string | number | string[] | number[];
+        opacity?: string | number | string[] | number[];
+        op?: string | number | string[] | number[];
+        overflow?: "auto" | "hidden" | "scroll" | "visible";
+        boxShadow?: string | string[];
+        backgroundImage?: string | string[];
+        backgroundSize?: string | string[];
+        backgroundPosition?: string | string[];
+        backgroundRepeat?: string | string[];
+        anchor?: boolean;
+    } & {
+        pos?: string | string[];
+        zi?: number | number[];
+        top?: string | number | string[] | number[];
+        right?: string | number | string[] | number[];
+        bottom?: string | number | string[] | number[];
+        left?: string | number | string[] | number[];
+    } & {
+        order?: number | number[];
+        flexWrap?: string | string[];
+        flexShrink?: string | number | string[] | number[];
+        flexBasis?: string | string[];
+        flexDirection?: string | string[];
+        alignSelf?: string | string[];
+    } & import("../../../styles-global/src/types").QuickTypographyProps & import("../../../styles-global/src/types").QuickFlexProps & import("../../../styles-global/src/types").QuickPositionProps & import("../../../styles-global/src/types").MediaProps, string | number | symbol>;
+    textStyles: {
+        10: import("styled-components").FlattenSimpleInterpolation;
+        12: import("styled-components").FlattenSimpleInterpolation;
+        13: import("styled-components").FlattenSimpleInterpolation;
+        14: import("styled-components").FlattenSimpleInterpolation;
+        15: import("styled-components").FlattenSimpleInterpolation;
+        16: import("styled-components").FlattenSimpleInterpolation;
+        18: import("styled-components").FlattenSimpleInterpolation;
+        20: import("styled-components").FlattenSimpleInterpolation;
+        24: import("styled-components").FlattenSimpleInterpolation;
+        28: import("styled-components").FlattenSimpleInterpolation;
+        32: import("styled-components").FlattenSimpleInterpolation;
+        48: import("styled-components").FlattenSimpleInterpolation;
+        80: import("styled-components").FlattenSimpleInterpolation;
+    };
+    textTags: {
+        10: import("styled-components").StyledComponent<any, any, object & {
+            center?: boolean;
+        } & {
+            w?: string | number | string[] | number[];
+            maxw?: string | number | string[] | number[];
+            minw?: string | number | string[] | number[];
+            h?: string | number | string[] | number[];
+            minh?: string | number | string[] | number[];
+            maxh?: string | number | string[] | number[];
+            display?: string | string[];
+            sz?: string | number | string[] | number[];
+            verticalAlign?: string | string[];
+        } & import("../../../styles-global/src/styledSystems").TypographyProps & {
+            m?: string | number | string[] | number[];
+            mh?: string | number | string[] | number[];
+            mv?: string | number | string[] | number[];
+            mt?: string | number | string[] | number[];
+            mr?: string | number | string[] | number[];
+            mb?: string | number | string[] | number[];
+            ml?: string | number | string[] | number[];
+            p?: string | number | string[] | number[];
+            ph?: string | number | string[] | number[];
+            pv?: string | number | string[] | number[];
+            pt?: string | number | string[] | number[];
+            pr?: string | number | string[] | number[];
+            pb?: string | number | string[] | number[];
+            pl?: string | number | string[] | number[];
+        } & {
+            border?: string | number | string[] | number[];
+            borderTop?: string | number | string[] | number[];
+            borderRight?: string | number | string[] | number[];
+            borderBottom?: string | number | string[] | number[];
+            borderLeft?: string | number | string[] | number[];
+            borderWidth?: string | number | string[] | number[];
+            borderStyle?: string | number | string[] | number[];
+            borderColor?: string;
+            borderRadius?: string | number | string[] | number[];
+        } & {
+            bg?: string;
+            color?: string;
+            background?: string | string[];
+            bs?: string | string[];
+            br?: string | number | string[] | number[];
+            opacity?: string | number | string[] | number[];
+            op?: string | number | string[] | number[];
+            overflow?: "auto" | "hidden" | "scroll" | "visible";
+            boxShadow?: string | string[];
+            backgroundImage?: string | string[];
+            backgroundSize?: string | string[];
+            backgroundPosition?: string | string[];
+            backgroundRepeat?: string | string[];
+            anchor?: boolean;
+        } & {
+            pos?: string | string[];
+            zi?: number | number[];
+            top?: string | number | string[] | number[];
+            right?: string | number | string[] | number[];
+            bottom?: string | number | string[] | number[];
+            left?: string | number | string[] | number[];
+        } & {
+            order?: number | number[];
+            flexWrap?: string | string[];
+            flexShrink?: string | number | string[] | number[];
+            flexBasis?: string | string[];
+            flexDirection?: string | string[];
+            alignSelf?: string | string[];
+        } & import("../../../styles-global/src/types").QuickTypographyProps & import("../../../styles-global/src/types").QuickFlexProps & import("../../../styles-global/src/types").QuickPositionProps & import("../../../styles-global/src/types").MediaProps & text.TextComponentProps, string | number | symbol>;
+        12: import("styled-components").StyledComponent<any, any, object & {
+            center?: boolean;
+        } & {
+            w?: string | number | string[] | number[];
+            maxw?: string | number | string[] | number[];
+            minw?: string | number | string[] | number[];
+            h?: string | number | string[] | number[];
+            minh?: string | number | string[] | number[];
+            maxh?: string | number | string[] | number[];
+            display?: string | string[];
+            sz?: string | number | string[] | number[];
+            verticalAlign?: string | string[];
+        } & import("../../../styles-global/src/styledSystems").TypographyProps & {
+            m?: string | number | string[] | number[];
+            mh?: string | number | string[] | number[];
+            mv?: string | number | string[] | number[];
+            mt?: string | number | string[] | number[];
+            mr?: string | number | string[] | number[];
+            mb?: string | number | string[] | number[];
+            ml?: string | number | string[] | number[];
+            p?: string | number | string[] | number[];
+            ph?: string | number | string[] | number[];
+            pv?: string | number | string[] | number[];
+            pt?: string | number | string[] | number[];
+            pr?: string | number | string[] | number[];
+            pb?: string | number | string[] | number[];
+            pl?: string | number | string[] | number[];
+        } & {
+            border?: string | number | string[] | number[];
+            borderTop?: string | number | string[] | number[];
+            borderRight?: string | number | string[] | number[];
+            borderBottom?: string | number | string[] | number[];
+            borderLeft?: string | number | string[] | number[];
+            borderWidth?: string | number | string[] | number[];
+            borderStyle?: string | number | string[] | number[];
+            borderColor?: string;
+            borderRadius?: string | number | string[] | number[];
+        } & {
+            bg?: string;
+            color?: string;
+            background?: string | string[];
+            bs?: string | string[];
+            br?: string | number | string[] | number[];
+            opacity?: string | number | string[] | number[];
+            op?: string | number | string[] | number[];
+            overflow?: "auto" | "hidden" | "scroll" | "visible";
+            boxShadow?: string | string[];
+            backgroundImage?: string | string[];
+            backgroundSize?: string | string[];
+            backgroundPosition?: string | string[];
+            backgroundRepeat?: string | string[];
+            anchor?: boolean;
+        } & {
+            pos?: string | string[];
+            zi?: number | number[];
+            top?: string | number | string[] | number[];
+            right?: string | number | string[] | number[];
+            bottom?: string | number | string[] | number[];
+            left?: string | number | string[] | number[];
+        } & {
+            order?: number | number[];
+            flexWrap?: string | string[];
+            flexShrink?: string | number | string[] | number[];
+            flexBasis?: string | string[];
+            flexDirection?: string | string[];
+            alignSelf?: string | string[];
+        } & import("../../../styles-global/src/types").QuickTypographyProps & import("../../../styles-global/src/types").QuickFlexProps & import("../../../styles-global/src/types").QuickPositionProps & import("../../../styles-global/src/types").MediaProps & text.TextComponentProps, string | number | symbol>;
+        13: import("styled-components").StyledComponent<any, any, object & {
+            center?: boolean;
+        } & {
+            w?: string | number | string[] | number[];
+            maxw?: string | number | string[] | number[];
+            minw?: string | number | string[] | number[];
+            h?: string | number | string[] | number[];
+            minh?: string | number | string[] | number[];
+            maxh?: string | number | string[] | number[];
+            display?: string | string[];
+            sz?: string | number | string[] | number[];
+            verticalAlign?: string | string[];
+        } & import("../../../styles-global/src/styledSystems").TypographyProps & {
+            m?: string | number | string[] | number[];
+            mh?: string | number | string[] | number[];
+            mv?: string | number | string[] | number[];
+            mt?: string | number | string[] | number[];
+            mr?: string | number | string[] | number[];
+            mb?: string | number | string[] | number[];
+            ml?: string | number | string[] | number[];
+            p?: string | number | string[] | number[];
+            ph?: string | number | string[] | number[];
+            pv?: string | number | string[] | number[];
+            pt?: string | number | string[] | number[];
+            pr?: string | number | string[] | number[];
+            pb?: string | number | string[] | number[];
+            pl?: string | number | string[] | number[];
+        } & {
+            border?: string | number | string[] | number[];
+            borderTop?: string | number | string[] | number[];
+            borderRight?: string | number | string[] | number[];
+            borderBottom?: string | number | string[] | number[];
+            borderLeft?: string | number | string[] | number[];
+            borderWidth?: string | number | string[] | number[];
+            borderStyle?: string | number | string[] | number[];
+            borderColor?: string;
+            borderRadius?: string | number | string[] | number[];
+        } & {
+            bg?: string;
+            color?: string;
+            background?: string | string[];
+            bs?: string | string[];
+            br?: string | number | string[] | number[];
+            opacity?: string | number | string[] | number[];
+            op?: string | number | string[] | number[];
+            overflow?: "auto" | "hidden" | "scroll" | "visible";
+            boxShadow?: string | string[];
+            backgroundImage?: string | string[];
+            backgroundSize?: string | string[];
+            backgroundPosition?: string | string[];
+            backgroundRepeat?: string | string[];
+            anchor?: boolean;
+        } & {
+            pos?: string | string[];
+            zi?: number | number[];
+            top?: string | number | string[] | number[];
+            right?: string | number | string[] | number[];
+            bottom?: string | number | string[] | number[];
+            left?: string | number | string[] | number[];
+        } & {
+            order?: number | number[];
+            flexWrap?: string | string[];
+            flexShrink?: string | number | string[] | number[];
+            flexBasis?: string | string[];
+            flexDirection?: string | string[];
+            alignSelf?: string | string[];
+        } & import("../../../styles-global/src/types").QuickTypographyProps & import("../../../styles-global/src/types").QuickFlexProps & import("../../../styles-global/src/types").QuickPositionProps & import("../../../styles-global/src/types").MediaProps & text.TextComponentProps, string | number | symbol>;
+        14: import("styled-components").StyledComponent<any, any, object & {
+            center?: boolean;
+        } & {
+            w?: string | number | string[] | number[];
+            maxw?: string | number | string[] | number[];
+            minw?: string | number | string[] | number[];
+            h?: string | number | string[] | number[];
+            minh?: string | number | string[] | number[];
+            maxh?: string | number | string[] | number[];
+            display?: string | string[];
+            sz?: string | number | string[] | number[];
+            verticalAlign?: string | string[];
+        } & import("../../../styles-global/src/styledSystems").TypographyProps & {
+            m?: string | number | string[] | number[];
+            mh?: string | number | string[] | number[];
+            mv?: string | number | string[] | number[];
+            mt?: string | number | string[] | number[];
+            mr?: string | number | string[] | number[];
+            mb?: string | number | string[] | number[];
+            ml?: string | number | string[] | number[];
+            p?: string | number | string[] | number[];
+            ph?: string | number | string[] | number[];
+            pv?: string | number | string[] | number[];
+            pt?: string | number | string[] | number[];
+            pr?: string | number | string[] | number[];
+            pb?: string | number | string[] | number[];
+            pl?: string | number | string[] | number[];
+        } & {
+            border?: string | number | string[] | number[];
+            borderTop?: string | number | string[] | number[];
+            borderRight?: string | number | string[] | number[];
+            borderBottom?: string | number | string[] | number[];
+            borderLeft?: string | number | string[] | number[];
+            borderWidth?: string | number | string[] | number[];
+            borderStyle?: string | number | string[] | number[];
+            borderColor?: string;
+            borderRadius?: string | number | string[] | number[];
+        } & {
+            bg?: string;
+            color?: string;
+            background?: string | string[];
+            bs?: string | string[];
+            br?: string | number | string[] | number[];
+            opacity?: string | number | string[] | number[];
+            op?: string | number | string[] | number[];
+            overflow?: "auto" | "hidden" | "scroll" | "visible";
+            boxShadow?: string | string[];
+            backgroundImage?: string | string[];
+            backgroundSize?: string | string[];
+            backgroundPosition?: string | string[];
+            backgroundRepeat?: string | string[];
+            anchor?: boolean;
+        } & {
+            pos?: string | string[];
+            zi?: number | number[];
+            top?: string | number | string[] | number[];
+            right?: string | number | string[] | number[];
+            bottom?: string | number | string[] | number[];
+            left?: string | number | string[] | number[];
+        } & {
+            order?: number | number[];
+            flexWrap?: string | string[];
+            flexShrink?: string | number | string[] | number[];
+            flexBasis?: string | string[];
+            flexDirection?: string | string[];
+            alignSelf?: string | string[];
+        } & import("../../../styles-global/src/types").QuickTypographyProps & import("../../../styles-global/src/types").QuickFlexProps & import("../../../styles-global/src/types").QuickPositionProps & import("../../../styles-global/src/types").MediaProps & text.TextComponentProps, string | number | symbol>;
+        15: import("styled-components").StyledComponent<any, any, object & {
+            center?: boolean;
+        } & {
+            w?: string | number | string[] | number[];
+            maxw?: string | number | string[] | number[];
+            minw?: string | number | string[] | number[];
+            h?: string | number | string[] | number[];
+            minh?: string | number | string[] | number[];
+            maxh?: string | number | string[] | number[];
+            display?: string | string[];
+            sz?: string | number | string[] | number[];
+            verticalAlign?: string | string[];
+        } & import("../../../styles-global/src/styledSystems").TypographyProps & {
+            m?: string | number | string[] | number[];
+            mh?: string | number | string[] | number[];
+            mv?: string | number | string[] | number[];
+            mt?: string | number | string[] | number[];
+            mr?: string | number | string[] | number[];
+            mb?: string | number | string[] | number[];
+            ml?: string | number | string[] | number[];
+            p?: string | number | string[] | number[];
+            ph?: string | number | string[] | number[];
+            pv?: string | number | string[] | number[];
+            pt?: string | number | string[] | number[];
+            pr?: string | number | string[] | number[];
+            pb?: string | number | string[] | number[];
+            pl?: string | number | string[] | number[];
+        } & {
+            border?: string | number | string[] | number[];
+            borderTop?: string | number | string[] | number[];
+            borderRight?: string | number | string[] | number[];
+            borderBottom?: string | number | string[] | number[];
+            borderLeft?: string | number | string[] | number[];
+            borderWidth?: string | number | string[] | number[];
+            borderStyle?: string | number | string[] | number[];
+            borderColor?: string;
+            borderRadius?: string | number | string[] | number[];
+        } & {
+            bg?: string;
+            color?: string;
+            background?: string | string[];
+            bs?: string | string[];
+            br?: string | number | string[] | number[];
+            opacity?: string | number | string[] | number[];
+            op?: string | number | string[] | number[];
+            overflow?: "auto" | "hidden" | "scroll" | "visible";
+            boxShadow?: string | string[];
+            backgroundImage?: string | string[];
+            backgroundSize?: string | string[];
+            backgroundPosition?: string | string[];
+            backgroundRepeat?: string | string[];
+            anchor?: boolean;
+        } & {
+            pos?: string | string[];
+            zi?: number | number[];
+            top?: string | number | string[] | number[];
+            right?: string | number | string[] | number[];
+            bottom?: string | number | string[] | number[];
+            left?: string | number | string[] | number[];
+        } & {
+            order?: number | number[];
+            flexWrap?: string | string[];
+            flexShrink?: string | number | string[] | number[];
+            flexBasis?: string | string[];
+            flexDirection?: string | string[];
+            alignSelf?: string | string[];
+        } & import("../../../styles-global/src/types").QuickTypographyProps & import("../../../styles-global/src/types").QuickFlexProps & import("../../../styles-global/src/types").QuickPositionProps & import("../../../styles-global/src/types").MediaProps & text.TextComponentProps, string | number | symbol>;
+        16: import("styled-components").StyledComponent<any, any, object & {
+            center?: boolean;
+        } & {
+            w?: string | number | string[] | number[];
+            maxw?: string | number | string[] | number[];
+            minw?: string | number | string[] | number[];
+            h?: string | number | string[] | number[];
+            minh?: string | number | string[] | number[];
+            maxh?: string | number | string[] | number[];
+            display?: string | string[];
+            sz?: string | number | string[] | number[];
+            verticalAlign?: string | string[];
+        } & import("../../../styles-global/src/styledSystems").TypographyProps & {
+            m?: string | number | string[] | number[];
+            mh?: string | number | string[] | number[];
+            mv?: string | number | string[] | number[];
+            mt?: string | number | string[] | number[];
+            mr?: string | number | string[] | number[];
+            mb?: string | number | string[] | number[];
+            ml?: string | number | string[] | number[];
+            p?: string | number | string[] | number[];
+            ph?: string | number | string[] | number[];
+            pv?: string | number | string[] | number[];
+            pt?: string | number | string[] | number[];
+            pr?: string | number | string[] | number[];
+            pb?: string | number | string[] | number[];
+            pl?: string | number | string[] | number[];
+        } & {
+            border?: string | number | string[] | number[];
+            borderTop?: string | number | string[] | number[];
+            borderRight?: string | number | string[] | number[];
+            borderBottom?: string | number | string[] | number[];
+            borderLeft?: string | number | string[] | number[];
+            borderWidth?: string | number | string[] | number[];
+            borderStyle?: string | number | string[] | number[];
+            borderColor?: string;
+            borderRadius?: string | number | string[] | number[];
+        } & {
+            bg?: string;
+            color?: string;
+            background?: string | string[];
+            bs?: string | string[];
+            br?: string | number | string[] | number[];
+            opacity?: string | number | string[] | number[];
+            op?: string | number | string[] | number[];
+            overflow?: "auto" | "hidden" | "scroll" | "visible";
+            boxShadow?: string | string[];
+            backgroundImage?: string | string[];
+            backgroundSize?: string | string[];
+            backgroundPosition?: string | string[];
+            backgroundRepeat?: string | string[];
+            anchor?: boolean;
+        } & {
+            pos?: string | string[];
+            zi?: number | number[];
+            top?: string | number | string[] | number[];
+            right?: string | number | string[] | number[];
+            bottom?: string | number | string[] | number[];
+            left?: string | number | string[] | number[];
+        } & {
+            order?: number | number[];
+            flexWrap?: string | string[];
+            flexShrink?: string | number | string[] | number[];
+            flexBasis?: string | string[];
+            flexDirection?: string | string[];
+            alignSelf?: string | string[];
+        } & import("../../../styles-global/src/types").QuickTypographyProps & import("../../../styles-global/src/types").QuickFlexProps & import("../../../styles-global/src/types").QuickPositionProps & import("../../../styles-global/src/types").MediaProps & text.TextComponentProps, string | number | symbol>;
+        18: import("styled-components").StyledComponent<any, any, object & {
+            center?: boolean;
+        } & {
+            w?: string | number | string[] | number[];
+            maxw?: string | number | string[] | number[];
+            minw?: string | number | string[] | number[];
+            h?: string | number | string[] | number[];
+            minh?: string | number | string[] | number[];
+            maxh?: string | number | string[] | number[];
+            display?: string | string[];
+            sz?: string | number | string[] | number[];
+            verticalAlign?: string | string[];
+        } & import("../../../styles-global/src/styledSystems").TypographyProps & {
+            m?: string | number | string[] | number[];
+            mh?: string | number | string[] | number[];
+            mv?: string | number | string[] | number[];
+            mt?: string | number | string[] | number[];
+            mr?: string | number | string[] | number[];
+            mb?: string | number | string[] | number[];
+            ml?: string | number | string[] | number[];
+            p?: string | number | string[] | number[];
+            ph?: string | number | string[] | number[];
+            pv?: string | number | string[] | number[];
+            pt?: string | number | string[] | number[];
+            pr?: string | number | string[] | number[];
+            pb?: string | number | string[] | number[];
+            pl?: string | number | string[] | number[];
+        } & {
+            border?: string | number | string[] | number[];
+            borderTop?: string | number | string[] | number[];
+            borderRight?: string | number | string[] | number[];
+            borderBottom?: string | number | string[] | number[];
+            borderLeft?: string | number | string[] | number[];
+            borderWidth?: string | number | string[] | number[];
+            borderStyle?: string | number | string[] | number[];
+            borderColor?: string;
+            borderRadius?: string | number | string[] | number[];
+        } & {
+            bg?: string;
+            color?: string;
+            background?: string | string[];
+            bs?: string | string[];
+            br?: string | number | string[] | number[];
+            opacity?: string | number | string[] | number[];
+            op?: string | number | string[] | number[];
+            overflow?: "auto" | "hidden" | "scroll" | "visible";
+            boxShadow?: string | string[];
+            backgroundImage?: string | string[];
+            backgroundSize?: string | string[];
+            backgroundPosition?: string | string[];
+            backgroundRepeat?: string | string[];
+            anchor?: boolean;
+        } & {
+            pos?: string | string[];
+            zi?: number | number[];
+            top?: string | number | string[] | number[];
+            right?: string | number | string[] | number[];
+            bottom?: string | number | string[] | number[];
+            left?: string | number | string[] | number[];
+        } & {
+            order?: number | number[];
+            flexWrap?: string | string[];
+            flexShrink?: string | number | string[] | number[];
+            flexBasis?: string | string[];
+            flexDirection?: string | string[];
+            alignSelf?: string | string[];
+        } & import("../../../styles-global/src/types").QuickTypographyProps & import("../../../styles-global/src/types").QuickFlexProps & import("../../../styles-global/src/types").QuickPositionProps & import("../../../styles-global/src/types").MediaProps & text.TextComponentProps, string | number | symbol>;
+        20: import("styled-components").StyledComponent<any, any, object & {
+            center?: boolean;
+        } & {
+            w?: string | number | string[] | number[];
+            maxw?: string | number | string[] | number[];
+            minw?: string | number | string[] | number[];
+            h?: string | number | string[] | number[];
+            minh?: string | number | string[] | number[];
+            maxh?: string | number | string[] | number[];
+            display?: string | string[];
+            sz?: string | number | string[] | number[];
+            verticalAlign?: string | string[];
+        } & import("../../../styles-global/src/styledSystems").TypographyProps & {
+            m?: string | number | string[] | number[];
+            mh?: string | number | string[] | number[];
+            mv?: string | number | string[] | number[];
+            mt?: string | number | string[] | number[];
+            mr?: string | number | string[] | number[];
+            mb?: string | number | string[] | number[];
+            ml?: string | number | string[] | number[];
+            p?: string | number | string[] | number[];
+            ph?: string | number | string[] | number[];
+            pv?: string | number | string[] | number[];
+            pt?: string | number | string[] | number[];
+            pr?: string | number | string[] | number[];
+            pb?: string | number | string[] | number[];
+            pl?: string | number | string[] | number[];
+        } & {
+            border?: string | number | string[] | number[];
+            borderTop?: string | number | string[] | number[];
+            borderRight?: string | number | string[] | number[];
+            borderBottom?: string | number | string[] | number[];
+            borderLeft?: string | number | string[] | number[];
+            borderWidth?: string | number | string[] | number[];
+            borderStyle?: string | number | string[] | number[];
+            borderColor?: string;
+            borderRadius?: string | number | string[] | number[];
+        } & {
+            bg?: string;
+            color?: string;
+            background?: string | string[];
+            bs?: string | string[];
+            br?: string | number | string[] | number[];
+            opacity?: string | number | string[] | number[];
+            op?: string | number | string[] | number[];
+            overflow?: "auto" | "hidden" | "scroll" | "visible";
+            boxShadow?: string | string[];
+            backgroundImage?: string | string[];
+            backgroundSize?: string | string[];
+            backgroundPosition?: string | string[];
+            backgroundRepeat?: string | string[];
+            anchor?: boolean;
+        } & {
+            pos?: string | string[];
+            zi?: number | number[];
+            top?: string | number | string[] | number[];
+            right?: string | number | string[] | number[];
+            bottom?: string | number | string[] | number[];
+            left?: string | number | string[] | number[];
+        } & {
+            order?: number | number[];
+            flexWrap?: string | string[];
+            flexShrink?: string | number | string[] | number[];
+            flexBasis?: string | string[];
+            flexDirection?: string | string[];
+            alignSelf?: string | string[];
+        } & import("../../../styles-global/src/types").QuickTypographyProps & import("../../../styles-global/src/types").QuickFlexProps & import("../../../styles-global/src/types").QuickPositionProps & import("../../../styles-global/src/types").MediaProps & text.TextComponentProps, string | number | symbol>;
+        24: import("styled-components").StyledComponent<any, any, object & {
+            center?: boolean;
+        } & {
+            w?: string | number | string[] | number[];
+            maxw?: string | number | string[] | number[];
+            minw?: string | number | string[] | number[];
+            h?: string | number | string[] | number[];
+            minh?: string | number | string[] | number[];
+            maxh?: string | number | string[] | number[];
+            display?: string | string[];
+            sz?: string | number | string[] | number[];
+            verticalAlign?: string | string[];
+        } & import("../../../styles-global/src/styledSystems").TypographyProps & {
+            m?: string | number | string[] | number[];
+            mh?: string | number | string[] | number[];
+            mv?: string | number | string[] | number[];
+            mt?: string | number | string[] | number[];
+            mr?: string | number | string[] | number[];
+            mb?: string | number | string[] | number[];
+            ml?: string | number | string[] | number[];
+            p?: string | number | string[] | number[];
+            ph?: string | number | string[] | number[];
+            pv?: string | number | string[] | number[];
+            pt?: string | number | string[] | number[];
+            pr?: string | number | string[] | number[];
+            pb?: string | number | string[] | number[];
+            pl?: string | number | string[] | number[];
+        } & {
+            border?: string | number | string[] | number[];
+            borderTop?: string | number | string[] | number[];
+            borderRight?: string | number | string[] | number[];
+            borderBottom?: string | number | string[] | number[];
+            borderLeft?: string | number | string[] | number[];
+            borderWidth?: string | number | string[] | number[];
+            borderStyle?: string | number | string[] | number[];
+            borderColor?: string;
+            borderRadius?: string | number | string[] | number[];
+        } & {
+            bg?: string;
+            color?: string;
+            background?: string | string[];
+            bs?: string | string[];
+            br?: string | number | string[] | number[];
+            opacity?: string | number | string[] | number[];
+            op?: string | number | string[] | number[];
+            overflow?: "auto" | "hidden" | "scroll" | "visible";
+            boxShadow?: string | string[];
+            backgroundImage?: string | string[];
+            backgroundSize?: string | string[];
+            backgroundPosition?: string | string[];
+            backgroundRepeat?: string | string[];
+            anchor?: boolean;
+        } & {
+            pos?: string | string[];
+            zi?: number | number[];
+            top?: string | number | string[] | number[];
+            right?: string | number | string[] | number[];
+            bottom?: string | number | string[] | number[];
+            left?: string | number | string[] | number[];
+        } & {
+            order?: number | number[];
+            flexWrap?: string | string[];
+            flexShrink?: string | number | string[] | number[];
+            flexBasis?: string | string[];
+            flexDirection?: string | string[];
+            alignSelf?: string | string[];
+        } & import("../../../styles-global/src/types").QuickTypographyProps & import("../../../styles-global/src/types").QuickFlexProps & import("../../../styles-global/src/types").QuickPositionProps & import("../../../styles-global/src/types").MediaProps & text.TextComponentProps, string | number | symbol>;
+        28: import("styled-components").StyledComponent<any, any, object & {
+            center?: boolean;
+        } & {
+            w?: string | number | string[] | number[];
+            maxw?: string | number | string[] | number[];
+            minw?: string | number | string[] | number[];
+            h?: string | number | string[] | number[];
+            minh?: string | number | string[] | number[];
+            maxh?: string | number | string[] | number[];
+            display?: string | string[];
+            sz?: string | number | string[] | number[];
+            verticalAlign?: string | string[];
+        } & import("../../../styles-global/src/styledSystems").TypographyProps & {
+            m?: string | number | string[] | number[];
+            mh?: string | number | string[] | number[];
+            mv?: string | number | string[] | number[];
+            mt?: string | number | string[] | number[];
+            mr?: string | number | string[] | number[];
+            mb?: string | number | string[] | number[];
+            ml?: string | number | string[] | number[];
+            p?: string | number | string[] | number[];
+            ph?: string | number | string[] | number[];
+            pv?: string | number | string[] | number[];
+            pt?: string | number | string[] | number[];
+            pr?: string | number | string[] | number[];
+            pb?: string | number | string[] | number[];
+            pl?: string | number | string[] | number[];
+        } & {
+            border?: string | number | string[] | number[];
+            borderTop?: string | number | string[] | number[];
+            borderRight?: string | number | string[] | number[];
+            borderBottom?: string | number | string[] | number[];
+            borderLeft?: string | number | string[] | number[];
+            borderWidth?: string | number | string[] | number[];
+            borderStyle?: string | number | string[] | number[];
+            borderColor?: string;
+            borderRadius?: string | number | string[] | number[];
+        } & {
+            bg?: string;
+            color?: string;
+            background?: string | string[];
+            bs?: string | string[];
+            br?: string | number | string[] | number[];
+            opacity?: string | number | string[] | number[];
+            op?: string | number | string[] | number[];
+            overflow?: "auto" | "hidden" | "scroll" | "visible";
+            boxShadow?: string | string[];
+            backgroundImage?: string | string[];
+            backgroundSize?: string | string[];
+            backgroundPosition?: string | string[];
+            backgroundRepeat?: string | string[];
+            anchor?: boolean;
+        } & {
+            pos?: string | string[];
+            zi?: number | number[];
+            top?: string | number | string[] | number[];
+            right?: string | number | string[] | number[];
+            bottom?: string | number | string[] | number[];
+            left?: string | number | string[] | number[];
+        } & {
+            order?: number | number[];
+            flexWrap?: string | string[];
+            flexShrink?: string | number | string[] | number[];
+            flexBasis?: string | string[];
+            flexDirection?: string | string[];
+            alignSelf?: string | string[];
+        } & import("../../../styles-global/src/types").QuickTypographyProps & import("../../../styles-global/src/types").QuickFlexProps & import("../../../styles-global/src/types").QuickPositionProps & import("../../../styles-global/src/types").MediaProps & text.TextComponentProps, string | number | symbol>;
+        32: import("styled-components").StyledComponent<any, any, object & {
+            center?: boolean;
+        } & {
+            w?: string | number | string[] | number[];
+            maxw?: string | number | string[] | number[];
+            minw?: string | number | string[] | number[];
+            h?: string | number | string[] | number[];
+            minh?: string | number | string[] | number[];
+            maxh?: string | number | string[] | number[];
+            display?: string | string[];
+            sz?: string | number | string[] | number[];
+            verticalAlign?: string | string[];
+        } & import("../../../styles-global/src/styledSystems").TypographyProps & {
+            m?: string | number | string[] | number[];
+            mh?: string | number | string[] | number[];
+            mv?: string | number | string[] | number[];
+            mt?: string | number | string[] | number[];
+            mr?: string | number | string[] | number[];
+            mb?: string | number | string[] | number[];
+            ml?: string | number | string[] | number[];
+            p?: string | number | string[] | number[];
+            ph?: string | number | string[] | number[];
+            pv?: string | number | string[] | number[];
+            pt?: string | number | string[] | number[];
+            pr?: string | number | string[] | number[];
+            pb?: string | number | string[] | number[];
+            pl?: string | number | string[] | number[];
+        } & {
+            border?: string | number | string[] | number[];
+            borderTop?: string | number | string[] | number[];
+            borderRight?: string | number | string[] | number[];
+            borderBottom?: string | number | string[] | number[];
+            borderLeft?: string | number | string[] | number[];
+            borderWidth?: string | number | string[] | number[];
+            borderStyle?: string | number | string[] | number[];
+            borderColor?: string;
+            borderRadius?: string | number | string[] | number[];
+        } & {
+            bg?: string;
+            color?: string;
+            background?: string | string[];
+            bs?: string | string[];
+            br?: string | number | string[] | number[];
+            opacity?: string | number | string[] | number[];
+            op?: string | number | string[] | number[];
+            overflow?: "auto" | "hidden" | "scroll" | "visible";
+            boxShadow?: string | string[];
+            backgroundImage?: string | string[];
+            backgroundSize?: string | string[];
+            backgroundPosition?: string | string[];
+            backgroundRepeat?: string | string[];
+            anchor?: boolean;
+        } & {
+            pos?: string | string[];
+            zi?: number | number[];
+            top?: string | number | string[] | number[];
+            right?: string | number | string[] | number[];
+            bottom?: string | number | string[] | number[];
+            left?: string | number | string[] | number[];
+        } & {
+            order?: number | number[];
+            flexWrap?: string | string[];
+            flexShrink?: string | number | string[] | number[];
+            flexBasis?: string | string[];
+            flexDirection?: string | string[];
+            alignSelf?: string | string[];
+        } & import("../../../styles-global/src/types").QuickTypographyProps & import("../../../styles-global/src/types").QuickFlexProps & import("../../../styles-global/src/types").QuickPositionProps & import("../../../styles-global/src/types").MediaProps & text.TextComponentProps, string | number | symbol>;
+        48: import("styled-components").StyledComponent<any, any, object & {
+            center?: boolean;
+        } & {
+            w?: string | number | string[] | number[];
+            maxw?: string | number | string[] | number[];
+            minw?: string | number | string[] | number[];
+            h?: string | number | string[] | number[];
+            minh?: string | number | string[] | number[];
+            maxh?: string | number | string[] | number[];
+            display?: string | string[];
+            sz?: string | number | string[] | number[];
+            verticalAlign?: string | string[];
+        } & import("../../../styles-global/src/styledSystems").TypographyProps & {
+            m?: string | number | string[] | number[];
+            mh?: string | number | string[] | number[];
+            mv?: string | number | string[] | number[];
+            mt?: string | number | string[] | number[];
+            mr?: string | number | string[] | number[];
+            mb?: string | number | string[] | number[];
+            ml?: string | number | string[] | number[];
+            p?: string | number | string[] | number[];
+            ph?: string | number | string[] | number[];
+            pv?: string | number | string[] | number[];
+            pt?: string | number | string[] | number[];
+            pr?: string | number | string[] | number[];
+            pb?: string | number | string[] | number[];
+            pl?: string | number | string[] | number[];
+        } & {
+            border?: string | number | string[] | number[];
+            borderTop?: string | number | string[] | number[];
+            borderRight?: string | number | string[] | number[];
+            borderBottom?: string | number | string[] | number[];
+            borderLeft?: string | number | string[] | number[];
+            borderWidth?: string | number | string[] | number[];
+            borderStyle?: string | number | string[] | number[];
+            borderColor?: string;
+            borderRadius?: string | number | string[] | number[];
+        } & {
+            bg?: string;
+            color?: string;
+            background?: string | string[];
+            bs?: string | string[];
+            br?: string | number | string[] | number[];
+            opacity?: string | number | string[] | number[];
+            op?: string | number | string[] | number[];
+            overflow?: "auto" | "hidden" | "scroll" | "visible";
+            boxShadow?: string | string[];
+            backgroundImage?: string | string[];
+            backgroundSize?: string | string[];
+            backgroundPosition?: string | string[];
+            backgroundRepeat?: string | string[];
+            anchor?: boolean;
+        } & {
+            pos?: string | string[];
+            zi?: number | number[];
+            top?: string | number | string[] | number[];
+            right?: string | number | string[] | number[];
+            bottom?: string | number | string[] | number[];
+            left?: string | number | string[] | number[];
+        } & {
+            order?: number | number[];
+            flexWrap?: string | string[];
+            flexShrink?: string | number | string[] | number[];
+            flexBasis?: string | string[];
+            flexDirection?: string | string[];
+            alignSelf?: string | string[];
+        } & import("../../../styles-global/src/types").QuickTypographyProps & import("../../../styles-global/src/types").QuickFlexProps & import("../../../styles-global/src/types").QuickPositionProps & import("../../../styles-global/src/types").MediaProps & text.TextComponentProps, string | number | symbol>;
+        80: import("styled-components").StyledComponent<any, any, object & {
+            center?: boolean;
+        } & {
+            w?: string | number | string[] | number[];
+            maxw?: string | number | string[] | number[];
+            minw?: string | number | string[] | number[];
+            h?: string | number | string[] | number[];
+            minh?: string | number | string[] | number[];
+            maxh?: string | number | string[] | number[];
+            display?: string | string[];
+            sz?: string | number | string[] | number[];
+            verticalAlign?: string | string[];
+        } & import("../../../styles-global/src/styledSystems").TypographyProps & {
+            m?: string | number | string[] | number[];
+            mh?: string | number | string[] | number[];
+            mv?: string | number | string[] | number[];
+            mt?: string | number | string[] | number[];
+            mr?: string | number | string[] | number[];
+            mb?: string | number | string[] | number[];
+            ml?: string | number | string[] | number[];
+            p?: string | number | string[] | number[];
+            ph?: string | number | string[] | number[];
+            pv?: string | number | string[] | number[];
+            pt?: string | number | string[] | number[];
+            pr?: string | number | string[] | number[];
+            pb?: string | number | string[] | number[];
+            pl?: string | number | string[] | number[];
+        } & {
+            border?: string | number | string[] | number[];
+            borderTop?: string | number | string[] | number[];
+            borderRight?: string | number | string[] | number[];
+            borderBottom?: string | number | string[] | number[];
+            borderLeft?: string | number | string[] | number[];
+            borderWidth?: string | number | string[] | number[];
+            borderStyle?: string | number | string[] | number[];
+            borderColor?: string;
+            borderRadius?: string | number | string[] | number[];
+        } & {
+            bg?: string;
+            color?: string;
+            background?: string | string[];
+            bs?: string | string[];
+            br?: string | number | string[] | number[];
+            opacity?: string | number | string[] | number[];
+            op?: string | number | string[] | number[];
+            overflow?: "auto" | "hidden" | "scroll" | "visible";
+            boxShadow?: string | string[];
+            backgroundImage?: string | string[];
+            backgroundSize?: string | string[];
+            backgroundPosition?: string | string[];
+            backgroundRepeat?: string | string[];
+            anchor?: boolean;
+        } & {
+            pos?: string | string[];
+            zi?: number | number[];
+            top?: string | number | string[] | number[];
+            right?: string | number | string[] | number[];
+            bottom?: string | number | string[] | number[];
+            left?: string | number | string[] | number[];
+        } & {
+            order?: number | number[];
+            flexWrap?: string | string[];
+            flexShrink?: string | number | string[] | number[];
+            flexBasis?: string | string[];
+            flexDirection?: string | string[];
+            alignSelf?: string | string[];
+        } & import("../../../styles-global/src/types").QuickTypographyProps & import("../../../styles-global/src/types").QuickFlexProps & import("../../../styles-global/src/types").QuickPositionProps & import("../../../styles-global/src/types").MediaProps & text.TextComponentProps, string | number | symbol>;
+    };
+    Text: import("styled-components").StyledComponent<any, any, object & {
+        center?: boolean;
+    } & {
+        w?: string | number | string[] | number[];
+        maxw?: string | number | string[] | number[];
+        minw?: string | number | string[] | number[];
+        h?: string | number | string[] | number[];
+        minh?: string | number | string[] | number[];
+        maxh?: string | number | string[] | number[];
+        display?: string | string[];
+        sz?: string | number | string[] | number[];
+        verticalAlign?: string | string[];
+    } & import("../../../styles-global/src/styledSystems").TypographyProps & {
+        m?: string | number | string[] | number[];
+        mh?: string | number | string[] | number[];
+        mv?: string | number | string[] | number[];
+        mt?: string | number | string[] | number[];
+        mr?: string | number | string[] | number[];
+        mb?: string | number | string[] | number[];
+        ml?: string | number | string[] | number[];
+        p?: string | number | string[] | number[];
+        ph?: string | number | string[] | number[];
+        pv?: string | number | string[] | number[];
+        pt?: string | number | string[] | number[];
+        pr?: string | number | string[] | number[];
+        pb?: string | number | string[] | number[];
+        pl?: string | number | string[] | number[];
+    } & {
+        border?: string | number | string[] | number[];
+        borderTop?: string | number | string[] | number[];
+        borderRight?: string | number | string[] | number[];
+        borderBottom?: string | number | string[] | number[];
+        borderLeft?: string | number | string[] | number[];
+        borderWidth?: string | number | string[] | number[];
+        borderStyle?: string | number | string[] | number[];
+        borderColor?: string;
+        borderRadius?: string | number | string[] | number[];
+    } & {
+        bg?: string;
+        color?: string;
+        background?: string | string[];
+        bs?: string | string[];
+        br?: string | number | string[] | number[];
+        opacity?: string | number | string[] | number[];
+        op?: string | number | string[] | number[];
+        overflow?: "auto" | "hidden" | "scroll" | "visible";
+        boxShadow?: string | string[];
+        backgroundImage?: string | string[];
+        backgroundSize?: string | string[];
+        backgroundPosition?: string | string[];
+        backgroundRepeat?: string | string[];
+        anchor?: boolean;
+    } & {
+        pos?: string | string[];
+        zi?: number | number[];
+        top?: string | number | string[] | number[];
+        right?: string | number | string[] | number[];
+        bottom?: string | number | string[] | number[];
+        left?: string | number | string[] | number[];
+    } & {
+        order?: number | number[];
+        flexWrap?: string | string[];
+        flexShrink?: string | number | string[] | number[];
+        flexBasis?: string | string[];
+        flexDirection?: string | string[];
+        alignSelf?: string | string[];
+    } & import("../../../styles-global/src/types").QuickTypographyProps & import("../../../styles-global/src/types").QuickFlexProps & import("../../../styles-global/src/types").QuickPositionProps & import("../../../styles-global/src/types").MediaProps & {
+        className: string;
+    } & text.TextComponentProps, string | number | symbol>;
+    Strong: import("styled-components").StyledComponent<"strong", any, {}, never>;
+    Code: import("styled-components").StyledComponent<"code", any, import("../../../styles-global/src/types").BoxProps, never>;
+    linkStyle: import("styled-components").FlattenInterpolation<import("styled-components").ThemeProps<any>>;
+    Anchor: import("styled-components").StyledComponent<"a", any, import("../../../styles-global/src/types").BoxProps, never>;
+    AnchorUnderline: import("styled-components").StyledComponent<"a", any, import("../../../styles-global/src/types").BoxProps, never>;
+    fontWeights: {
+        regular: number;
+        medium: number;
+        semi: number;
+        bold: number;
+    };
+};
+export type { TextComponentProps } from './text';
+export { fontWeights } from './text';
+export { text };
+export declare const GlobalStyles: import("styled-components").GlobalStyleComponent<{}, import("styled-components").DefaultTheme>;
+export declare const c: {
+    ink: string;
+    ink95: string;
+    ink90: string;
+    ink85: string;
+    ink80: string;
+    ink75: string;
+    ink70: string;
+    ink65: string;
+    ink60: string;
+    ink55: string;
+    ink50: string;
+    ink45: string;
+    ink40: string;
+    ink35: string;
+    ink30: string;
+    ink25: string;
+    ink20: string;
+    ink15: string;
+    ink10: string;
+    ink05: string;
+    background: string;
+    popoverBackground: string;
+    bgIdle: string;
+    bgHover: string;
+    bgPressing: string;
+    highlight: string;
+    highlightText: string;
+    highlightHover: string;
+    highlightPressing: string;
+    speakingIndicator: string;
+    inCallChatBackground: string;
+    tooltipBackground: string;
+    status: {
+        available: string;
+        inConversation: string;
+        recording: string;
+        unavailable: {
+            onBlack: string;
+            onWhite: string;
+        };
+    };
+    matteBlack: (amount: any) => string;
+    body: {
+        black: string;
+        black90: string;
+        black80: string;
+        black70: string;
+        black60: string;
+        black50: string;
+        black40: string;
+        black30: string;
+        black20: string;
+        black10: string;
+    };
+    sidebarBlack: string;
+    purple: string;
+    blue10: string;
+    blue15: string;
+    blue20: string;
+    blue30: string;
+    lightBlue: string;
+    lightPurple: string;
+    lightPurpleOpaque: string;
+    lightGreen: string;
+    lightTeal: string;
+    lightYellow: string;
+    darkYellow: string;
+    getBlack: (amount: number) => string;
+    getBlue: (amount: number) => string;
+    getRed: (amount: number) => string;
+    getGreen: (amount: number) => string;
+    getBrand: (amount: number) => string;
+    getPurple: (amount: number) => string;
+    getColor: (color: string, amount: number) => string;
+    get: (color: string, amount: number) => string;
+    getOpaqueOnWhite: (color: string, amount: number) => string;
+    getOpaqueOnBlack: (color: string, amount: number) => string;
+    orange20: string;
+    orange40: string;
+    darkOrangeOnOrange20: string;
+    warning: string;
+    error: string;
+    info: string;
+    inputFocus: string;
+    rootBackground: string;
+    beige: string;
+    pureBlack: string;
+    superBlack: string;
+    foreground: string;
+    largeCallBoxBackground: string;
+    callBoxBackground: string;
+    cornerCallBoxBackground: string;
+    callBoxPopoverBackground: string;
+    darkGrey: string;
+    speakingColor: string;
+    brand: string;
+    brand2: string;
+    brandWordMark: string;
+    green: string;
+    darkGreen: string;
+    darkPurple: string;
+    greenOnBlack: string;
+    greenOnGreen: string;
+    red: string;
+    redBadgeOnWhite: string;
+    blue: string;
+    yellow: string;
+    orange: string;
+    mustard: string;
+    transparent: string;
+    black: string;
+    black95: string;
+    black90: string;
+    black85: string;
+    black80: string;
+    black70: string;
+    black65: string;
+    black60: string;
+    black50: string;
+    black40: string;
+    black35: string;
+    black30: string;
+    black20: string;
+    black15: string;
+    black10: string;
+    black05: string;
+    white0: string;
+    white05: string;
+    white10: string;
+    white15: string;
+    white20: string;
+    white25: string;
+    white30: string;
+    white40: string;
+    white50: string;
+    white60: string;
+    white70: string;
+    white80: string;
+    white90: string;
+    white: string;
+    facebook: string;
+    twitter: string;
+    linkedin: string;
+    reddit: string;
+};
+export { Box, Column, Row, s } from '@gowiki/styles-global';
+export type { BoxProps } from '@gowiki/styles-global';

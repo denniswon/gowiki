@@ -1,0 +1,18 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "rootDir": ".",
+    "outDir": "dist",
+    "types": ["gowiki", "zustand"],
+    // for vs-code imports
+    "baseUrl": ".",
+    "paths": {
+      "@gowiki/core": ["../core/src"],
+    }
+  },
+  "references": [
+    { "path": "../core/tsconfig.json" },
+  ],
+  "include": ["src", "tests"]
+}

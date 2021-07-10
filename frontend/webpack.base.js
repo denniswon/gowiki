@@ -14,6 +14,9 @@ const commitHash = process.env.BUILD_HASH || require('child_process')
   .toString()
   .trim()
 
+const repoRoot = '..'
+const commonRoot = '../common'
+
 const mode = process.env.NODE_ENV || 'development'
 const isDev = mode == 'development'
 const assetHost = process.env.ASSET_HOST || (isDev && !process.env.SERVE_STATIC ? 'http://localhost:9000' : '')
@@ -35,9 +38,11 @@ const baseConfig = {
         test: /\.(j|t)sx?$/,
         include: [
           path.join(__dirname, 'src'),
-          path.join(__dirname, './node_modules/zustand'),
+          path.join(__dirname, '../node_modules/zustand'),
+          path.join(__dirname, '../common'),
         ],
         exclude: [
+          path.join(__dirname, '../common/styles-global/node_modules'),
         ],
         use: {
           loader: 'babel-loader',
@@ -50,7 +55,7 @@ const baseConfig = {
                 '@babel/preset-env',
                 {
                   useBuiltIns: 'usage',
-                  corejs: 3,
+                  corejs: 2,
                 }
               ],
               '@babel/preset-typescript',
@@ -90,6 +95,7 @@ const baseConfig = {
         test: /\.(m4a|mp4)$/,
         include: [
           path.join(__dirname, 'src'),
+          path.join(__dirname, '../common'),
         ],
         loader: 'file-loader',
         options: {
@@ -100,6 +106,7 @@ const baseConfig = {
         test: /\.(woff|woff2|eot|ttf)$/,
         include: [
           path.join(__dirname, 'src'),
+          path.join(__dirname, '../common'),
         ],
         exclude: /node_modules/,
         loader: 'file-loader',
@@ -111,6 +118,7 @@ const baseConfig = {
         test: /\.(png|jpg|gif|svg)$/,
         include: [
           path.join(__dirname, 'src'),
+          path.join(__dirname, '../common'),
         ],
         exclude: /node_modules/,
         loader: 'url-loader',
@@ -143,6 +151,13 @@ const baseConfig = {
     // Add '.ts' and '.tsx' as resolvable extensions.
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
     alias: {
+      '@gowiki/api': path.resolve(__dirname, commonRoot, 'api/src'),
+      '@gowiki/core': path.resolve(__dirname, commonRoot, 'core/src'),
+      '@gowiki/sounds': path.resolve(__dirname, commonRoot, 'sounds/src'),
+      '@gowiki/styles-global': path.resolve(__dirname, commonRoot, 'styles-global/src'),
+      '@gowiki/styles': path.resolve(__dirname, commonRoot, 'styles/src'),
+      '@gowiki/web': path.resolve(__dirname, commonRoot, 'web/src'),
+
       api: path.resolve(__dirname, 'src/api/'),
       components: path.resolve(__dirname, 'src/components/'),
       config: path.resolve(__dirname, 'src/config/'),
@@ -155,8 +170,10 @@ const baseConfig = {
       sounds: path.resolve(__dirname, 'src/sounds'),
       stores: path.resolve(__dirname, 'src/stores/'),
       styles: path.resolve(__dirname, 'src/styles/'),
-      'styles-global': path.resolve(__dirname, 'src/styles-global/'),
       utils: path.resolve(__dirname, 'src/utils/'),
+
+      react: path.resolve(__dirname, repoRoot, 'node_modules/react'),
+      'react-dom': path.resolve(__dirname, repoRoot, 'node_modules/react-dom')
     },
     // Some libraries import Node modules but don't use them in the browser.
     // Tell Webpack to provide empty mocks for them so importing them works.

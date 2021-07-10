@@ -1,0 +1,16 @@
+{
+  "name": "@gowiki/api",
+  "version": "1.0.0",
+  "description": "API and authentication logic",
+  "license": "UNLICENSED",
+  "main": "src/index.ts",
+  "types": "dist/src/index.d.ts",
+  "scripts": {
+    "tsc": "../../node_modules/.bin/tsc",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@gowiki/core": "1.0.0",
+    "events": "^3.3.0"
+  }
+}

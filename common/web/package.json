@@ -1,0 +1,20 @@
+{
+  "name": "@gowiki/web",
+  "version": "1.0.0",
+  "description": "Web Components",
+  "license": "UNLICENSED",
+  "main": "src/index.ts",
+  "types": "dist/src/index.d.ts",
+  "scripts": {
+    "tsc": "../../node_modules/.bin/tsc",
+    "build": "tsc",
+    "test": "echo jest"
+  },
+  "dependencies": {
+    "@gowiki/styles": "^1.0.0",
+    "polished": "^4.1.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.13.8"
+  }
+}

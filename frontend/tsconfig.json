@@ -1,24 +1,10 @@
 {
-  "extends": "./tsconfig.paths.json",
+  "extends": "../tsconfig.json",
   "compilerOptions": {
-    "target": "esnext",
-    "module": "commonjs",
-    "moduleResolution": "node",
+    "composite": false,
     "rootDir": ".",
     "outDir": "dist",
-    "allowSyntheticDefaultImports": true,
-    "preserveSymlinks": true,
-    "experimentalDecorators": true,
-    "forceConsistentCasingInFileNames": true,
-    "sourceMap": true,
-    "skipLibCheck": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "jsx": "react",
-    "lib": [
-      "es2017",
-      "dom"
-    ],
+    "baseUrl": ".",
     "types": [
       "gowiki",
       "jest",
@@ -27,12 +13,49 @@
       "zustand"
     ],
     "typeRoots": [
-      "src/@types",
-      "node_modules/@types"
+      "../common/@types",
+      "../node_modules/@types",
+      "./node_modules/@types"
     ],
+    "paths": {
+      "@gowiki/api": ["../common/api/src"],
+      "@gowiki/core": ["../common/core/src"],
+      "@gowiki/sounds": ["../common/sounds/src"],
+      "@gowiki/styles-global": ["../common/styles-global/src"],
+      "@gowiki/styles": ["../common/styles/src"],
+      "@gowiki/web": ["../common/web/src"],
+
+      "api/*": ["./src/api/*"],
+      "components/*": ["./src/components/*"],
+      "config/*": ["./src/config/*"],
+      "fonts/*": ["./src/fonts/*"],
+      "images/*": ["./src/images/*"],
+      "videos/*": ["./src/videos/*"],
+      "models/*": ["./src/models/*"],
+      "services": ["./src/services"],
+      "services/*": ["./src/services/*"],
+      "sounds/*": ["./src/sounds/*"],
+      "public": ["./public"],
+      "stores/*": ["./src/stores/*"],
+      "styles": ["./src/styles"],
+      "styles/*": ["./src/styles/*"],
+      "styles-global": ["./src/styles-global"],
+      "styles-global/*": ["./src/styles-global/*"],
+      "utils": ["./src/utils"],
+      "utils/*": ["./src/utils/*"]
+    }
   },
+  "references": [
+    { "path": "../common/core/tsconfig.json" },
+    { "path": "../common/api/tsconfig.json" },
+    { "path": "../common/sounds/tsconfig.json" },
+    { "path": "../common/styles-global/tsconfig.json" },
+    { "path": "../common/styles/tsconfig.json" },
+    { "path": "../common/web/tsconfig.json" }
+  ],
   "include": [
-    "src"
+    "src",
+    "tests"
   ],
   "exclude": [
     "dist",

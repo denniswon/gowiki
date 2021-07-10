@@ -1,0 +1,36 @@
+{
+  "tags": {
+    "allowUnknownTags": ["optional"]
+  },
+  "plugins": [
+    "plugins/markdown",
+    "node_modules/better-docs/typescript"
+  ],
+  "source": {
+    "include": [
+      "./assets/src",
+      "./chrome/src",
+      "./common/api/src",
+      "./common/app/src",
+      "./common/core/src",
+      "./common/calls/src",
+      "./common/chat/src",
+      "./common/integrations/src",
+      "./common/presence/src",
+      "./desktop/src"
+    ],
+    "includePattern": ".*tracker.*\\.ts$"
+  },
+  "opts": {
+    "encoding": "utf8",
+    "destination": "priv/static/docs",
+    "template": "node_modules/docdash",
+    "readme": "analytics.md",
+    "recurse": true,
+    "verbose": true
+  },
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": false
+  }
+}

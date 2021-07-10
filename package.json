@@ -7,5 +7,56 @@
   "scripts": {
     "frontend": "cd frontend && yarn"
   },
-  "license": "MIT"
+  "license": "ISC",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "common/core",
+      "common/styles-global",
+      "common/styles",
+      "common/sounds",
+      "common/api",
+      "common/web",
+      "frontend"
+    ]
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "pubsub-js": "^1.9.3",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "styled-components": "5.2.0",
+    "zustand": "0.2.2"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-decorators": "^7.13.5",
+    "@types/jest": "26.0.10",
+    "@types/pubsub-js": "1.5.18",
+    "@types/react": "16.8.12",
+    "@types/react-dom": "^16.0.4",
+    "@types/styled-components": "4.1.13",
+    "better-docs": "^2.3.2",
+    "coveralls": "^3.1.0",
+    "docdash": "^1.2.0",
+    "jest": "^26.6.1",
+    "jsdoc": "^3.6.6",
+    "ts-jest": "^27.0.0-alpha.1",
+    "ts-node": "^7.0.1",
+    "tslint": "^5.9.1",
+    "tslint-eslint-rules": "^5.1.0",
+    "typescript": "^4.1.2"
+  },
+  "optionalDependencies": {
+  },
+  "resolutions": {
+    "chokidar": "^3.0.1",
+    "jest": "^26.6.1",
+    "jest-haste-map": "^26.6.1",
+    "jest-serializer": "^26.6.1",
+    "jest-util": "^26.6.1",
+    "jest-worker": "^26.6.1",
+    "lodash": "^4.17.19",
+    "moment": "^2.22.2",
+    "core-js": "2.6.5",
+  }
 }

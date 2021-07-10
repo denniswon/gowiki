@@ -1,0 +1,16 @@
+{
+  "name": "@gowiki/styles-global",
+  "version": "1.0.0",
+  "description": "Global styles",
+  "license": "UNLICENSED",
+  "main": "src/index.ts",
+  "types": "dist/src/index.d.ts",
+  "scripts": {
+    "tsc": "../../node_modules/.bin/tsc",
+    "build": "tsc",
+    "compile": "babel --presets es2015,stage-0 -d lib/ src/",
+    "release": "yarn run build && npm version patch && npm publish",
+    "test": "jest",
+    "test:watch": "jest --watch --verbose"
+  }
+}

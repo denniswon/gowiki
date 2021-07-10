@@ -1,0 +1,21 @@
+{
+  "name": "@gowiki/styles",
+  "version": "1.0.0",
+  "description": "Tandem App Styles",
+  "license": "UNLICENSED",
+  "main": "src/index.ts",
+  "types": "dist/src/index.d.ts",
+  "scripts": {
+    "tsc": "../../node_modules/.bin/tsc",
+    "build": "tsc",
+    "test": "echo jest"
+  },
+  "dependencies": {
+    "@gowiki/core": "^1.0.0",
+    "@gowiki/styles-global": "^1.0.0",
+    "polished": "^4.1.0"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.13.8"
+  }
+}
