@@ -14,17 +14,20 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "jsx": "react-jsx",
+    "jsx": "react",
     "lib": [
       "es2017",
       "dom"
     ],
     "types": [
+      "gowiki",
+      "jest",
+      "node",
       "react",
-      "zustand",
-      "node"
+      "zustand"
     ],
     "typeRoots": [
+      "src/@types",
       "node_modules/@types"
     ],
   },

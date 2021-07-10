@@ -1,7 +1,8 @@
 import React from 'react'
+import styled from 'styled-components'
 
 import { connect, sendMsg } from './api'
-import { Button, Container } from './components'
+import { Button } from './components'
 
 type Props = {
 }
@@ -16,9 +17,13 @@ const App: React.FunctionComponent<Props> = (props: Props) => {
 
   return (
     <Container className='App'>
-      <Button onClick={send} primary>Hit</Button>
+      <Button onClick={send}>Hit</Button>
     </Container>
   )
 }
 
 export default App
+
+export const Container = styled.div`
+  text-align: center;
+`
