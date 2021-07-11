@@ -28,7 +28,9 @@ const styled_components_1 = __importDefault(require("styled-components"));
 const primitives_1 = require("../primitives");
 const Dropdown = (props) => {
     const { isActive, color, ...rest } = props;
-    return (React.createElement(exports.DropdownIcon, { sz: 10, viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", ...rest },
+    return (
+    // @ts-ignore
+    React.createElement(exports.DropdownIcon, { sz: 10, viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", ...rest },
         React.createElement("path", { d: "M0.937906 3.5241C0.527894 2.85783 1.00724 2 1.78956 2H14.2104C14.9928 2 15.4721 2.85783 15.0621 3.5241L8.85166 13.6161C8.46117 14.2506 7.53883 14.2506 7.14834 13.6161L0.937906 3.5241Z", fill: "black" })));
 };
 exports.Dropdown = Dropdown;

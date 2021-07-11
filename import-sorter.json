@@ -27,7 +27,7 @@
                 "disableSort": true
             },
             {
-                "regex": "@tandem",
+                "regex": "@gowiki",
                 "orderLevel": 25
             },
             {

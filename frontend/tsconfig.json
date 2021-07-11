@@ -18,6 +18,7 @@
     ],
     "paths": {
       "@gowiki/api": ["../common/api/src"],
+      "@gowiki/app": ["../common/app/src"],
       "@gowiki/core": ["../common/core/src"],
       "@gowiki/sounds": ["../common/sounds/src"],
       "@gowiki/styles-global": ["../common/styles-global/src"],
@@ -27,20 +28,14 @@
       "api": ["./src/api"],
       "api/*": ["./src/api/*"],
       "components/*": ["./src/components/*"],
-      "config/*": ["./src/config/*"],
-      "fonts/*": ["./src/fonts/*"],
       "images/*": ["./src/images/*"],
       "videos/*": ["./src/videos/*"],
-      "models/*": ["./src/models/*"],
       "services": ["./src/services"],
       "services/*": ["./src/services/*"],
-      "sounds/*": ["./src/sounds/*"],
-      "public": ["./public"],
+      "static": ["./static"],
       "stores/*": ["./src/stores/*"],
       "styles": ["./src/styles"],
       "styles/*": ["./src/styles/*"],
-      "styles-global": ["./src/styles-global"],
-      "styles-global/*": ["./src/styles-global/*"],
       "utils": ["./src/utils"],
       "utils/*": ["./src/utils/*"]
     }
@@ -48,6 +43,7 @@
   "references": [
     { "path": "../common/core/tsconfig.json" },
     { "path": "../common/api/tsconfig.json" },
+    { "path": "../common/app/tsconfig.json" },
     { "path": "../common/sounds/tsconfig.json" },
     { "path": "../common/styles-global/tsconfig.json" },
     { "path": "../common/styles/tsconfig.json" },

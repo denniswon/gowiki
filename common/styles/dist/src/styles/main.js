@@ -18,7 +18,7 @@ exports.ImgFrame.defaultProps = { p: 20, br: 12, center: true };
 exports.Video = styled_components_1.default.video `
   ${styles_global_1.s.boxProps}
 `;
-exports.Divider = styled_components_1.default(styles_global_1.Box).attrs(p => ({
+exports.Divider = styled_components_1.default(styles_global_1.Box).attrs((p) => ({
     minh: 1,
     mt: p.mv || 8,
     mb: p.mv || 8,

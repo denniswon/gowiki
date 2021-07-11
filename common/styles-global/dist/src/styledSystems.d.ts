@@ -1,4 +1,4 @@
-declare type UnitValue = (string | number) & (string | number | string[] | number[]);
+declare type UnitValue = (string | number | string[] | number[]);
 declare type StringValue = (string | string[]);
 declare type NumberValue = number | number[];
 export declare const defaultBreakpoints: string[];

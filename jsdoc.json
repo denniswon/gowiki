@@ -8,16 +8,10 @@
   ],
   "source": {
     "include": [
-      "./assets/src",
-      "./chrome/src",
+      "./frontend/src",
       "./common/api/src",
       "./common/app/src",
-      "./common/core/src",
-      "./common/calls/src",
-      "./common/chat/src",
-      "./common/integrations/src",
-      "./common/presence/src",
-      "./desktop/src"
+      "./common/core/src"
     ],
     "includePattern": ".*tracker.*\\.ts$"
   },

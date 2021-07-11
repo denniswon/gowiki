@@ -1,5 +1,5 @@
-type UnitValue = (string | number) & (string | number | string[] | number[])
-type StringValue = (string | string[])
+type UnitValue = string | number | string[] | number[]
+type StringValue = string | string[]
 type NumberValue = number | number[]
 
 // based on styled-system 4.1.1

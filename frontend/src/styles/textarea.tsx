@@ -3,7 +3,7 @@ import * as React from 'react'
 import { Box, BoxProps, Column, Row, s } from '@gowiki/styles-global'
 import { primitives } from '@gowiki/web'
 
-import { useCombinedRefs } from '../hooks/useCombinedRefs'
+import { useCombinedRefs } from '../components/hooks/useCombinedRefs'
 
 import styled from 'styled-components'
 

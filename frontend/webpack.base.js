@@ -15,6 +15,7 @@ const commitHash = process.env.BUILD_HASH || require('child_process')
   .trim()
 
 const repoRoot = '..'
+const srcRoot = '.'
 const commonRoot = '../common'
 
 const mode = process.env.NODE_ENV || 'development'
@@ -152,25 +153,27 @@ const baseConfig = {
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
     alias: {
       '@gowiki/api': path.resolve(__dirname, commonRoot, 'api/src'),
+      '@gowiki/app': path.resolve(__dirname, commonRoot, 'app/src'),
       '@gowiki/core': path.resolve(__dirname, commonRoot, 'core/src'),
       '@gowiki/sounds': path.resolve(__dirname, commonRoot, 'sounds/src'),
       '@gowiki/styles-global': path.resolve(__dirname, commonRoot, 'styles-global/src'),
       '@gowiki/styles': path.resolve(__dirname, commonRoot, 'styles/src'),
       '@gowiki/web': path.resolve(__dirname, commonRoot, 'web/src'),
 
-      api: path.resolve(__dirname, 'src/api/'),
-      components: path.resolve(__dirname, 'src/components/'),
-      config: path.resolve(__dirname, 'src/config/'),
-      fonts: path.resolve(__dirname, 'src/fonts/'),
-      images: path.resolve(__dirname, 'src/images/'),
-      videos: path.resolve(__dirname, 'src/videos/'),
-      models: path.resolve(__dirname, 'src/models/'),
-      public: path.resolve(__dirname, 'public/'),
-      services: path.resolve(__dirname, 'src/services/'),
-      sounds: path.resolve(__dirname, 'src/sounds'),
-      stores: path.resolve(__dirname, 'src/stores/'),
-      styles: path.resolve(__dirname, 'src/styles/'),
-      utils: path.resolve(__dirname, 'src/utils/'),
+      api: path.resolve(__dirname, srcRoot, 'src/api/'),
+      components: path.resolve(__dirname, srcRoot, 'src/components/'),
+      config: path.resolve(__dirname, srcRoot, 'src/config/'),
+      fonts: path.resolve(__dirname, srcRoot, 'src/fonts/'),
+      images: path.resolve(__dirname, srcRoot, 'src/images/'),
+      videos: path.resolve(__dirname, srcRoot, 'src/videos/'),
+      models: path.resolve(__dirname, srcRoot, 'src/models/'),
+      services: path.resolve(__dirname, srcRoot, 'src/services/'),
+      sounds: path.resolve(__dirname, srcRoot, 'src/sounds'),
+      static: path.resolve(__dirname, srcRoot, 'static/'),
+      store: path.resolve(__dirname, srcRoot, 'src/store/'),
+      stores: path.resolve(__dirname, srcRoot, 'src/stores/'),
+      styles: path.resolve(__dirname, srcRoot, 'src/styles/'),
+      utils: path.resolve(__dirname, srcRoot, 'src/utils/'),
 
       react: path.resolve(__dirname, repoRoot, 'node_modules/react'),
       'react-dom': path.resolve(__dirname, repoRoot, 'node_modules/react-dom')

@@ -1,0 +1,17 @@
+{
+  "name": "@gowiki/app",
+  "version": "1.0.0",
+  "description": "App interface logic",
+  "license": "UNLICENSED",
+  "main": "src/index.ts",
+  "types": "dist/src/index.d.ts",
+  "scripts": {
+    "tsc": "../../node_modules/.bin/tsc",
+    "test": "echo jest"
+  },
+  "dependencies": {
+    "@gowiki/api": "1.0.0",
+    "@gowiki/core": "1.0.0",
+    "@gowiki/sounds": "1.0.0"
+  }
+}

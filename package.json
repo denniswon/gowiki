@@ -16,6 +16,7 @@
       "common/styles",
       "common/sounds",
       "common/api",
+      "common/app",
       "common/web",
       "frontend"
     ]

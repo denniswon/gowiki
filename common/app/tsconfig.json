@@ -1,0 +1,22 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "rootDir": ".",
+    "outDir": "dist",
+    "types": ["gowiki", "zustand"],
+    // for vs-code imports
+    "baseUrl": ".",
+    "paths": {
+      "@gowiki/api": ["../api/src"],
+      "@gowiki/core": ["../core/src"],
+      "@gowiki/sounds": ["../sounds/src"]
+    }
+  },
+  "references": [
+    { "path": "../core/tsconfig.json" },
+    { "path": "../api/tsconfig.json" },
+    { "path": "../sounds/tsconfig.json" }
+  ],
+  "include": ["src"]
+}

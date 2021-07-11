@@ -2009,7 +2009,7 @@ export declare const Text: import("styled-components").StyledComponent<"div", an
 } & import("../../../styles-global/src/types").QuickTypographyProps & import("../../../styles-global/src/types").QuickFlexProps & import("../../../styles-global/src/types").QuickPositionProps & import("../../../styles-global/src/types").MediaProps & {
     className: "text";
 } & TextComponentProps, "className">;
-export declare const Strong: import("styled-components").StyledComponent<"strong", any, {}, never>;
+export declare const Strong: import("styled-components").StyledComponent<"strong", any, TextComponentProps, never>;
 export declare const Code: import("styled-components").StyledComponent<"code", any, {
     center?: boolean;
 } & {
