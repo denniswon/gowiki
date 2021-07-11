@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { v4 as uuid } from 'uuid'
 
-import { debounce, DebounceStyle } from '../utils'
+import { debounce, DebounceStyle } from '@gowiki/core'
 
 export function useDebouncedHook(value: any, wait: number, debounceStyle: DebounceStyle, blockCompletely?: boolean): any {
   const [debounceId, setDebounceId] = useState(null)

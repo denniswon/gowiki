@@ -86,7 +86,8 @@ const inputBoxFocus = css`
   box-shadow: ${inputBorderUnits} ${p => p.theme.highlight} !important;
 `
 
-export const inputBox = css` ${baseInput}
+export const inputBox = css<{ isActive?: boolean, isFocused?: boolean }>`
+  ${baseInput}
   background: ${p => p.theme.bgIdle};
 
   box-shadow:inset 0 0 0 1px ${p => rgba(p.theme.ink, 0.07)};
@@ -115,7 +116,8 @@ export const textarea = css`
 // -------------------
 // Segmented Controls
 
-export const segmentedControlBox = css` ${baseInput}
+export const segmentedControlBox = css<{ isActive?: boolean, isFocused?: boolean }>`
+  ${baseInput}
   background: ${p => p.theme.bgIdle};
 
   box-shadow: ${inputBorderUnits} ${p => rgba(p.theme.highlight, 0.7)};

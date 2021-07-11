@@ -1,6 +1,6 @@
-type UnitValue = string | number | string[] | number[]
-type StringValue = string  | string[]
-type NumberValue = number  | number[]
+type UnitValue = (string | number) & (string | number | string[] | number[])
+type StringValue = (string | string[])
+type NumberValue = number | number[]
 
 // based on styled-system 4.1.1
 
@@ -307,11 +307,11 @@ export const typography = compose(
 
 export type TypographyProps = {
   fontSize?: UnitValue,
-  fontFamily?: StringValue,
-  fontWeight?: NumberValue,
+  fontFamily?: string & StringValue,
+  fontWeight?: (string | number) & NumberValue,
   lineHeight?: StringValue,
-  fontStyle?: StringValue,
-  letterSpacing?: StringValue,
+  fontStyle?: (string | number) & StringValue,
+  letterSpacing?: (string | number) & StringValue,
 }
 
 
@@ -399,7 +399,7 @@ type LayoutProps = {
   minh?: UnitValue,
   maxh?: UnitValue,
 
-  display?: StringValue,
+  display?: (string | number) & StringValue,
   sz?: UnitValue,
   verticalAlign?: StringValue,
 }
@@ -430,7 +430,7 @@ const flex = compose(
 )
 
 type FlexProps = {
-  order?: NumberValue,
+  order?: (string | number) & NumberValue,
   flexWrap?: StringValue,
   flexShrink?: NumberValue | StringValue,
   flexBasis?: StringValue,

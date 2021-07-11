@@ -1,6 +1,6 @@
 import { EffectCallback, useEffect, useRef } from 'react'
 
-import { arraysEqual } from '../utils'
+import { arraysEqual } from '@gowiki/core'
 
 export function useEffectWhenDepsLoad(fn: EffectCallback, changeOn: any[], deps: any[]) {
   const loaded = useRef(false)

@@ -27,7 +27,6 @@ export declare function distribution(arr: number[]): {
 };
 export declare function fuzzysearch(needle: string, haystack: string): boolean;
 export declare function clamp(val: number, min: number, max: number): number;
-export declare const getAudioContext: () => any;
 export declare function delay(ms: any): Promise<void>;
 export declare function currentTimezone(): string;
 export declare enum DebounceStyle {

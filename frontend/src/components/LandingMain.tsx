@@ -5,7 +5,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import 'url-search-params-polyfill'
 import 'styles/index.css'
 
-import { GlobalStyles } from '../appStyles'
+import { GlobalStyles } from 'styles'
 import Routes from './LandingRoutes'
 import HeadMeta from './HeadMeta'
 

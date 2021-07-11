@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 
-import { Theme } from 'styles'
+import { Theme } from '@gowiki/styles'
 
 import { ThemeContext } from 'styled-components'
 

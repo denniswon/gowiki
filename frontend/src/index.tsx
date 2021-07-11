@@ -2,7 +2,7 @@ import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import { renderToString } from 'react-dom/server'
 import { Route, StaticRouter } from 'react-router'
-import { config } from './config'
+import { config } from '@gowiki/core'
 
 import App from './App'
 

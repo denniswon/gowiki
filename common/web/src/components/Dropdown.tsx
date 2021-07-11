@@ -8,7 +8,7 @@ import { IconProps } from './Icon'
 type DropdownIconProps = Pick<IconProps, Exclude<keyof IconProps, 'name'>>
 
 type Props = {
-  isActive: boolean
+  isActive?: boolean
   color?: string
 } & DropdownIconProps
 
@@ -29,6 +29,6 @@ Dropdown.defaultProps = {
   size: 16
 }
 
-export const DropdownIcon = styled(Svg)<{ isActive: boolean }>`
+export const DropdownIcon = styled(Svg)<{ isActive?: boolean }>`
   ${p => p.isActive && `transform: rotate(180deg); opacity:1 !important;`}
 `

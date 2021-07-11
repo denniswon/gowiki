@@ -1,9 +1,6 @@
 import React, { MutableRefObject, useCallback, useEffect, useRef, useState } from 'react'
 
-import { Point, Rectangle } from '../config'
-import {
-    createScopedDebounce, debounce, DebounceStyle, loggerWithPrefix
-} from '../utils'
+import { Point, Rectangle, createScopedDebounce, debounce, DebounceStyle, loggerWithPrefix } from '@gowiki/core'
 
 const log = loggerWithPrefix('[mouseLeaveListener]')
 

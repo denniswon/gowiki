@@ -11,7 +11,7 @@ type PasteEvent = {
 
 export default function usePaste(onPaste: (files) => void) {
   useEffect(() => {
-    const pasteListener: any = (pasteEvent: PasteEvent) => {
+    const pasteListener = (pasteEvent: PasteEvent) => {
       if (!pasteEvent.clipboardData || !pasteEvent.clipboardData.items) return
       const items = pasteEvent.clipboardData.items
       const files = []
@@ -25,7 +25,7 @@ export default function usePaste(onPaste: (files) => void) {
         onPaste(files)
       }
     }
-    window.addEventListener('paste', pasteListener, false)
-    return () => window.removeEventListener('paste', pasteListener)
+    window.addEventListener('paste', pasteListener as EventListener, false)
+    return () => window.removeEventListener('paste', pasteListener as EventListener)
   }, [])
 }

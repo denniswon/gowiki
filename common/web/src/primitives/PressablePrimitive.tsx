@@ -10,8 +10,8 @@ export type PressableProps = {
   bg?: string
   color?: string
   hoverColor?: string
-  hoverOp?: string
-  activeOp?: string
+  hoverOp?: number
+  activeOp?: number
   hoverBg?: string
   activeColor?: string
   activeBg?: string
@@ -25,7 +25,7 @@ export type PressableProps = {
 } & BoxProps
 
 
-const activeStyles = css`
+const activeStyles = css<{ activeOp?: number, hoverOp?: number }>`
   color: ${p => getPropColor('activeColor', p) || getPropColor('hoverColor', p)};
   background: ${p => getPropColor('activeBg', p) || getPropColor('hoverBg', p)};
   opacity: ${p => p.activeOp || p.hoverOp};
@@ -49,13 +49,17 @@ export const RootPressable = styled(Box).attrs<PressableProps>(p => ({
   iconOp: 0.6,
   ...p,
   onClick: p.disabled ? undefined : p.onClick,
-}))`
-  ${p => !p.selectable && s.unselectable} ${s.anchor} ${!isMac && '-webkit-app-region: no-drag;'}
+}))<{ selectable?: boolean, iconOp?: number, disabled?: boolean, hoverOp?: number, isActive?: boolean }>`
+  ${p => !p.selectable && s.unselectable}
+  ${s.anchor}
+  ${!isMac && '-webkit-app-region: no-drag;'}
   color: ${p => getPropColor('color', p)};
 
   & svg {
     ${p => p.color && `fill: ${getPropColor('color', p)};`}
   }
+
+  cursor: pointer; 
 
   & .icon {
     opacity: ${p => p.iconOp};
@@ -91,7 +95,7 @@ export const RootPressable = styled(Box).attrs<PressableProps>(p => ({
     &:active { ${activeStyles} }
   `}
 
-  ${p => p.isActive && activeStyles }
+  ${p => p.isActive && activeStyles}
 
   ${p => p.disabled && `
     opacity: 0.3;

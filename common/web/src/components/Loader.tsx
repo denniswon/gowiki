@@ -29,7 +29,7 @@ Loader.defaultProps = {
 
 const THICKNESS_FACTOR = 0.1
 
-const circle = css`
+const circle = css<{ size?: number, thickness?: number }>`
   content: '';
   box-sizing: border-box;
   position: absolute;

@@ -8,7 +8,7 @@ interface Props extends BoxProps {
   height: number
   width: number
 }
-export const Triangle = styled(Box).attrs<Props>({  })` width:0; height:0;
+export const Triangle = styled(Box).attrs<Props>({  })<Props>` width:0; height:0;
   ${p =>
     p.direction == 'up' &&
     `border:${p.width}px solid transparent; border-bottom:${p.height}px solid ${p.color}; border-top:none;`}

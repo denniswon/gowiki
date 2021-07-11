@@ -4,7 +4,7 @@ import colors, { themedColorVariables, themes } from './colors'
 import * as main from './main'
 import * as text from './text'
 
-export const m = {
+export const m: any = {
   ...text,
   ...main,
   themes,

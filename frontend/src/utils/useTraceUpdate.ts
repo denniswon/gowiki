@@ -1,4 +1,4 @@
-import { logger } from './logger'
+import { logger } from '@gowiki/core'
 import { useEffect, useRef } from 'react'
 
 // examine props for differences

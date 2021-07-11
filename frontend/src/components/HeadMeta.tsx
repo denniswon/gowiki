@@ -1,5 +1,5 @@
 // @flow
-import { config } from 'config/config'
+import { config } from '@gowiki/core'
 import React from 'react'
 import Helmet from 'react-helmet'
 

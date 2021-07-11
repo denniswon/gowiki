@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.calculateDragOffset = exports.objectToGetParams = exports.apostrophedString = exports.range = exports.mapSlices = exports.mapRange = exports.placeholderPromise = exports.deepCompareIntersection = exports.shallowCompare = exports.errorHasCode = exports.unwrapError = exports.getBrowserOS = exports.getBrowser = exports.isWebRTCSupported = exports.getOSInfo = exports.classes = exports.draggingClass = exports.isReactNative = exports.isMobile = exports.isLinux = exports.isWindows = exports.isMacBigSur = exports.isMac = exports.setPlatform = exports.getPlatform = exports.getOS = exports.EventsQueue = exports.clearDebounce = exports.debounce = exports.createScopedDebounce = exports.DebounceStyle = exports.currentTimezone = exports.delay = exports.getAudioContext = exports.clamp = exports.fuzzysearch = exports.distribution = exports.isEmpty = exports.isFilled = exports.randInt = exports.setCopyToggle = exports.setCopyDelete = exports.setCopyAdd = exports.timeToString = exports.emailToName = exports.toTitleCase = exports.toPascalCase = exports.findMax = exports.values = exports.arraysEqual = void 0;
-exports.renderTimeString = exports.getCircularReplacer = exports.bfsTraverseElem = exports.debugCloneNodeWithAttrs = exports.performanceNow = exports.humanizeNumber = exports.assertUnreachable = exports.pluralize = exports.pluralizeWithCount = exports.nounApostrophe = exports.sleep = exports.fileSize = exports.timeDuration = exports.commaAnd = exports.shuffleArray = exports.offlineMessage = exports.updateWindowPosition = void 0;
+exports.updateWindowPosition = exports.calculateDragOffset = exports.objectToGetParams = exports.apostrophedString = exports.range = exports.mapSlices = exports.mapRange = exports.placeholderPromise = exports.deepCompareIntersection = exports.shallowCompare = exports.errorHasCode = exports.unwrapError = exports.getBrowserOS = exports.getBrowser = exports.isWebRTCSupported = exports.getOSInfo = exports.classes = exports.draggingClass = exports.isReactNative = exports.isMobile = exports.isLinux = exports.isWindows = exports.isMacBigSur = exports.isMac = exports.setPlatform = exports.getPlatform = exports.getOS = exports.EventsQueue = exports.clearDebounce = exports.debounce = exports.createScopedDebounce = exports.DebounceStyle = exports.currentTimezone = exports.delay = exports.clamp = exports.fuzzysearch = exports.distribution = exports.isEmpty = exports.isFilled = exports.randInt = exports.setCopyToggle = exports.setCopyDelete = exports.setCopyAdd = exports.timeToString = exports.emailToName = exports.toTitleCase = exports.toPascalCase = exports.findMax = exports.values = exports.arraysEqual = void 0;
+exports.renderTimeString = exports.getCircularReplacer = exports.bfsTraverseElem = exports.debugCloneNodeWithAttrs = exports.performanceNow = exports.humanizeNumber = exports.assertUnreachable = exports.pluralize = exports.pluralizeWithCount = exports.nounApostrophe = exports.sleep = exports.fileSize = exports.timeDuration = exports.commaAnd = exports.shuffleArray = exports.offlineMessage = void 0;
 const config_1 = require("../config");
-const logger_1 = require("./logger");
+const core_1 = require("@gowiki/core");
 // --- Basic JS Helpers
 function arraysEqual(a, b, comparator) {
     if (a == null && b == null)
@@ -178,14 +178,6 @@ function clamp(val, min, max) {
     return val > max ? max : val < min ? min : val;
 }
 exports.clamp = clamp;
-// --- Audio helpers
-const getAudioContext = () => {
-    const w = window;
-    const ContextConstructor = w.AudioContext || w.webkitAudioContext;
-    let context = (w.audioContext = new ContextConstructor());
-    return context;
-};
-exports.getAudioContext = getAudioContext;
 function delay(ms) {
     return new Promise(function (resolve, reject) {
         setTimeout(resolve, ms);
@@ -443,7 +435,7 @@ function unwrapError(error, defaultMessage) {
     if (error.response) {
         let response = error.response;
         if (response.data)
-            logger_1.logger.info(response.data);
+            core_1.logger.info(response.data);
         return response.data && response.data.error
             ? response.data.error.message || response.data.error.toString()
             : defaultMessage;

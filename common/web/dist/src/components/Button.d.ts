@@ -1,0 +1,57 @@
+import * as React from 'react';
+import { BoxProps } from '@gowiki/styles';
+export declare type ButtonProps = BoxProps & {
+    /** Full Width */
+    fw?: boolean;
+    bg?: string;
+    color?: string;
+    hoverBg?: string;
+    hoverColor?: string;
+    borderColor?: string;
+    borderHoverColor?: string;
+    shadowColor?: string;
+    iconOp?: number;
+    iconName?: string;
+    useRightIcon?: boolean;
+    iconSize?: number;
+    disabled?: boolean;
+    disabledLook?: boolean;
+    withTextShadow?: boolean;
+    withBorder?: boolean;
+    defaultShadow?: boolean;
+    id?: string;
+    name?: string;
+    title?: string;
+    value?: string;
+    type?: "button" | "submit" | "reset";
+    children?: any;
+    className?: string;
+    style?: any;
+    onClick?: React.MouseEventHandler<any>;
+    onMouseDown?: React.MouseEventHandler<any>;
+};
+export declare const buttonPadding: import("styled-components").FlattenInterpolation<import("styled-components").ThemedStyledProps<ButtonProps, any>>;
+export declare const buttonText: import("styled-components").FlattenSimpleInterpolation;
+export declare const buttonRounding = 6;
+export declare const buttonWithFocus: import("styled-components").FlattenSimpleInterpolation;
+export declare const baseButton: import("styled-components").FlattenInterpolation<import("styled-components").ThemeProps<any>>;
+export declare const buttonWithTranslation: import("styled-components").FlattenSimpleInterpolation;
+export declare const buttonWithShadow: import("styled-components").FlattenInterpolation<import("styled-components").ThemedStyledProps<{
+    defaultShadow?: boolean;
+}, any>>;
+export declare const buttonWithBackgroundShadow: import("styled-components").FlattenInterpolation<import("styled-components").ThemedStyledProps<ButtonProps, any>>;
+export declare const buttonWithOutline: import("styled-components").FlattenInterpolation<import("styled-components").ThemedStyledProps<ButtonProps, any>>;
+export declare const buttonWithColoredBackground: import("styled-components").FlattenInterpolation<import("styled-components").ThemedStyledProps<ButtonProps, any>>;
+export declare const button: import("styled-components").FlattenInterpolation<import("styled-components").ThemedStyledProps<{
+    borderColor?: string;
+}, any>>;
+export declare const ButtonInput: import("styled-components").StyledComponent<"input", any, {}, never>;
+export declare const Button: React.SFC<ButtonProps>;
+export declare const PrimaryButton: (p: ButtonProps) => JSX.Element;
+export declare const TertiaryButton: (p: ButtonProps) => JSX.Element;
+export declare const BlueButton: (p: ButtonProps) => JSX.Element;
+export declare const GreenButton: (p: ButtonProps) => JSX.Element;
+export declare const GreyButton: (p: ButtonProps) => JSX.Element;
+export declare const RedButton: (p: ButtonProps) => JSX.Element;
+export declare const SecondaryButton: (p: ButtonProps) => JSX.Element;
+export declare const SecondaryRedButton: (p: ButtonProps) => JSX.Element;

@@ -1,7 +1,7 @@
 import { OS, Platform } from '../config/types'
 
 import { config, getProtocol } from '../config'
-import { logger } from './logger'
+import { logger } from '@gowiki/core'
 
 // --- Basic JS Helpers
 
@@ -169,15 +169,6 @@ export function fuzzysearch (needle: string, haystack: string) {
 // range then set it to the min or max value as appropriate
 export function clamp(val: number, min: number, max: number) {
     return val > max ? max : val < min ? min : val
-}
-
-// --- Audio helpers
-
-export const getAudioContext = () => {
-  const w: any = window
-  const ContextConstructor = w.AudioContext || w.webkitAudioContext
-  let context = (w.audioContext = new ContextConstructor())
-  return context
 }
 
 export function delay(ms) {

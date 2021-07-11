@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { connect, sendMsg } from './api'
-import { Button } from './components'
+import { connect, sendMsg } from 'api'
+import { Button } from '@gowiki/web'
 
 type Props = {
 }

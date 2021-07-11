@@ -36,7 +36,7 @@ export type ButtonProps = BoxProps & {
   name?: string
   title?: string
   value?: string
-  type?: string
+  type?: "button" | "submit" | "reset"
 
   children?: any
   className?: string
@@ -77,7 +77,7 @@ export const buttonWithTranslation = css`
     transition: transform 0ms linear;
   }
 `
-export const buttonWithShadow = css` transition: all 400ms ease;
+export const buttonWithShadow = css<{ defaultShadow?: boolean }>` transition: all 400ms ease;
   ${p =>
     p.defaultShadow && `box-shadow: 0 1px 5px 0 ${c.black10}, 0 3px 16px 0 ${c.black10}; transition: all 150ms ease;`}
   box-shadow: 0 1px 5px 0 ${c.black10}, 0 3px 16px 0 ${c.black10}; transition: all 150ms ease;
@@ -112,12 +112,12 @@ export const buttonWithColoredBackground = css<ButtonProps>`
   }
 `
 
-export const button = css`
+export const button = css<{ borderColor?: string }>`
   ${baseButton} ${buttonWithFocus} ${buttonWithTranslation} ${buttonWithBackgroundShadow} ${buttonWithColoredBackground}
   ${p => p.borderColor && buttonWithOutline}
 `
 export const ButtonInput = styled.input`
-  ${button} ${s.spacingProps as any}
+  ${button} ${s.spacingProps}
 `
 
 export const Button: React.SFC<ButtonProps> = (props: ButtonProps) => {
@@ -178,7 +178,7 @@ const StyledButton = styled.button<ButtonProps>`
   ${p => p.disabled && disabledButton}
 `
 
-const disabledButton = css` ${baseButton}
+const disabledButton = css<ButtonProps & { bgHover?: string }>` ${baseButton}
   background-color:${p => p.bg || p.theme.ink80}  !important;
   cursor:not-allowed; box-shadow:none !important; border:0 !important;
   text-shadow:none;

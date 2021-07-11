@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import useDragDrop from './useDragDrop'
 import usePaste from '../utils/usePaste'
 
-import { Box } from 'styles'
+import { Box } from '@gowiki/styles'
 
 export default function useFileUpload(path: string, onUpload: (response: string) => void, method?: string,
     accept?: string): [JSX.Element, () => void, boolean] {
@@ -17,7 +17,7 @@ export default function useFileUpload(path: string, onUpload: (response: string)
   useEffect(() => {
     const doc = wrapperRef?.ownerDocument || window.document
 
-    const pasteListener: any = (pasteEvent) => {
+    const pasteListener = (pasteEvent) => {
       if (!pasteEvent.clipboardData) return
       fileUploadRef.current.files = pasteEvent.clipboardData.files
       onFileSelect()

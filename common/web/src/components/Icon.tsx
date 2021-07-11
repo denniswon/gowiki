@@ -12,7 +12,7 @@ export type IconProps = {
   className?: string
   v_mid?: boolean
   style?: React.CSSProperties
-  onClick?: (e?: MouseEvent) => void
+  onClick?: React.MouseEventHandler
   title?: string
 } & BoxProps
 

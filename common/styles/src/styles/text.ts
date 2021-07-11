@@ -278,12 +278,12 @@ export const Text = styled(Box).attrs({ className: 'text' })<TextComponentProps>
   }
 `
 
-export const Strong = styled.strong<TextComponentProps>` ${s.boxProps} ${textProps} ${tBold} `
+export const Strong = styled.strong<TextComponentProps>` ${s.boxProps as any} ${textProps} ${tBold} `
 
 export const Code = styled.code` ${s.boxProps}
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 `
-export const linkStyle = css`
+export const linkStyle = css<{ color?: string }>`
   color: ${p => p.color || c.brand};
   cursor: pointer;
   &:hover {

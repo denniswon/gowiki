@@ -16,7 +16,7 @@ ImgFrame.defaultProps = { p: 20, br: 12, center: true }
 export const Video = styled.video<BoxProps>`
   ${s.boxProps}
 `
-export const Divider = styled(Box).attrs(p => ({
+export const Divider = styled(Box).attrs((p: BoxProps & { theme }) => ({
   minh: 1,
   mt: p.mv || 8,
   mb: p.mv || 8,

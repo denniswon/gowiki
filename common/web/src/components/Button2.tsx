@@ -137,7 +137,7 @@ const baseButton = css`
   border-radius: ${buttonRounding}px;
 `
 
-const ButtonBox = styled.button<ButtonProps>`
+const ButtonBox = styled.button<ButtonProps & { dimension?: string }>`
   ${baseButton}
   position: relative;
 

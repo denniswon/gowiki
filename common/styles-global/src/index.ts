@@ -40,7 +40,7 @@ export const media = (Object.keys(sizes) as (keyof typeof sizes)[]).reduce(
   (acc, label) => {
     acc[label] = (first: any, ...interpolations: any[]) => css`
       @media (max-width: ${sizes[label]}) {
-        ${css(first, ...interpolations)}
+        ${css(first, ...interpolations) as any}
       }
     `
 
@@ -51,15 +51,15 @@ export const media = (Object.keys(sizes) as (keyof typeof sizes)[]).reduce(
 
 const mediaQuery = (maxWidth: number) => `@media (max-width: ${maxWidth}px)`
 
-export const Column = styled(Root as any).attrs({ col: true })<BoxProps>`
+export const Column = styled(Root).attrs({ col: true })<BoxProps>`
   ${boxProps}
 `
 
-export const Row = styled(Root as any).attrs({ row: true })<BoxProps>`
+export const Row = styled(Root).attrs({ row: true })<BoxProps>`
   ${boxProps}
 `
 
-export const Box = styled(Root as any)<BoxProps>`
+export const Box = styled(Root)<BoxProps>`
   ${boxProps}
 `
 

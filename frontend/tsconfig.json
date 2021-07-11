@@ -14,8 +14,7 @@
     ],
     "typeRoots": [
       "../common/@types",
-      "../node_modules/@types",
-      "./node_modules/@types"
+      "../node_modules/@types"
     ],
     "paths": {
       "@gowiki/api": ["../common/api/src"],
@@ -25,6 +24,7 @@
       "@gowiki/styles": ["../common/styles/src"],
       "@gowiki/web": ["../common/web/src"],
 
+      "api": ["./src/api"],
       "api/*": ["./src/api/*"],
       "components/*": ["./src/components/*"],
       "config/*": ["./src/config/*"],

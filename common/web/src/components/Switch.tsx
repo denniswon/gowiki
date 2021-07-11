@@ -33,7 +33,7 @@ export const Switch: React.SFC<Props> = (props: Props) => {
 
 export const RefSwitch = React.forwardRef((props: any, ref) => <Switch innerRef={ref} {...props} />)
 
-const Wrapper = styled(Row) <{ active: boolean }>`
+const Wrapper = styled(Row) <{ active?: boolean, activeColor?: string }>`
   border-radius: 100px;
   transition: 200ms;
   cursor: pointer;

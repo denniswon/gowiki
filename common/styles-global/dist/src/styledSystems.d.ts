@@ -1,5 +1,5 @@
-declare type UnitValue = string | number | string[] | number[];
-declare type StringValue = string | string[];
+declare type UnitValue = (string | number) & (string | number | string[] | number[]);
+declare type StringValue = (string | string[]);
 declare type NumberValue = number | number[];
 export declare const defaultBreakpoints: string[];
 export declare const spacing: (props: any) => any;
@@ -22,11 +22,11 @@ declare type SpacingProps = {
 export declare const typography: (props: any) => any[];
 export declare type TypographyProps = {
     fontSize?: UnitValue;
-    fontFamily?: StringValue;
-    fontWeight?: NumberValue;
+    fontFamily?: string & StringValue;
+    fontWeight?: (string | number) & NumberValue;
     lineHeight?: StringValue;
-    fontStyle?: StringValue;
-    letterSpacing?: StringValue;
+    fontStyle?: (string | number) & StringValue;
+    letterSpacing?: (string | number) & StringValue;
 };
 export declare const layout: (props: any) => any[];
 declare type LayoutProps = {
@@ -36,12 +36,12 @@ declare type LayoutProps = {
     h?: UnitValue;
     minh?: UnitValue;
     maxh?: UnitValue;
-    display?: StringValue;
+    display?: (string | number) & StringValue;
     sz?: UnitValue;
     verticalAlign?: StringValue;
 };
 declare type FlexProps = {
-    order?: NumberValue;
+    order?: (string | number) & NumberValue;
     flexWrap?: StringValue;
     flexShrink?: NumberValue | StringValue;
     flexBasis?: StringValue;
