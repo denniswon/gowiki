@@ -1,7 +1,7 @@
 import { OS, Platform } from '../config/types'
 
 import { config, getProtocol } from '../config'
-import { logger } from '@gowiki/core'
+import { logger } from './logger'
 
 // --- Basic JS Helpers
 

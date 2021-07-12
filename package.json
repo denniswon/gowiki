@@ -5,7 +5,17 @@
   "repository": "git@github.com:denniswon/gowiki.git",
   "author": "Jong Hyuck Won <jhwon0820@gmail.com>",
   "scripts": {
-    "frontend": "cd frontend && yarn"
+    "frontend": "cd frontend && yarn",
+    "clean": "yarn workspaces foreach -v exec rm -rf dist",
+    "coverage": "jest --coverage && open coverage/lcov-report/index.html",
+    "coverage-ci": "jest --coverage --no-cache",
+    "docs": "jsdoc -c jsdoc.json",
+    "tsc": "yarn workspaces foreach -vt --exclude gowiki run tsc",
+    "tsc-test": "yarn tsc && yarn test",
+    "test": "jest",
+    "test-update": "jest --updateSnapshot",
+    "test-all": "yarn workspaces foreach run test",
+    "lint": "yarn tslint --project ."
   },
   "license": "ISC",
   "private": true,
@@ -47,7 +57,6 @@
     "tslint-eslint-rules": "^5.1.0",
     "typescript": "^4.1.2"
   },
-  "optionalDependencies": {},
   "resolutions": {
     "chokidar": "^3.0.1",
     "jest": "^26.6.1",

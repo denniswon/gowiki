@@ -4,7 +4,7 @@ const TerserPlugin = require('terser-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin')
 const MomentTimezoneDataPlugin = require('moment-timezone-data-webpack-plugin')
-const { merge } = require('webpack-merge')
+const merge = require('webpack-merge')
 
 const currentYear = new Date().getFullYear()
 const analyzer = process.env.ANALYZER == 'true'
@@ -24,7 +24,7 @@ const assetHost = process.env.ASSET_HOST || (isDev && !process.env.SERVE_STATIC 
 
 const appEntries = {
   entry: {
-    main: ['react-hot-loader/patch', './src/index'],
+    landing: ['react-hot-loader/patch', './src/landing'],
   }
 }
 
@@ -131,6 +131,7 @@ const baseConfig = {
     ]
   },
   plugins: [
+    new webpack.NamedModulesPlugin(),
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new webpack.DefinePlugin({
       IS_DEV: JSON.stringify(isDev),
@@ -177,15 +178,6 @@ const baseConfig = {
 
       react: path.resolve(__dirname, repoRoot, 'node_modules/react'),
       'react-dom': path.resolve(__dirname, repoRoot, 'node_modules/react-dom')
-    },
-    // Some libraries import Node modules but don't use them in the browser.
-    // Tell Webpack to provide empty mocks for them so importing them works.
-    fallback: {
-      dgram: false,
-      fs: false,
-      net: false,
-      tls: false,
-      child_process: false
     }
   },
   optimization: {
@@ -199,10 +191,19 @@ const baseConfig = {
       }),
     ],
   },
+  // Some libraries import Node modules but don't use them in the browser.
+  // Tell Webpack to provide empty mocks for them so importing them works.
+  node: {
+    dgram: 'empty',
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty',
+    child_process: 'empty',
+  },
   // Adjust webpack watch options
   watchOptions: {
     aggregateTimeout: 300,
-    ignored: ['node_modules/**']
+    ignored: ['backend/**/*.go', 'node_modules/**']
   },
 }
 
