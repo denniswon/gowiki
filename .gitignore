@@ -1,10 +1,9 @@
 .DS_Store
+.idea/*
 .deliver/releases
 node_modules/
 .awcache
 package-lock.json
-.elixir_ls
-secrets/
 dist/
 coverage/
 **/*.tsbuildinfo
@@ -12,38 +11,9 @@ coverage/
 /lib.info
 /docs/
 
-chrome/dist
-chrome/*.zip
-
-# Desktop build
-/desktop/dist
-/desktop/release
-/desktopv3/dist
-/desktopv3/release
-/desktopv3/app-update.yml
-.electron-symbols/
-
 # App artifacts
 /assets/build
-/assets/storybook-static
 /assets/dist
-/_build
-/db
-/deps
-/*.ez
-/media
-/templates.tgz
-/cover
-/static.tgz
-
-/cypress/cypress/videos
-/cypress/cypress/screenshots
-
-storybook/.cache
-storybook/dist
-
-# Generated on crash by the VM
-erl_crash.dump
 
 # Generated on crash by NPM
 npm-debug.log
@@ -63,11 +33,3 @@ yarn-error.log
 # this depending on your deployment strategy.
 /priv/static/
 
-# Files matching config/*.secret.exs pattern contain sensitive
-# data and you should not commit them into version control.
-#
-# Alternatively, you may comment the line below and commit the
-# secrets files as long as you replace their contents by environment
-# variables.
-/config/*.secret.exs
-.idea/*
