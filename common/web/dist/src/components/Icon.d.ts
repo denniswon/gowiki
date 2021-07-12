@@ -66,7 +66,7 @@ export declare const IconWithStyles: import("styled-components").StyledComponent
     br?: string | number | string[] | number[];
     opacity?: string | number | string[] | number[];
     op?: string | number | string[] | number[];
-    overflow?: "auto" | "hidden" | "visible" | "scroll";
+    overflow?: "hidden" | "visible" | "scroll" | "auto";
     boxShadow?: string | string[];
     backgroundImage?: string | string[];
     backgroundSize?: string | string[];

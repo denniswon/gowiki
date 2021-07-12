@@ -203,7 +203,7 @@ const baseConfig = {
   // Adjust webpack watch options
   watchOptions: {
     aggregateTimeout: 300,
-    ignored: ['backend/**/*.go', 'node_modules/**']
+    ignored: ['lib/**/*.go', 'node_modules/**']
   },
 }
 

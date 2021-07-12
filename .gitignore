@@ -8,8 +8,8 @@ secrets/
 dist/
 coverage/
 **/*.tsbuildinfo
-/frontend.info
-/backend.info
+/assets.info
+/lib.info
 /docs/
 
 chrome/dist

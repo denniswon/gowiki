@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.trackerSettings = void 0;
-const api_1 = require("@tandem/api");
+const api_1 = require("@gowiki/api");
 /**
  * Settings tracking
  */

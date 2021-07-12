@@ -35,7 +35,7 @@ See below for special instructions:
 
 To start a local Go server:
 
-  * cd backend && air
+  * cd lib && air
 
 You can visit the site at http://localhost:5000 or https://localhost:5003 (with a self-signed ssl cert).
 

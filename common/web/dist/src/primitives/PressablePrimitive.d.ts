@@ -61,7 +61,7 @@ export declare const RootPressable: import("styled-components").StyledComponent<
     br?: string | number | string[] | number[];
     opacity?: string | number | string[] | number[];
     op?: string | number | string[] | number[];
-    overflow?: "auto" | "hidden" | "visible" | "scroll";
+    overflow?: "hidden" | "visible" | "scroll" | "auto";
     boxShadow?: string | string[];
     backgroundImage?: string | string[];
     backgroundSize?: string | string[];
@@ -142,7 +142,7 @@ export declare const PressableOnBlack: import("styled-components").StyledCompone
     br?: string | number | string[] | number[];
     opacity?: string | number | string[] | number[];
     op?: string | number | string[] | number[];
-    overflow?: "auto" | "hidden" | "visible" | "scroll";
+    overflow?: "hidden" | "visible" | "scroll" | "auto";
     boxShadow?: string | string[];
     backgroundImage?: string | string[];
     backgroundSize?: string | string[];
@@ -215,7 +215,7 @@ export declare const PressableOnWhite: import("styled-components").StyledCompone
     br?: string | number | string[] | number[];
     opacity?: string | number | string[] | number[];
     op?: string | number | string[] | number[];
-    overflow?: "auto" | "hidden" | "visible" | "scroll";
+    overflow?: "hidden" | "visible" | "scroll" | "auto";
     boxShadow?: string | string[];
     backgroundImage?: string | string[];
     backgroundSize?: string | string[];
@@ -288,7 +288,7 @@ export declare const PressableBlue: import("styled-components").StyledComponent<
     br?: string | number | string[] | number[];
     opacity?: string | number | string[] | number[];
     op?: string | number | string[] | number[];
-    overflow?: "auto" | "hidden" | "visible" | "scroll";
+    overflow?: "hidden" | "visible" | "scroll" | "auto";
     boxShadow?: string | string[];
     backgroundImage?: string | string[];
     backgroundSize?: string | string[];
@@ -361,7 +361,7 @@ export declare const Pressable: import("styled-components").StyledComponent<"div
     br?: string | number | string[] | number[];
     opacity?: string | number | string[] | number[];
     op?: string | number | string[] | number[];
-    overflow?: "auto" | "hidden" | "visible" | "scroll";
+    overflow?: "hidden" | "visible" | "scroll" | "auto";
     boxShadow?: string | string[];
     backgroundImage?: string | string[];
     backgroundSize?: string | string[];

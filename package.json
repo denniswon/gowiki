@@ -5,7 +5,7 @@
   "repository": "git@github.com:denniswon/gowiki.git",
   "author": "Jong Hyuck Won <jhwon0820@gmail.com>",
   "scripts": {
-    "frontend": "cd frontend && yarn",
+    "assets": "cd assets && yarn",
     "clean": "yarn workspaces foreach -v exec rm -rf dist",
     "coverage": "jest --coverage && open coverage/lcov-report/index.html",
     "coverage-ci": "jest --coverage --no-cache",
@@ -28,7 +28,7 @@
       "common/api",
       "common/app",
       "common/web",
-      "frontend"
+      "assets"
     ]
   },
   "dependencies": {

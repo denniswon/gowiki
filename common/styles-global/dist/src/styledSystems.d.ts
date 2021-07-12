@@ -1,5 +1,5 @@
-declare type UnitValue = (string | number | string[] | number[]);
-declare type StringValue = (string | string[]);
+declare type UnitValue = string | number | string[] | number[];
+declare type StringValue = string | string[];
 declare type NumberValue = number | number[];
 export declare const defaultBreakpoints: string[];
 export declare const spacing: (props: any) => any;

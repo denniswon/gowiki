@@ -8,7 +8,7 @@
   ],
   "source": {
     "include": [
-      "./frontend/src",
+      "./assets/src",
       "./common/api/src",
       "./common/app/src",
       "./common/core/src"
