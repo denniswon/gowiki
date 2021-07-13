@@ -10,7 +10,6 @@ import TermsScreen from 'components/screens.terms/TermsScreen'
 
 export default class Routes extends React.Component {
   render() {
-    location.pathname = paths.APP_ROOT
     return (
       <Switch>
         <Route path={paths.ROOT} exact component={LandingScreen} />

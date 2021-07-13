@@ -27,7 +27,11 @@ linux-binaries:
 	CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -tags "$(LIBRARY_ENV) netgo" -installsuffix netgo -o $(BIN_DIR)/api api/main.go
 	CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -tags "$(LIBRARY_ENV) netgo" -installsuffix netgo -o $(BIN_DIR)/search cmd/main.go
 
-ci: dependencies test	
+ci: dependencies test
+
+serve-api: ./$(BIN_DIR)/api
+
+serve-cmd: ./$(BIN_DIR)/search
 
 build-mocks:
 	@go get github.com/golang/mock/gomock
@@ -41,3 +45,12 @@ test:
 
 fmt: ## gofmt and goimports all go files
 	find . -name '*.go' -not -wholename './vendor/*' | while read -r file; do gofmt -w -s "$$file"; goimports -w "$$file"; done
+
+.PHONY: dev
+
+build-dev: 
+	go build -tags dev -o ./tmp/api api/main.go
+
+dev:
+	@go get -u github.com/cosmtrek/air
+	@air -c .air.toml

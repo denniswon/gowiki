@@ -46,13 +46,6 @@ export const LandingMain = () => (
 if (!navigator.userAgent.includes('jsdom')) {
   // non-prerendered logic
   const url = new URLSearchParams(location.search)
-  const isDesktop = window.navigator.userAgent.indexOf('Tandem') > -1
-  if (location.pathname == '/app' && !isDesktop) {
-    const path = url.get('path')
-    location.href = 'tandem:/' + path + location.search
-    setTimeout(() => (location.href = path), 400)
-  }
-
   tracker.initialize()
   tracker.trackRef(url.get('ref'), document.referrer, url.get('utm_source'))
 }

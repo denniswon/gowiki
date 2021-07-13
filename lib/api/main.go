@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"path/filepath"
 	"strconv"
 	"time"
 
@@ -65,7 +66,11 @@ func main() {
 	//loan
 	handler.MakeLoanHandlers(r, *n, bookService, userService, loanUseCase)
 
-	http.Handle("/", r)
+	//static
+	currentDir, _ := filepath.Abs(filepath.Dir(os.Args[0]))
+	staticPath := filepath.Join(currentDir, "../priv/static")
+	handler.MakeStaticHandlers(r, staticPath, "templates/landing.html")
+
 	http.Handle("/metrics", promhttp.Handler())
 	r.HandleFunc("/ping", func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)

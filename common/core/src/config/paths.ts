@@ -8,8 +8,6 @@ const paths = {
 
   ABOUT: '/about',
   PRESS: '/press',
-  CHROME: '/chrome',
-
   TERMS: '/terms',
   PRIVACY: '/privacy',
 

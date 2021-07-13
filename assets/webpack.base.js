@@ -4,6 +4,7 @@ const TerserPlugin = require('terser-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin')
 const MomentTimezoneDataPlugin = require('moment-timezone-data-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const merge = require('webpack-merge')
 
 const currentYear = new Date().getFullYear()
@@ -24,7 +25,7 @@ const assetHost = process.env.ASSET_HOST || (isDev && !process.env.SERVE_STATIC 
 
 const appEntries = {
   entry: {
-    landing: ['react-hot-loader/patch', './src/landing'],
+    landing: ['./src/landing'],
   }
 }
 
@@ -145,6 +146,10 @@ const baseConfig = {
     new MomentTimezoneDataPlugin({
       startYear: currentYear,
       endYear: currentYear,
+    }),
+    new HtmlWebpackPlugin({
+      template: '!!prerender-loader?string!../priv/static/templates/landing.html',
+      favicon: "../priv/static/favicon.ico"
     })
   ].concat(analyzer ? new BundleAnalyzerPlugin() : []),
   resolve: {
