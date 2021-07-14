@@ -22,6 +22,9 @@ declare module '*.gif' {
   export default str
 }
 
+// reactssr
+declare var reactssr: any
+
 // set by webpack
 declare var IS_TEST: boolean
 declare var IS_DEV: boolean

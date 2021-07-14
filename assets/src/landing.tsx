@@ -33,7 +33,7 @@ export default params => {
       )
     )
     const styleTags = sheet.getStyleTags()
-    return styleTags + html
+    reactssr.render(styleTags + html)
   } catch (error) {
     // handle error
     console.error(error)
