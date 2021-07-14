@@ -20,8 +20,8 @@ export default params => {
      and throw an error. It expects to run within a node.js environment using something like Gatsby.
      In order to work with prerender-loader's JSDOM implementation we do the following hack:
      https://github.com/styled-components/styled-components/issues/1692 */
-  const { StyleSheet } = __DO_NOT_USE_OR_YOU_WILL_BE_HAUNTED_BY_SPOOKY_GHOSTS
-  StyleSheet.reset(true)
+  // const { StyleSheet } = __DO_NOT_USE_OR_YOU_WILL_BE_HAUNTED_BY_SPOOKY_GHOSTS
+  // StyleSheet.reset(true)
 
   const sheet = new ServerStyleSheet()
   try {
@@ -33,7 +33,7 @@ export default params => {
       )
     )
     const styleTags = sheet.getStyleTags()
-    reactssr.render(styleTags + html)
+    return styleTags + html
   } catch (error) {
     // handle error
     console.error(error)

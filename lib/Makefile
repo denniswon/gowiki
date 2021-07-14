@@ -13,6 +13,7 @@ clean:
 	rm -rf bin/*
 
 dependencies:
+	curl -sSfL https://raw.githubusercontent.com/cosmtrek/air/master/install.sh | sh -s
 	go mod download
 
 build: dependencies build-api build-cmd
@@ -53,4 +54,4 @@ build-dev:
 
 dev:
 	@go get -u github.com/cosmtrek/air
-	@air -c .air.toml
+	./bin/air -c .air.toml

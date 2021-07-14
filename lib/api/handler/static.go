@@ -7,7 +7,6 @@ import (
 	"path/filepath"
 
 	"github.com/gorilla/mux"
-	"github.com/tmc/reactssr"
 )
 
 type StaticHandler struct {
@@ -21,9 +20,10 @@ func (h StaticHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	indexFile := filepath.Join(h.staticPath, h.indexPath)
 	_, err := os.Stat(path)
 	if os.IsNotExist(err) {
-		r, _ := reactssr.NewServerSideRenderer(indexFile)
-		output, _ := r.Render()
-		w.Write([]byte(output))
+		// r, _ := reactssr.NewServerSideRenderer(indexFile)
+		// output, _ := r.Render()
+		// w.Write([]byte(output))
+		http.ServeFile(w, r, indexFile)
 		return
 	} else if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)

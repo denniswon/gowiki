@@ -11,6 +11,8 @@ coverage/
 /lib.info
 /docs/
 
+**/dist/
+
 # App artifacts
 /assets/build
 /assets/dist

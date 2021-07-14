@@ -63,12 +63,12 @@ const config = {
 const mergedConfig = merge(config, appConfig)
 
 Object.keys(mergedConfig.entry).forEach(k => {
-  mergedConfig.entry[k].unshift('react-hot-loader/patch')
+  mergedConfig.entry[k].unshift('./node_modules/react-hot-loader/patch')
   mergedConfig.entry[k].unshift('./src/devtool')
 })
 
 // on dev builds, remove desktop chunk so we can merge web & assets
-mergedConfig.entry.desktop = '@babel/polyfill'
+// mergedConfig.entry.desktop = '@babel/polyfill'
 mergedConfig.optimization = {}
 
 module.exports = mergedConfig
