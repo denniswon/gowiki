@@ -4,9 +4,6 @@ const webpack = require('webpack')
 const merge = require('webpack-merge')
 const fs = require('fs-extra')
 
-const CleanWebpackPlugin = require('clean-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-
 const { appConfig } = require('./webpack.base.js')
 
 // since dev is served out of webpack-dev-server, we need to copy static files manually
@@ -26,9 +23,7 @@ const config = {
   plugins: [
     new webpack.DefinePlugin({
       DEVTOOL: JSON.stringify(devtool)
-    }),
-    new CleanWebpackPlugin(['priv/static'], { root: path.join(__dirname, '..') }),
-    new CopyWebpackPlugin([{ from: path.join(__dirname, 'static'), to: path.join(__dirname, '..', 'priv/static') }])
+    })
   ],
   module: {
     rules: [
