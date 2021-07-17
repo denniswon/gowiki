@@ -17,7 +17,7 @@
   },
   "opts": {
     "encoding": "utf8",
-    "destination": "priv/static/docs",
+    "destination": "static/docs",
     "template": "node_modules/docdash",
     "readme": "analytics.md",
     "recurse": true,

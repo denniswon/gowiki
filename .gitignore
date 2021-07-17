@@ -31,7 +31,7 @@ yarn-error.log
 **/.pnp.*
 
 # Since we are building assets from assets/,
-# we ignore priv/static. You may want to comment
+# we ignore root /static. You may want to comment
 # this depending on your deployment strategy.
-/priv/static/
+/static
 

@@ -148,8 +148,8 @@ const baseConfig = {
       endYear: currentYear,
     }),
     new HtmlWebpackPlugin({
-      template: '../priv/static/templates/landing.html',
-      favicon: "../priv/static/favicon.ico"
+      template: '../static/landing.html',
+      favicon: "../static/favicon.ico"
     })
   ].concat(analyzer ? new BundleAnalyzerPlugin() : []),
   resolve: {

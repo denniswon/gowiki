@@ -7,13 +7,13 @@ const fs = require('fs-extra')
 const { appConfig } = require('./webpack.base.js')
 
 // since dev is served out of webpack-dev-server, we need to copy static files manually
-fs.copy(path.join(__dirname, 'static'), path.join(__dirname, '../priv/static'))
+fs.copy(path.join(__dirname, 'static'), path.join(__dirname, '../static'))
 
 const devtool = process.env.DEVTOOL || 'eval-cheap-source-map'
 
 const config = {
   output: {
-    path: path.join(__dirname, '../priv/static'),
+    path: path.join(__dirname, '../static'),
     filename: 'js/[name].js',
     publicPath: `http://${os.hostname}:9000/`,
     sourceMapFilename: `http://${os.hostname}:9000/[name].js.map`
