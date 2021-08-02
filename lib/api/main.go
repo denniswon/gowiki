@@ -69,7 +69,7 @@ func main() {
 	//static
 	currentDir, _ := filepath.Abs(filepath.Dir(os.Args[0]))
 	staticPath := filepath.Join(currentDir, "../static")
-	handler.MakeStaticHandlers(r, staticPath, "landing.html")
+	handler.MakeStaticHandlers(r, staticPath, "index.html")
 
 	http.Handle("/metrics", promhttp.Handler())
 	r.HandleFunc("/ping", func(w http.ResponseWriter, r *http.Request) {

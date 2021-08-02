@@ -24,9 +24,7 @@ const isDev = mode == 'development'
 const assetHost = process.env.ASSET_HOST || (isDev && !process.env.SERVE_STATIC ? 'http://localhost:9000' : '')
 
 const appEntries = {
-  entry: {
-    landing: ['./src/landing'],
-  }
+  entry: './src/index'
 }
 
 const baseConfig = {
@@ -148,7 +146,7 @@ const baseConfig = {
       endYear: currentYear,
     }),
     new HtmlWebpackPlugin({
-      template: '../static/landing.html',
+      template: '../static/index.html',
       favicon: "../static/favicon.ico"
     })
   ].concat(analyzer ? new BundleAnalyzerPlugin() : []),

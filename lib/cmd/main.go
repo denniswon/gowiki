@@ -7,10 +7,10 @@ import (
 	"log"
 	"os"
 
+	"github.com/denniswon/gowiki/config"
 	"github.com/denniswon/gowiki/infrastructure/repository"
 	"github.com/denniswon/gowiki/usecase/book"
 
-	"github.com/denniswon/gowiki/config"
 	_ "github.com/go-sql-driver/mysql"
 
 	"github.com/denniswon/gowiki/pkg/metric"

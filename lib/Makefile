@@ -7,6 +7,9 @@ LIBRARY_ENV ?= dev
 
 BIN_DIR = $(PWD)/bin
 
+$(info LIBRARY_ENV: $(LIBRARY_ENV))
+$(info BIN_DIR: $(BIN_DIR))
+
 .PHONY: build
 
 clean:

@@ -17,6 +17,7 @@
     "@gowiki/core": "1.0.0",
     "@gowiki/sounds": "1.0.0",
     "@gowiki/web": "^1.0.0",
+    "@popperjs/core": "^2.9.2",
     "axios": "^0.21.1",
     "babel-plugin-add-react-displayname": "^0.0.5",
     "blob-util": "^2.0.2",
