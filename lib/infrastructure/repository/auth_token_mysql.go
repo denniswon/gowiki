@@ -2,37 +2,35 @@ package repository
 
 import (
 	"database/sql"
+	"fmt"
 	"time"
 
 	"github.com/denniswon/gowiki/entity"
 )
 
-//UserMySQL mysql repo
-type UserMySQL struct {
+//AuthTokenMySQL mysql repo
+type AuthTokenMySQL struct {
 	db *sql.DB
 }
 
-//NewUserMySQL create new repository
-func NewUserMySQL(db *sql.DB) *UserMySQL {
-	return &UserMySQL{
+//NewAuthTokenMySQL create new repository
+func NewAuthTokenMySQL(db *sql.DB) *AuthTokenMySQL {
+	return &AuthTokenMySQL{
 		db: db,
 	}
 }
 
-//Create an user
-func (r *UserMySQL) Create(e *entity.User) (entity.ID, error) {
+//Create an auth token
+func (r *AuthTokenMySQL) Create(e *entity.AuthToken) (entity.ID, error) {
 	stmt, err := r.db.Prepare(`
-		insert into user (id, email, password, first_name, last_name, created_at) 
-		values(?,?,?,?,?,?)`)
+		insert into auth_token (id, user, token, created_at) values(?,?,?,?)`)
 	if err != nil {
 		return e.ID, err
 	}
 	_, err = stmt.Exec(
 		e.ID,
-		e.Email,
-		e.Password,
-		e.FirstName,
-		e.LastName,
+		*e.User,
+		e.Token,
 		time.Now().Format("2006-01-02"),
 	)
 	if err != nil {
@@ -46,54 +44,41 @@ func (r *UserMySQL) Create(e *entity.User) (entity.ID, error) {
 }
 
 //Get an user
-func (r *UserMySQL) Get(id entity.ID) (*entity.User, error) {
-	return getUser(id, r.db)
+func (r *AuthTokenMySQL) Get(id entity.ID) (*entity.AuthToken, error) {
+	return getAuthToken(id, r.db)
 }
 
-func getUser(id entity.ID, db *sql.DB) (*entity.User, error) {
-	stmt, err := db.Prepare(`select id, email, first_name, last_name, created_at from user where id = ?`)
+func getAuthToken(id entity.ID, db *sql.DB) (*entity.AuthToken, error) {
+	stmt, err := db.Prepare(`select id, user, token, created_at from user where id = ?`)
 	if err != nil {
 		return nil, err
 	}
-	var u entity.User
+	var t entity.AuthToken
 	rows, err := stmt.Query(id)
 	if err != nil {
 		return nil, err
 	}
 	for rows.Next() {
-		err = rows.Scan(&u.ID, &u.Email, &u.FirstName, &u.LastName, &u.CreatedAt)
+		err = rows.Scan(&t.ID, &t.User, &t.Token, &t.CreatedAt)
 	}
-	stmt, err = db.Prepare(`select post_id from post_user where user_id = ?`)
 	if err != nil {
 		return nil, err
 	}
-	rows, err = stmt.Query(id)
-	if err != nil {
-		return nil, err
-	}
-	for rows.Next() {
-		var i entity.ID
-		err = rows.Scan(&i)
-		u.Posts = append(u.Posts, &i)
-	}
-	return &u, nil
+	return &t, nil
 }
 
 //Update an user
-func (r *UserMySQL) Update(e *entity.User) error {
+func (r *AuthTokenMySQL) Update(e *entity.AuthToken) error {
 	e.UpdatedAt = time.Now()
-	_, err := r.db.Exec(
-		"update user set email = ?, password = ?, first_name = ?, last_name = ?, updated_at = ? where id = ?",
-		e.Email, e.Password, e.FirstName, e.LastName, e.UpdatedAt.Format("2006-01-02"),
-		e.ID)
+	_, err := r.db.Exec("update auth_token set updated_at = ? where id = ?", e.UpdatedAt.Format("2006-01-02"), e.ID)
 	if err != nil {
 		return err
 	}
-	_, err = r.db.Exec("delete from post_user where user_id = ?", e.ID)
+	_, err = r.db.Exec("delete from auth_token_user where user_id = ?", e.ID)
 	if err != nil {
 		return err
 	}
-	for _, p := range e.Posts {
+	for _, p := range e.t {
 		_, err := r.db.Exec("insert into post_user values(?,?,?)", e.ID, p, time.Now().Format("2006-01-02"))
 		if err != nil {
 			return err
@@ -103,7 +88,7 @@ func (r *UserMySQL) Update(e *entity.User) error {
 }
 
 //Search users
-func (r *UserMySQL) Search(query string) ([]*entity.User, error) {
+func (r *AuthTokenMySQL) Search(query string) ([]*entity.User, error) {
 	stmt, err := r.db.Prepare(`select id from user where name like ?`)
 	if err != nil {
 		return nil, err
@@ -123,7 +108,7 @@ func (r *UserMySQL) Search(query string) ([]*entity.User, error) {
 		ids = append(ids, i)
 	}
 	if len(ids) == 0 {
-		return nil, entity.ErrNotFound
+		return nil, fmt.Errorf("not found")
 	}
 	var users []*entity.User
 	for _, id := range ids {
@@ -137,7 +122,7 @@ func (r *UserMySQL) Search(query string) ([]*entity.User, error) {
 }
 
 //List users
-func (r *UserMySQL) List() ([]*entity.User, error) {
+func (r *AuthTokenMySQL) List() ([]*entity.User, error) {
 	stmt, err := r.db.Prepare(`select id from user`)
 	if err != nil {
 		return nil, err
@@ -157,7 +142,7 @@ func (r *UserMySQL) List() ([]*entity.User, error) {
 		ids = append(ids, i)
 	}
 	if len(ids) == 0 {
-		return nil, entity.ErrNotFound
+		return nil, fmt.Errorf("not found")
 	}
 	var users []*entity.User
 	for _, id := range ids {
@@ -171,7 +156,7 @@ func (r *UserMySQL) List() ([]*entity.User, error) {
 }
 
 //Delete an user
-func (r *UserMySQL) Delete(id entity.ID) error {
+func (r *AuthTokenMySQL) Delete(id entity.ID) error {
 	_, err := r.db.Exec("delete from user where id = ?", id)
 	if err != nil {
 		return err

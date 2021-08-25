@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestNewBook(t *testing.T) {
-	b, err := entity.NewBook("American Gods", "Neil Gaiman", 100, 1)
+func TestNewAuthToken(t *testing.T) {
+	b, err := entity.NewAuthToken("American Gods", "Neil Gaiman", 100, 1)
 	assert.Nil(t, err)
 	assert.Equal(t, b.Title, "American Gods")
 	assert.NotNil(t, b.ID)

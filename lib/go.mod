@@ -6,7 +6,7 @@ require (
 	github.com/BurntSushi/toml v0.3.1 // indirect
 	github.com/codegangsta/negroni v0.3.0
 	github.com/cosmtrek/air v1.27.3 // indirect
-	github.com/creack/pty v1.1.13 // indirect
+	github.com/creack/pty v1.1.14 // indirect
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible // indirect
 	github.com/fatih/color v1.12.0 // indirect
 	github.com/go-sql-driver/mysql v1.5.0

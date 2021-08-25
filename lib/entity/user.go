@@ -15,7 +15,7 @@ type User struct {
 	LastName  string
 	CreatedAt time.Time
 	UpdatedAt time.Time
-	Books     []ID
+	Posts     []*ID
 }
 
 //NewUser create a new user
@@ -39,31 +39,31 @@ func NewUser(email, password, firstName, lastName string) (*User, error) {
 	return u, nil
 }
 
-//AddBook add a book
-func (u *User) AddBook(id ID) error {
-	_, err := u.GetBook(id)
+//AddPost add a post
+func (u *User) AddPost(id ID) error {
+	_, err := u.GetPost(id)
 	if err == nil {
-		return ErrBookAlreadyBorrowed
+		return ErrDuplicatePostID
 	}
-	u.Books = append(u.Books, id)
+	u.Posts = append(u.Posts, &id)
 	return nil
 }
 
-//RemoveBook remove a book
-func (u *User) RemoveBook(id ID) error {
-	for i, j := range u.Books {
-		if j == id {
-			u.Books = append(u.Books[:i], u.Books[i+1:]...)
+//RemovePost remove a post
+func (u *User) RemovePost(id ID) error {
+	for i, j := range u.Posts {
+		if *j == id {
+			u.Posts = append(u.Posts[:i], u.Posts[i+1:]...)
 			return nil
 		}
 	}
 	return ErrNotFound
 }
 
-//GetBook get a book
-func (u *User) GetBook(id ID) (ID, error) {
-	for _, v := range u.Books {
-		if v == id {
+//GetPost get a post
+func (u *User) GetPost(id ID) (ID, error) {
+	for _, v := range u.Posts {
+		if *v == id {
 			return id, nil
 		}
 	}

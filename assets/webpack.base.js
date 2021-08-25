@@ -24,7 +24,9 @@ const isDev = mode == 'development'
 const assetHost = process.env.ASSET_HOST || (isDev && !process.env.SERVE_STATIC ? 'http://localhost:9000' : '')
 
 const appEntries = {
-  entry: './src/index'
+  entry: {
+    appMain: ['./src/appMain'],
+  },
 }
 
 const baseConfig = {

@@ -24,35 +24,35 @@ func TestValidatePassword(t *testing.T) {
 
 }
 
-func TestAddBook(t *testing.T) {
+func TestAddPost(t *testing.T) {
 	u, _ := entity.NewUser("sjobs@apple.com", "new_password", "Steve", "Jobs")
 	bID := entity.NewID()
-	err := u.AddBook(bID)
+	err := u.AddPost(bID)
 	assert.Nil(t, err)
-	assert.Equal(t, 1, len(u.Books))
-	err = u.AddBook(bID)
-	assert.Equal(t, entity.ErrBookAlreadyBorrowed, err)
+	assert.Equal(t, 1, len(u.Posts))
+	err = u.AddPost(bID)
+	assert.Equal(t, entity.ErrDuplicatePostID, err)
 
 }
 
-func TestRemoveBook(t *testing.T) {
+func TestRemovePost(t *testing.T) {
 	u, _ := entity.NewUser("sjobs@apple.com", "new_password", "Steve", "Jobs")
-	err := u.RemoveBook(entity.NewID())
+	err := u.RemovePost(entity.NewID())
 	assert.Equal(t, entity.ErrNotFound, err)
 	bID := entity.NewID()
-	_ = u.AddBook(bID)
-	err = u.RemoveBook(bID)
+	_ = u.AddPost(bID)
+	err = u.RemovePost(bID)
 	assert.Nil(t, err)
 }
 
-func TestGetBook(t *testing.T) {
+func TestGetPost(t *testing.T) {
 	u, _ := entity.NewUser("sjobs@apple.com", "new_password", "Steve", "Jobs")
 	bID := entity.NewID()
-	_ = u.AddBook(bID)
-	id, err := u.GetBook(bID)
+	_ = u.AddPost(bID)
+	id, err := u.GetPost(bID)
 	assert.Nil(t, err)
 	assert.Equal(t, id, bID)
-	_, err = u.GetBook(entity.NewID())
+	_, err = u.GetPost(entity.NewID())
 	assert.Equal(t, entity.ErrNotFound, err)
 }
 

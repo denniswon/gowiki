@@ -3,19 +3,13 @@ package entity
 import "errors"
 
 //ErrNotFound not found
-var ErrNotFound = errors.New("Not found")
+var ErrNotFound = errors.New("not found")
 
 //ErrInvalidEntity invalid entity
-var ErrInvalidEntity = errors.New("Invalid entity")
+var ErrInvalidEntity = errors.New("invalid entity")
 
 //ErrCannotBeDeleted cannot be deleted
-var ErrCannotBeDeleted = errors.New("Cannot Be Deleted")
+var ErrCannotBeDeleted = errors.New("cannot be deleted")
 
-//ErrNotEnoughBooks cannot borrow
-var ErrNotEnoughBooks = errors.New("Not enough books")
-
-//ErrBookAlreadyBorrowed cannot borrow
-var ErrBookAlreadyBorrowed = errors.New("Book already borrowed")
-
-//ErrBookNotBorrowed cannot return
-var ErrBookNotBorrowed = errors.New("Book not borrowed")
+//ErrDuplicatePostID cannot be deleted
+var ErrDuplicatePostID = errors.New("duplicate post id")

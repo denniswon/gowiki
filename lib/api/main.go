@@ -66,10 +66,14 @@ func main() {
 	//loan
 	handler.MakeLoanHandlers(r, *n, bookService, userService, loanUseCase)
 
+	//auth_token
+	handler.MakeAuthTokenHandler(r, *n)
+
 	//static
 	currentDir, _ := filepath.Abs(filepath.Dir(os.Args[0]))
 	staticPath := filepath.Join(currentDir, "../static")
-	handler.MakeStaticHandlers(r, staticPath, "index.html")
+	handler.MakeStaticHandlers(r, staticPath, "appMain.html")
+	http.Handle("/", r)
 
 	http.Handle("/metrics", promhttp.Handler())
 	r.HandleFunc("/ping", func(w http.ResponseWriter, r *http.Request) {
