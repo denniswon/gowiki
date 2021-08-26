@@ -25,7 +25,7 @@ const assetHost = process.env.ASSET_HOST || (isDev && !process.env.SERVE_STATIC 
 
 const appEntries = {
   entry: {
-    appMain: ['./src/appMain'],
+    appMain: ['./src/src/index'],
   },
 }
 
@@ -36,6 +36,17 @@ const baseConfig = {
   },
   module: {
     rules: [
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          // Creates `style` nodes from JS strings
+          "style-loader",
+          // Translates CSS into CommonJS
+          "css-loader",
+          // Compiles Sass to CSS
+          "sass-loader",
+        ],
+      },
       {
         test: /\.(j|t)sx?$/,
         include: [

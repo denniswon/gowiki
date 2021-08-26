@@ -9,9 +9,11 @@ body {
   
 }
 
-@media only screen and (min-width: 450px) {
+@media (min-width: 450px) {
   body{
-  width: calc(100vw - 17px);
+    overflow-y: auto !important;
+    overflow-x: hidden;
+    width: 100%;
   }
 }
 
@@ -28,7 +30,8 @@ code {
   /* scroll-behavior: smooth; */
   word-break: break-word;
 }
-a{
+
+a {
   text-decoration: none;
   color: inherit;
 }

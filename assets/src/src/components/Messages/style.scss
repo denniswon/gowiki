@@ -5,6 +5,18 @@
   min-height: 100vh;
 }
 
+@media only screen and (max-width: 888px){
+  .messages-wrapper{
+    width: 100% !important;
+  }
+  .messages-header-wrapper{
+    max-width: 100% !important;
+  }
+  .chat-height{
+    height: 100vh !important;
+  }
+}
+
 .messages-header-wrapper{
   position: sticky;
   border-bottom: 1px solid rgb(230, 236, 240);

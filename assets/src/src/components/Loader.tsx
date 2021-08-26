@@ -1,10 +1,10 @@
 import React from 'react'
-import './style.css'
+import styled from 'styled-components'
+import { Box } from 'styles'
 
 const Loader = () => (
-  <div className="loader-wrapper">
-    <svg
-      className="loader_svg"
+  <LoaderWrapper>
+    <LoaderSvg
       version="1.1"
       id="loader-1"
       xmlns="http://www.w3.org/2000/svg"
@@ -30,8 +30,24 @@ const Loader = () => (
           repeatCount="indefinite"
         />
       </path>
-    </svg>
-  </div>
+    </LoaderSvg>
+  </LoaderWrapper>
 )
 
 export default Loader
+
+
+const LoaderWrapper = styled(Box)`
+  position: relative;
+  height: 50%;
+  margin: 50px 0;
+`
+
+const LoaderSvg = styled.svg`
+  fill: yellow;
+  enable-background:new 0 0 50 50;
+  position: absolute;
+  left: 50%;
+  top: 15%;
+  transform: translate(-50%,50%);
+`

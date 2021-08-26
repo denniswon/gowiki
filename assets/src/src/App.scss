@@ -536,7 +536,7 @@
 
 
 
-@media only screen and (max-width: 1196px) {
+@media (max-width: 1196px) {
   .right-section{
     width: 290px !important;
   }
@@ -545,7 +545,7 @@
   }
   }
 
-@media only screen and (max-width: 1005px) {
+@media (max-width: 1005px) {
   .right-section{
     display: none;
   }
@@ -555,7 +555,7 @@
   //flex grow
   }
 
-  @media only screen and (max-width: 888px){
+  @media (max-width: 888px){
     .chat-right{
       display: none;
     }
@@ -573,7 +573,7 @@
     }
   }
 
-  @media only screen and (max-width: 450px){
+  @media (max-width: 450px){
 
   body{
     overflow-y: auto !important;

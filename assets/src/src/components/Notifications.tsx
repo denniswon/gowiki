@@ -1,16 +1,19 @@
 import React, { useEffect } from 'react'
-import './style.scss'
+import { WorkInProgress } from '../styles/global'
 
 const Notifications = () => {
+
   useEffect(() => {
     document.getElementsByTagName('body')[0].style.cssText =
       'position:fixed; overflow-y: scroll;'
   }, [])
+
   useEffect(
     () => () => (document.getElementsByTagName('body')[0].style.cssText = ''),
     [],
   )
-  return <div className="workInProgress">This is a work in progress</div>
+
+  return <WorkInProgress className="workInProgress">This is a work in progress</WorkInProgress>
 }
 
 export default Notifications

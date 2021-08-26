@@ -6,6 +6,12 @@
   min-height: 100vh;
 }
 
+@media only screen and (max-width: 888px){
+  .chat-wrapper{
+    display: none;
+  }
+}
+
 .chat-header-wrapper{
   position: sticky;
   border-bottom: 1px solid rgb(230, 236, 240);
@@ -31,6 +37,16 @@
   }
 }
 
+@media (max-width: 450px) {
+
+  .chat-height {
+    height: calc(100vh - 46px) !important;
+  }
+  .chat-bottom-wrapper{
+    bottom: 50px !important;
+  }
+
+}
 
 .chat-height{
   height: 100%;

@@ -1,15 +1,24 @@
 import React, { useEffect, useState, useContext, useRef } from 'react'
-import './style.scss'
 import { Link, withRouter } from 'react-router-dom'
 import axios from 'axios'
-import { StoreContext } from '../../store/store'
-import { API_URL } from '../../config'
+import { StoreContext } from '../store/store'
+import { API_URL } from '../config'
 import {
   ICON_ARROWBACK,
   ICON_CLOSE,
   ICON_NEWLIST,
   ICON_UPLOAD,
-} from '../../Icons'
+} from '../Icons'
+import styled from 'styled-components'
+import { Box } from 'styles'
+import {
+  Span, ModalEdit, ModalContent, ModalCloseIcon, ModalCloseIconWrap, ModalHeader, ModalTitle,
+  SaveModalBtn, SaveModalWrapper, ModalBody, EditForm, EditInputWrap, EditInputContent, ModalBanner
+} from '../styles/global'
+import {
+  BookmarksWrapper, BookmarksHeaderWrapper, BookmarksHeaderContent, BookmarksHeaderName,
+  BookmarksHeaderTweets
+} from './Bookmarks'
 
 const Lists = (props) => {
   const { state, actions } = useContext(StoreContext)
@@ -74,40 +83,39 @@ const Lists = (props) => {
   }
 
   const changeBanner = () => {
-    const file = document.getElementById('banner').files[0]
+    const file = (document.getElementById('banner') as HTMLInputElement).files[0]
     uploadImage(file)
   }
 
   return (
-    <div>
-      <div className="bookmarks-wrapper">
-        <div className="bookmarks-header-wrapper">
-          <div className="profile-header-back">
-            <div
+    <Box>
+      <BookmarksWrapper>
+        <BookmarksHeaderWrapper>
+          <ProfileHeaderBack>
+            <HeaderBackWrapper
               onClick={() => window.history.back()}
               className="header-back-wrapper"
             >
               <ICON_ARROWBACK />
-            </div>
-          </div>
-          <div className="bookmarks-header-content">
-            <div className="bookmarks-header-name">Your Lists</div>
-            <div className="bookmarks-header-tweets">
+            </HeaderBackWrapper>
+          </ProfileHeaderBack>
+          <BookmarksHeaderContent>
+            <BookmarksHeaderName>Your Lists</BookmarksHeaderName>
+            <BookmarksHeaderTweets>
               @{account && account.username}
-            </div>
-          </div>
-          <div onClick={() => toggleModal()} className="newlist-icon-wrap">
-            <span>new list</span>
+            </BookmarksHeaderTweets>
+          </BookmarksHeaderContent>
+          <NewlistIconWrap onClick={() => toggleModal()}>
+            <Span>new list</Span>
             <ICON_NEWLIST />
-          </div>
-        </div>
+          </NewlistIconWrap>
+        </BookmarksHeaderWrapper>
         {lists.map((l) => (
-          <Link
+          <ListCardWrapper
             key={l._id}
             to={`/lists/${l._id}`}
-            className="list-card-wrapper"
           >
-            <div className="list-img-wrap">
+            <ListImgWrap>
               <img
                 src={
                   l.banner.length > 0
@@ -116,15 +124,15 @@ const Lists = (props) => {
                 }
                 alt="list"
               />
-            </div>
-            <div className="list-content-wrap">
+            </ListImgWrap>
+            <ListContentWrap>
               <h4>{l.name}</h4>
-              <div className="list-details-wrap">
+              <ListDetailsWrap>
                 <h5>{account && account.name}</h5>
-                <div>@{account && account.username}</div>
-              </div>
-            </div>
-          </Link>
+                <Box>@{account && account.username}</Box>
+              </ListDetailsWrap>
+            </ListContentWrap>
+          </ListCardWrapper>
         ))}
 
         {/* add loader for bookmarks when empty using dispatch */}
@@ -132,37 +140,31 @@ const Lists = (props) => {
         console.log(t)
         return <TweetCard parent={t.parent} key={t._id} id={t._id} user={t.user} createdAt={t.createdAt} description={t.description} images={t.images} replies={t.replies} retweets={t.retweets} likes={t.likes}  />
       })} */}
-      </div>
-      <div
+      </BookmarksWrapper>
+      <ModalEdit
         onClick={() => toggleModal()}
         style={{ display: modalOpen ? 'block' : 'none' }}
-        className="modal-edit"
       >
-        <div
-          style={{ height: '480px' }}
-          onClick={(e) => handleModalClick(e)}
-          className="modal-content"
-        >
-          <div className="modal-header">
-            <div className="modal-closeIcon">
-              <div
+        <ModalContent h={480} onClick={(e) => handleModalClick(e)}>
+          <ModalHeader>
+            <ModalCloseIcon>
+              <ModalCloseIconWrap
                 onClick={() => toggleModal()}
-                className="modal-closeIcon-wrap"
               >
                 <ICON_CLOSE />
-              </div>
-            </div>
-            <p className="modal-title">Create a new List</p>
-            <div className="save-modal-wrapper">
-              <div onClick={createList} className="save-modal-btn">
+              </ModalCloseIconWrap>
+            </ModalCloseIcon>
+            <ModalTitle>Create a new List</ModalTitle>
+            <SaveModalWrapper>
+              <SaveModalBtn onClick={createList}>
                 Create
-              </div>
-            </div>
-          </div>
-          <div className="modal-body">
-            <div className="modal-banner">
+              </SaveModalBtn>
+            </SaveModalWrapper>
+          </ModalHeader>
+          <ModalBody>
+            <ModalBanner>
               {banner.length > 0 && <img src={banner} alt="list-banner" />}
-              <div>
+              <Box>
                 <ICON_UPLOAD />
                 <input
                   onChange={() => changeBanner()}
@@ -171,11 +173,11 @@ const Lists = (props) => {
                   style={{ opacity: '0' }}
                   type="file"
                 />
-              </div>
-            </div>
-            <form className="edit-form">
-              <div className="edit-input-wrap">
-                <div className="edit-input-content">
+              </Box>
+            </ModalBanner>
+            <EditForm>
+              <EditInputWrap>
+                <EditInputContent>
                   <label>Name</label>
                   <input
                     onChange={(e) => setName(e.target.value)}
@@ -183,10 +185,10 @@ const Lists = (props) => {
                     name="name"
                     className="edit-input"
                   />
-                </div>
-              </div>
-              <div style={{ marginTop: '30px' }} className="edit-input-wrap">
-                <div className="edit-input-content">
+                </EditInputContent>
+              </EditInputWrap>
+              <EditInputWrap mt={30}>
+                <EditInputContent>
                   <label>Description</label>
                   <input
                     onChange={(e) => setDescription(e.target.value)}
@@ -194,14 +196,87 @@ const Lists = (props) => {
                     name="description"
                     className="edit-input"
                   />
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
+                </EditInputContent>
+              </EditInputWrap>
+            </EditForm>
+          </ModalBody>
+        </ModalContent>
+      </ModalEdit>
+    </Box>
   )
 }
 
 export default withRouter(Lists)
+
+const ProfileHeaderBack = styled(Box)`
+  min-width: 55px;
+  min-height: 30px;
+  justify-content: center;
+  align-items: flex-start;
+`
+
+const HeaderBackWrapper = styled(Box)`
+  &:hover{
+    background-color: rgba(29,161,242,0.1);
+  }
+`
+
+const ListCardWrapper = styled(Link)`
+  padding: 10px 15px;
+  border-bottom: 1px solid rgb(230, 236, 240);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  &:hover{
+    background-color: rgb(245,248,250);
+  }
+`
+
+const ListImgWrap = styled(Box)`
+  margin-right: 15px;
+  height: 49px;
+  width: 49px;
+  border-radius: 14px;
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 14px;
+  }
+`
+
+const ListContentWrap = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 40px;
+  align-items: flex-start;
+`
+
+const ListDetailsWrap = styled(Box)`
+  display: flex;
+  align-items: center;
+  margin-top: 2px;
+  div{
+    margin-left: 5px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgb(101, 119, 134);
+  }
+`
+
+const NewlistIconWrap = styled(Box)`
+  display: flex;
+  margin-left: auto;
+  span{
+    margin-right: 5px;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+  svg{
+    fill: rgb(29, 161, 242);
+    width: 22.5px;
+    height: 22.5px;
+  }
+`
