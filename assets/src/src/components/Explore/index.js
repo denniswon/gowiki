@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useContext } from 'react'
-import { StoreContext } from '../../store/store'
+import React, { useEffect, useState } from 'react'
+import { useStore } from '../../store/store'
 import './style.scss'
 import { withRouter } from 'react-router-dom'
 import { ICON_SEARCH, ICON_ARROWBACK } from '../../Icons'
@@ -7,7 +7,7 @@ import Loader from '../Loader'
 import TweetCard from '../TweetCard'
 
 const Explore = (props) => {
-  const { state, actions } = useContext(StoreContext)
+ const { state, actions } = useStore()
   const { trends, result, tagTweets } = state
   const [tab, setTab] = useState('Trends')
   const [trendOpen, setTrendOpen] = useState(false)

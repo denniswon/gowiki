@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext, useRef } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import './style.scss'
 import { withRouter, Link } from 'react-router-dom'
 import moment from 'moment'
@@ -11,13 +11,13 @@ import {
   ICON_UPLOAD,
   ICON_NEWMSG,
 } from '../../Icons'
-import { StoreContext } from '../../store/store'
+import { useStore } from '../../store/store'
 import Loader from '../Loader'
 import TweetCard from '../TweetCard'
 import { API_URL } from '../../config'
 
 const Profile = (props) => {
-  const { state, actions } = useContext(StoreContext)
+ const { state, actions } = useStore()
   const [activeTab, setActiveTab] = useState('Tweets')
   const [editName, setName] = useState('')
   const [editBio, setBio] = useState('')

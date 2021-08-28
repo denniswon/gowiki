@@ -448,12 +448,10 @@ export const TweetBtnSide = styled(Box)<{ active?: boolean }>`
   `}
 `
 
-export const TweetBtnActive = styled(Box)`
-  cursor: pointer;
-  opacity: 1;
-  &:hover {
-    background-color: rgba(11, 137, 216, 0.876);
-  }
+export const TweetInput = styled(ContentEditable)<{ active?: boolean }>`
+  ${p => p.active && css`
+    color: rgb(20, 23, 26
+  `}
 `
 
 export const TweetInputDivider = styled(Box)`
@@ -479,10 +477,6 @@ export const Editable = styled(ContentEditable)`
   
 export const CardContentInfo = styled(Box)`
   word-wrap: break-word;
-`
-
-export const TweetInputActive = styled(Box)`
-  color: rgb(20, 23, 26);
 `
 
 export const TweetUploadImage = styled.img`

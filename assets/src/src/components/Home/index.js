@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useContext, useRef } from 'react'
-import { StoreContext } from '../../store/store'
+import React, { useEffect, useState, useRef } from 'react'
+import { useStore } from '../../store/store'
 import './style.scss'
 import axios from 'axios'
 import ContentEditable from 'react-contenteditable'
@@ -10,7 +10,7 @@ import Loader from '../Loader'
 import TweetCard from '../TweetCard'
 
 const Home = () => {
-  const { state, actions } = useContext(StoreContext)
+ const { state, actions } = useStore()
   const { account, session } = state
   useEffect(() => {
     window.scrollTo(0, 0)

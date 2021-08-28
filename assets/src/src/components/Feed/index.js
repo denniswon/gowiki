@@ -1,11 +1,11 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useEffect } from 'react'
 import './style.scss'
 import { withRouter, Link } from 'react-router-dom'
-import { StoreContext } from '../../store/store'
+import { useStore } from '../../store/store'
 import Loader from '../Loader'
 
 const Feed = (props) => {
-  const { state, actions } = useContext(StoreContext)
+ const { state, actions } = useStore()
 
   const { account, trends, suggestions, session } = state
   // const userParam = props.match.params.username

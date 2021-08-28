@@ -1,10 +1,12 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Box } from 'styles'
-import { StoreContext } from '../store/store'
+import { useStore } from '../store/store'
 
-const Alert = (props) => {
-  const { state, actions } = useContext(StoreContext)
+const Alerts = (props) => {
+  const { state, actions } = useStore()
+
+  if (!state.error) return null
 
   return (
     <AlertWrapper top={state.top}>
@@ -13,7 +15,7 @@ const Alert = (props) => {
   )
 }
 
-export default Alert
+export default Alerts
 
 const AlertWrapper = styled(Box)`
   position: fixed;
@@ -33,7 +35,7 @@ const AlertContent = styled(Box)`
   border: 1px solid #e6ecf0;
   -webkit-box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
   box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
-  display:inline-block;
+  display: inline-block;
   padding: 8px 14px;
   border-radius: 200px;
 `

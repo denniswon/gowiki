@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useContext, useRef } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import './style.scss'
 import { withRouter, Link } from 'react-router-dom'
 import axios from 'axios'
-import { StoreContext } from '../../store/store'
+import { useStore } from '../../store/store'
 import Loader from '../Loader'
 import TweetCard from '../TweetCard'
 import { API_URL } from '../../config'
@@ -14,7 +14,7 @@ import {
 } from '../../Icons'
 
 const ListPage = (props) => {
-  const { state, actions } = useContext(StoreContext)
+ const { state, actions } = useStore()
   const [modalOpen, setModalOpen] = useState(false)
 
   const [editName, setName] = useState('')

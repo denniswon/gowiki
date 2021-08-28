@@ -116,7 +116,6 @@
     "@types/react-dnd": "^3.0.2",
     "@types/react-dropzone": "^5.1.0",
     "@types/react-modal": "^3.2.1",
-    "@types/react-redux": "^6.0.6",
     "@types/react-router": "^4.0.31",
     "@types/react-router-dom": "^4.0.7",
     "@types/react-select": "^3.0.4",

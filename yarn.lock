@@ -2428,16 +2428,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-redux@npm:^6.0.6":
-  version: 6.0.16
-  resolution: "@types/react-redux@npm:6.0.16"
-  dependencies:
-    "@types/react": "*"
-    redux: ^4.0.0
-  checksum: 12396a861c1fffbade04bb7a06cf6722018cd1a754b4e475f27a81704d005f704ba59bd925e85cb21d37006a09736c32aef7c79be8f3a2420cdd0c0f870c098d
-  languageName: node
-  linkType: hard
-
 "@types/react-router-dom@npm:^4.0.7":
   version: 4.3.5
   resolution: "@types/react-router-dom@npm:4.3.5"
@@ -3574,7 +3564,6 @@ __metadata:
     "@types/react-dnd": ^3.0.2
     "@types/react-dropzone": ^5.1.0
     "@types/react-modal": ^3.2.1
-    "@types/react-redux": ^6.0.6
     "@types/react-router": ^4.0.31
     "@types/react-router-dom": ^4.0.7
     "@types/react-select": ^3.0.4
@@ -14615,7 +14604,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"redux@npm:^4.0.0, redux@npm:^4.0.5":
+"redux@npm:^4.0.5":
   version: 4.1.0
   resolution: "redux@npm:4.1.0"
   dependencies:

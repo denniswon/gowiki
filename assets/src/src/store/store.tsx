@@ -1,9 +1,13 @@
-import React, { createContext, useReducer } from 'react'
+import React, { createContext, useContext, useReducer } from 'react'
 import { reducer, initialState } from './reducers'
 import { useActions } from './actions'
 import { applyMiddleware } from './middleware'
 
-const StoreContext = createContext()
+const StoreContext = createContext({ state: initialState, actions: null })
+StoreContext.displayName = 'StoreContext'
+
+export const useStore = () => useContext(StoreContext)
+
 const StoreProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
   const actions = useActions(state, applyMiddleware(dispatch))

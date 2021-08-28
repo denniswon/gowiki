@@ -14,20 +14,12 @@ export class UserMeta {
   /** chrome extension version */
   ce?: string
 
-  /** tandem onboarded */
+  /** onboarded */
   to?: number
 
   /** sounds disabled */
   sdis?: boolean
 
-  /** doc titles hidden */
-  dthd?: boolean
-
-  /** offline team hidden */
-  hdof?: boolean
-
-  /** on click member action */
-  ocm?: string
 }
 
 export class User {

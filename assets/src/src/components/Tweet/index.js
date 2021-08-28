@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useContext, useRef } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { withRouter, useHistory, Link } from 'react-router-dom'
-import { StoreContext } from '../../store/store'
+import { useStore } from '../../store/store'
 import './style.scss'
 import moment from 'moment'
 import Loader from '../Loader'
@@ -24,7 +24,7 @@ import TweetCard from '../TweetCard'
 const TweetPage = (props) => {
   const history = useHistory()
 
-  const { state, actions } = useContext(StoreContext)
+ const { state, actions } = useStore()
   const { tweet, account, session } = state
 
   const [modalOpen, setModalOpen] = useState(false)

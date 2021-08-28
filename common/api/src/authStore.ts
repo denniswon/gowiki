@@ -9,7 +9,7 @@ import {
 
 import uuidV4 from 'uuid/v4'
 
-import { API, OAuthSignInResponse, SignInResponse, TeamResponse } from './api'
+import { API, OAuthSignInResponse, TeamResponse } from './api'
 import { tracker } from './tracker'
 import { trackerAuth } from './trackerAuth'
 

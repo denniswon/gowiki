@@ -1,6 +1,32 @@
 import type from './typeActions'
+import { API } from '@gowiki/api'
 
-const initialState = {
+export interface State {
+  session: boolean,
+  loggedin: boolean,
+  tweets: any[],
+  tweet: any,
+  account: any,
+  user: any,
+  bookmarks: any[],
+  recent_tweets: any[],
+  lists: any[],
+  list: any,
+  trends: any[],
+  result: any[],
+  tagTweets: any[],
+  followers: any[],
+  following: any[],
+  resultUsers: any[],
+  suggestions: any[],
+  top: string,
+  msg: string,
+  conversations: any[],
+  conversation: any,
+  error: boolean,
+}
+
+const initialState: State = {
   session: true,
   loggedin: false,
   tweets: [],
@@ -25,17 +51,19 @@ const initialState = {
   error: false,
 }
 
-const reducer = (state = initialState, action) => {
+const reducer = (state: State = initialState, action) => {
   switch (action.type) {
     case type.SET_STATE:
       return { ...state, ...action.payload }
 
     case type.ERROR:
-      // message.error(action.payload.msg? action.payload.msg : action.payload == 'Unauthorized' ? 'You need to sign in' : 'error');
-      return { ...state, loading: false, error: true, msg: action.payload.msg }
+      const msg = action.payload.msg ? action.payload.msg :
+        action.payload == 'Unauthorized' ? 'You need to sign in' : 'error'
+      return { ...state, loading: false, error: true, msg }
 
     case type.LOGIN:
       localStorage.setItem('Twittertoken', action.payload.token)
+      API.setAuthToken(action.payload.token)
       return {
         ...state,
         ...action.payload,

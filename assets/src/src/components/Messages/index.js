@@ -1,5 +1,5 @@
-import React, { useEffect, useContext } from 'react'
-import { StoreContext } from '../../store/store'
+import React, { useEffect } from 'react'
+import { useStore } from '../../store/store'
 import { withRouter, Link } from 'react-router-dom'
 import './style.scss'
 import moment from 'moment'
@@ -7,7 +7,7 @@ import { useMediaQuery } from 'react-responsive'
 import Chat from '../ChatPage'
 
 const Messages = (props) => {
-  const { state, actions } = useContext(StoreContext)
+ const { state, actions } = useStore()
   const { account, conversations } = state
   const path = props.history.location.pathname
 

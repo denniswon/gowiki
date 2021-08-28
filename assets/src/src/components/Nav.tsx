@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useContext, useRef } from 'react'
-import { StoreContext } from '../store/store'
+import React, { useEffect, useState, useRef } from 'react'
+import { useStore } from '../store/store'
 import { Link, withRouter } from 'react-router-dom'
 import axios from 'axios'
 import ContentEditable from 'react-contenteditable'
@@ -23,7 +23,7 @@ import {
 import { Box, m } from 'styles'
 
 const Nav = ({ history }) => {
-  const { state, actions } = useContext(StoreContext)
+ const { state, actions } = useStore()
 
   const { account, session } = state
   const [moreMenu, setMoreMenu] = useState(false)

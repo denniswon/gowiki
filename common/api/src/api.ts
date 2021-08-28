@@ -22,6 +22,10 @@ export type SignInResponse = SuccessResponse & {
   no_team?: boolean
 }
 
+export type ImageResponse = {
+  imageUrl: string
+}
+
 export type OAuthSignInResponse = SignInResponse & {
   profile: any
 }
@@ -169,11 +173,17 @@ class APIService {
     this.token = token
     this.axios = axios.create({
       headers: {
-        common: {
-          'Authorization': 'Bearer ' + token
-        },
+        'Authorization': 'Bearer ' + token
       },
     })
+  }
+
+  uploadImage = async (file): Promise<ImageResponse> => {
+    const bodyFormData = new FormData()
+    bodyFormData.append('image', file)
+
+    let response = await this.axios.post(`${this.endpoint}/tweet/upload`, bodyFormData)
+    return response.data
   }
 
   async logInElseSignUpOAuth(

@@ -1,5 +1,5 @@
-import React, { useContext, useState, useEffect, useRef } from 'react'
-import { StoreContext } from '../../store/store'
+import React, { useState, useEffect, useRef } from 'react'
+import { useStore } from '../../store/store'
 import './style.scss'
 import { withRouter } from 'react-router-dom'
 import io from 'socket.io-client'
@@ -14,7 +14,7 @@ const socket = io.connect(API_URL, {
 })
 
 const ChatPage = (props) => {
-  const { state, actions } = useContext(StoreContext)
+ const { state, actions } = useStore()
   const [room, setRoom] = useState(null)
   const [conversation, setConversation] = useState([])
   const [text, setText] = useState('')

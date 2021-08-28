@@ -1,12 +1,12 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 import { Box } from 'styles'
-import { StoreContext } from '../store/store'
+import { useStore } from '../store/store'
 import TweetCard from './TweetCard'
 
 const Bookmarks = (props) => {
-  const { state, actions } = useContext(StoreContext)
+ const { state, actions } = useStore()
 
   const { account, bookmarks } = state
   // const userParam = props.match.params.username

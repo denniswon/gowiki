@@ -1,7 +1,7 @@
-import React, { useEffect, useState, useContext, useRef } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import axios from 'axios'
-import { StoreContext } from '../store/store'
+import { useStore } from '../store/store'
 import { API_URL } from '../config'
 import {
   ICON_ARROWBACK,
@@ -21,7 +21,7 @@ import {
 } from './Bookmarks'
 
 const Lists = (props) => {
-  const { state, actions } = useContext(StoreContext)
+ const { state, actions } = useStore()
   const [modalOpen, setModalOpen] = useState(false)
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
