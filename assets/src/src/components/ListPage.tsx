@@ -10,7 +10,7 @@ import {
   ICON_UPLOAD,
   ICON_CLOSE,
   ICON_SEARCH,
-} from '../Icons'
+} from '../styles/icons'
 import styled, { css } from 'styled-components'
 import { Box } from 'styles'
 import {

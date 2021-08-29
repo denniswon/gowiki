@@ -9,7 +9,7 @@ import {
   ICON_CLOSE,
   ICON_UPLOAD,
   ICON_NEWMSG,
-} from '../Icons'
+} from '../styles/icons'
 import { useStore } from '../store/store'
 import Loader from './Loader'
 import TweetCard from './TweetCard'

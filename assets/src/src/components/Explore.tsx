@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useStore } from '../store/store'
 import { Link, withRouter } from 'react-router-dom'
-import { ICON_SEARCH, ICON_ARROWBACK } from '../Icons'
+import { ICON_SEARCH, ICON_ARROWBACK } from '../styles/icons'
 import Loader from './Loader'
 import TweetCard from './TweetCard'
 import styled, { css } from 'styled-components'

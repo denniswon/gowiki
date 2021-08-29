@@ -109,7 +109,7 @@ export const ModalEdit = styled(Box)`
   width: 100%; 
   height: 100%;
   overflow: auto; 
-  background-color: rgba(0,0,0,0export const 4); 
+  background-color: rgba(0,0,0,0.4); 
 `
 
 export const ModalContent = styled(Box)`
@@ -155,18 +155,18 @@ export const ModalCloseIconWrap = styled(Box)`
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: 0export const 2s ease-in-out;
+  transition: 0.2s ease-in-out;
   border: 1px solid rgba(0,0,0,0);
   border-radius: 9999px;
   width: 39px;
   height: 39px;
   cursor: pointer;
   &:hover {
-    background-color: rgba(29,161,242,0export const 1);
+    background-color: rgba(29,161,242,0.1);
   }
   svg {
     fill: rgb(29, 161, 242);
-    height: 22export const 5px;
+    height: 22.5px;
   }
 `
 
@@ -189,7 +189,7 @@ export const SaveModalWrapper = styled(Box)`
 export const SaveModalBtn = styled(Box)`
   // width: 48px;
   min-height: 30px;
-  transition: 0export const 2s ease-in-out;
+  transition: 0.2s ease-in-out;
   padding: 0 16px;
   display: flex;
   justify-content: center;
@@ -219,7 +219,7 @@ export const ModalBanner = styled(Box)`
   display: flex;
   justify-content: center;
   border: 2px solid rgba(0, 0, 0, 0);
-  background-color: rgba(0, 0, 0, 0export const 3);
+  background-color: rgba(0, 0, 0, 0.3);
   position: relative;
 
   img {
@@ -228,7 +228,7 @@ export const ModalBanner = styled(Box)`
     max-height: 100%;
     object-fit: cover;
     display: block;
-    opacity: 0export const 75;
+    opacity: 0.75;
   }
 
   div {
@@ -241,9 +241,9 @@ export const ModalBanner = styled(Box)`
     justify-content: center;
 
     input {
-      width: 22export const 5px;
-      min-width: 22export const 5px;
-      height: 22export const 5px;
+      width: 22.5px;
+      min-width: 22.5px;
+      height: 22.5px;
       overflow: hidden;
       z-index: 20;
       padding: 10px 0 10px 30px;
@@ -258,9 +258,9 @@ export const ModalBanner = styled(Box)`
       cursor: pointer;
       position: absolute;
       fill: #fff;
-      width: 22export const 5px;
-      min-width: 22export const 5px;
-      height: 22export const 5px;
+      width: 22.5px;
+      min-width: 22.5px;
+      height: 22.5px;
     } 
   }
 `
@@ -298,7 +298,7 @@ export const ModalBackPic = styled(Box)`
     height: 100%;
     object-fit: cover;
     display: block;
-    opacity: 0export const 6;
+    opacity: 0.6;
     border-radius: 50%;
   }
 
@@ -312,9 +312,9 @@ export const ModalBackPic = styled(Box)`
     justify-content: center;
 
     input {
-      width: 22export const 5px;
-      min-width: 22export const 5px;
-      height: 22export const 5px;
+      width: 22.5px;
+      min-width: 22.5px;
+      height: 22.5px;
       overflow: hidden;
       z-index: 20;
       padding: 10px 0 10px 30px;
@@ -329,9 +329,9 @@ export const ModalBackPic = styled(Box)`
       cursor: pointer;
       position: absolute;
       fill: #fff;
-      width: 22export const 5px;
-      min-width: 22export const 5px;
-      height: 22export const 5px;
+      width: 22.5px;
+      min-width: 22.5px;
+      height: 22.5px;
     }
   }
 `
@@ -397,7 +397,7 @@ export const TweetInputSide = styled(Box)`
   border: 2px solid rgba(0, 0, 0, 0);
   border-radius: 5px;
   padding-top: 5px;
-  line-height: 1export const 3125;   
+  line-height: 1.3125;   
   cursor: text;
 `
 
@@ -433,12 +433,12 @@ export const InputAttachWrapper = styled(Box)`
   width: 39px;
   height: 39px;
   cursor: pointer;
-  padding: 8export const 3px;
+  padding: 8.3px;
   position: relative;
   input {
     position: absolute;
-    width: 0export const 3px;
-    height: 0export const 3px;
+    width: 0.3px;
+    height: 0.3px;
     overflow: hidden;
     z-index: 4;
     padding-top: 21px;
@@ -463,7 +463,7 @@ export const InputAttachWrapper = styled(Box)`
 export const TweetBtnSide = styled(Box)<{ active?: boolean }>`
   margin-left: 10px;
   min-height: 39px;
-  min-width: calc(62export const 79px);
+  min-width: calc(62.79px);
   background-color: rgb(29, 161, 242);
   padding: 0 1em;
   border: 1px solid rgba(0, 0, 0, 0);
@@ -473,8 +473,8 @@ export const TweetBtnSide = styled(Box)<{ active?: boolean }>`
   align-items: center;
   color: #fff;
   font-weight: 700;
-  opacity: 0export const 5;
-  transition: 0export const 15s ease-in-out;
+  opacity: 0.5;
+  transition: 0.15s ease-in-out;
 
   ${p => p.active && css`
     cursor: pointer;
@@ -487,7 +487,7 @@ export const TweetBtnSide = styled(Box)<{ active?: boolean }>`
 
 export const TweetInput = styled(ContentEditable)<{ active?: boolean }>`
   ${p => p.active && css`
-    color: rgb(20, 23, 26
+    color: rgb(20, 23, 26)
   `}
 `
 
@@ -507,7 +507,7 @@ export const Editable = styled(ContentEditable)`
       display: block; /* For Firefox */
     }
     &:focus {
-      opacity: 0export const 7;
+      opacity: 0.7;
     }
   }
 `
@@ -541,12 +541,12 @@ export const CancelImage = styled.span`
   text-align: center;
   display: flex;
   height: 33px;
-  background-color: rgba(0, 0, 0, 0export const 5);
+  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 50%;
   font-size: 22px;
   font-weight: bold;
   cursor: pointer;
-  padding-bottom: 3export const 5px;
+  padding-bottom: 3.5px;
 `
 
 export const WorkInProgress = styled(Box)`
@@ -561,7 +561,7 @@ export const WorkInProgress = styled(Box)`
   min-height: 2000px;
 `
 
-//   export const dark-mode = styled(Box)`
+//   .dark-mode = styled(Box)`
 //     background-color: #1a1919 !important;
 //   `
 

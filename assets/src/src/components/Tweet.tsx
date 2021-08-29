@@ -14,7 +14,7 @@ import {
   ICON_BOOKMARKFILL,
   ICON_IMGUPLOAD,
   ICON_CLOSE,
-} from '../Icons'
+} from '../styles/icons'
 import axios from 'axios'
 import { API_URL } from '../config'
 import TweetCard, {

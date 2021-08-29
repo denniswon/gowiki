@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useStore } from '../store/store'
 import { Link, withRouter } from 'react-router-dom'
-import { ICON_LOGO } from '../Icons'
+import { ICON_LOGO } from '../styles/icons'
 
 import styled, { css } from 'styled-components'
 import { Box, s } from 'styles'

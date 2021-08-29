@@ -13,7 +13,7 @@ import {
   ICON_LOGO, ICON_HOME, ICON_HASH, ICON_BELL, ICON_INBOX, ICON_BOOKMARK, ICON_LIST, ICON_USER, ICON_SETTINGS,
   ICON_HOMEFILL, ICON_HASHFILL, ICON_BELLFILL, ICON_BOOKMARKFILL, ICON_LISTFILL, ICON_USERFILL, ICON_FEATHER,
   ICON_CLOSE, ICON_IMGUPLOAD, ICON_INBOXFILL, ICON_LIGHT, ICON_DARK
-} from '../Icons'
+} from '../styles/icons'
 import styled, { css } from 'styled-components'
 import {
   CancelImage, InnerImageBox, InnerInputBox, InnerInputLinks, InputAttachWrapper, InputLinksSide,
@@ -276,8 +276,8 @@ const Nav = ({ history }) => {
               {session && (
                 <NavTweet>
                   <NavTweetLink onClick={toggleModal}>
-                    <NavTweetBtn show={false}>Tweet</NavTweetBtn>
-                    <NavTweetBtn show={true}>
+                    <NavTweetBtn className="btn-hide">Tweet</NavTweetBtn>
+                    <NavTweetBtn className="btn-show">
                       <Span>
                         <ICON_FEATHER />
                       </Span>
@@ -551,11 +551,12 @@ const NavTweetLink = styled(Box)`
   padding-left: 30px;
   padding-right: 30px;
   border: 1px solid rgba(0, 0, 0, 0);
-  cursor: pointer;x
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 9999px;
+  
   @media (max-width: 1286px) {
     width: 100%;
   }
@@ -566,7 +567,7 @@ const NavTweetLink = styled(Box)`
     min-width: 49px;
 `
 
-const NavTweetBtn = styled(Box)<{ show?: boolean }>`
+const NavTweetBtn = styled(Box)`
   color: #fff;
   font-size: 15px;
   font-weight: bold;
@@ -584,7 +585,18 @@ const NavTweetBtn = styled(Box)<{ show?: boolean }>`
     }
   }
   content: 'Tweet';
-  ${p => p.show ? '@media (max-width: 1282px) { display: block }' : 'none'};
+  
+  .btn-show {
+    display: none;
+    @media (max-width: 1282px) {
+      display: block;
+    }
+  }
+  .btn-hide {
+    @media (max-width: 1282px) {
+      display: none;
+    }
+  }
 `
 
 const MoreMenuBackground = styled(Box)<{ active?: boolean }>`

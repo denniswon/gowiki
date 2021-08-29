@@ -25,7 +25,7 @@ const assetHost = process.env.ASSET_HOST || (isDev && !process.env.SERVE_STATIC 
 
 const appEntries = {
   entry: {
-    appMain: ['./src/src/index'],
+    index: ['./src/src/index'],
   },
 }
 

@@ -82,7 +82,7 @@ export const applyMiddleware = (dispatch) => (action) => {
 
     case types.GET_TWEET:
       return axios
-        .get(`${API_URL}/tweet/${action.payload}`, action.payload)
+        .get(`${API_URL}/tweet/${action.payload}`)
         .then((res) => dispatch({ type: types.GET_TWEET, payload: res.data }))
         .catch((err) =>
           dispatch({ type: types.ERROR, payload: err.response.data }),
@@ -332,10 +332,10 @@ export const applyMiddleware = (dispatch) => (action) => {
           dispatch({ type: types.ERROR, payload: err.response.data }),
         )
 
-    // case types.GET_FOLLOWING:
-    //   return axios.get(`${API_URL}/lists/i/following`, action.payload, headers)
-    //   .then(res=>dispatch({ type: types.GET_FOLLOWING, payload: res.data, data: action.payload }))
-    //   .catch(err=>dispatch({ type: types.ERROR, payload: err.response.data }))
+    case types.GET_FOLLOWING:
+      return axios.post(`${API_URL}/lists/i/following`, action.payload, headers)
+        .then(res => dispatch({ type: types.GET_FOLLOWING, payload: res.data, data: action.payload }))
+        .catch(err => dispatch({ type: types.ERROR, payload: err.response.data }))
 
     case types.WHO_TO_FOLLOW:
       return axios

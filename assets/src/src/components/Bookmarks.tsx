@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 import { Box } from 'styles'
 import { useStore } from '../store/store'
+import { WorkInProgress } from '../styles/global'
 import TweetCard from './TweetCard'
 
 const Bookmarks = (props) => {
@@ -29,7 +30,7 @@ const Bookmarks = (props) => {
       </BookmarksHeaderWrapper>
       {/* add loader for bookmarks when empty using dispatch */}
       {account && account.bookmarks.length < 1 ? (
-        <div className="workInProgress"> You don't have any bookmarks </div>
+        <WorkInProgress> You don't have any bookmarks </WorkInProgress>
       ) : (
         bookmarks.map((t) => (
           <TweetCard

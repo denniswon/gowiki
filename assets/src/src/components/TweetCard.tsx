@@ -13,7 +13,7 @@ import {
   ICON_DELETE,
   ICON_CLOSE,
   ICON_IMGUPLOAD,
-} from '../Icons'
+} from '../styles/icons'
 import { API_URL } from '../config'
 
 import styled, { css } from 'styled-components'
@@ -1016,7 +1016,7 @@ export const CardButtonWrap = styled(Box)`
   color: rgb(134, 120, 101);
   &:hover{
     .reply-icon{
-      export const CardButtonWrap{color: rgb(212, 11, 11) !important}
+      color: rgb(212, 11, 11) !important
       background-color: rgba(29, 161, 242,0.1);
       svg{ fill: rgb(29, 161, 242) !important; }
     }

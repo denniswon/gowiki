@@ -8,7 +8,7 @@ import {
   ICON_CLOSE,
   ICON_NEWLIST,
   ICON_UPLOAD,
-} from '../Icons'
+} from '../styles/icons'
 import styled from 'styled-components'
 import { Box } from 'styles'
 import {

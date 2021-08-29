@@ -6,7 +6,7 @@ import moment from 'moment'
 import { useMediaQuery } from 'react-responsive'
 import { token } from '../store/middleware'
 import { API_URL } from '../config'
-import { ICON_ARROWBACK, ICON_SEND } from '../Icons'
+import { ICON_ARROWBACK, ICON_SEND } from '../styles/icons'
 
 import styled, { css } from 'styled-components'
 import { Box } from 'styles'
