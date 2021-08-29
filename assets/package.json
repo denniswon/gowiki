@@ -99,7 +99,7 @@
     "@imaginary-cloud/eslint-config-react": "1.0.1",
     "@mediapipe/drawing_utils": "^0.3.1620248257",
     "@mediapipe/face_mesh": "^0.3.1620248508",
-    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.0.4",
     "@testing-library/react-hooks": "3.4.1",
     "@testing-library/user-event": "^12.1.7",

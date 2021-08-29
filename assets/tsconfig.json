@@ -10,7 +10,8 @@
       "jest",
       "node",
       "react",
-      "zustand"
+      "zustand",
+      "@testing-library/jest-dom"
     ],
     "typeRoots": [
       "../common/@types",

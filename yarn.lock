@@ -2028,7 +2028,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/jest-dom@npm:^5.11.4":
+"@testing-library/jest-dom@npm:^5.14.1":
   version: 5.14.1
   resolution: "@testing-library/jest-dom@npm:5.14.1"
   dependencies:
@@ -3537,7 +3537,7 @@ __metadata:
     "@mediapipe/drawing_utils": ^0.3.1620248257
     "@mediapipe/face_mesh": ^0.3.1620248508
     "@popperjs/core": ^2.9.2
-    "@testing-library/jest-dom": ^5.11.4
+    "@testing-library/jest-dom": ^5.14.1
     "@testing-library/react": ^11.0.4
     "@testing-library/react-hooks": 3.4.1
     "@testing-library/user-event": ^12.1.7

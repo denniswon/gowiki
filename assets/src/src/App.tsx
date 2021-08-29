@@ -8,7 +8,6 @@ import {
 } from 'react-router-dom'
 import { StoreProvider } from './store/store'
 import 'dotenv/config'
-import './App.scss'
 import Loader from './components/Loader'
 import Nav from './components/Nav'
 import Login from './components/Login'
@@ -23,20 +22,19 @@ import Notifications from './components/Notifications'
 import Messages from './components/Messages'
 import Alerts from './components/Alerts'
 import ChatPage from './components/ChatPage'
+import { Box } from 'styles'
+import {
+  BodyWrap, Main, MiddleSection, RightSection, Header
+} from './styles/global'
 
 const Home = lazy(() => import('./components/Home')) // eslint-disable-line
 const Profile = lazy(() => import('./components/Profile')) // eslint-disable-line
 
 const DefaultContainer = withRouter(({ history }) => (
-  <div className="body-wrap">
-    <main className="main">
-      <div
-        className={
-          history.location.pathname.slice(0, 9) !== '/messages'
-            ? 'middle-section ms-width'
-            : 'middle-section'
-        }
-      >
+  <BodyWrap>
+    <Main>
+      <MiddleSection
+        w={history.location.pathname.slice(0, 9) !== '/messages' ? '100%' : undefined}>
         <Route path="/" exact>
           <Redirect to="/home" />
         </Route>
@@ -67,25 +65,25 @@ const DefaultContainer = withRouter(({ history }) => (
         <Route path="/messages">
           <Messages />
         </Route>
-      </div>
+      </MiddleSection>
       <Route path="/messages">
         <ChatPage />
       </Route>
       {history.location.pathname.slice(0, 9) !== '/messages' && (
-        <div className="right-section">
+        <RightSection>
           <Feed />
-        </div>
+        </RightSection>
       )}
-    </main>
-    <nav className="header">
+    </Main>
+    <Header>
       <Nav />
-    </nav>
-  </div>
+    </Header>
+  </BodyWrap>
 ))
 
 function App() {
   return (
-    <div className="dark-mode">
+    <Box>
       <StoreProvider>
         <BrowserRouter>
           <Suspense fallback={<Loader />}>
@@ -102,7 +100,7 @@ function App() {
           </Suspense>
         </BrowserRouter>
       </StoreProvider>
-    </div>
+    </Box>
   )
 }
 

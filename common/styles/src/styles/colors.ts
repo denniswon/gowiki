@@ -37,6 +37,7 @@ const baseColors = {
   yellow: '#FFB930',
   orange: '#F29D1D',
   mustard: '#FFA722',
+  lightBlue: rgba(29, 161, 242, 1.0),
 
   transparent: rgba(black, 0.001),
 

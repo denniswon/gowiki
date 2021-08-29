@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { withRouter, useHistory, Link } from 'react-router-dom'
 import { useStore } from '../store/store'
-import './style.scss'
 import moment from 'moment'
 import Loader from './Loader'
 import {

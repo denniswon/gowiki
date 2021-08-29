@@ -1,17 +1,32 @@
 import React, { useEffect, useState, useRef } from 'react'
-import './style.scss'
 import { withRouter, Link } from 'react-router-dom'
 import axios from 'axios'
-import { useStore } from '../../store/store'
-import Loader from '../Loader'
-import TweetCard from '../TweetCard'
-import { API_URL } from '../../config'
+import { useStore } from '../store/store'
+import Loader from './Loader'
+import TweetCard from './TweetCard'
+import { API_URL } from '../config'
 import {
   ICON_ARROWBACK,
   ICON_UPLOAD,
   ICON_CLOSE,
   ICON_SEARCH,
-} from '../../Icons'
+} from '../Icons'
+import styled, { css } from 'styled-components'
+import { Box } from 'styles'
+import {
+  ExploreNavItem, ExploreNavMenu, ExploreSearchIcon, ExploreSearchInput, ExploreSearchWrapper,
+  FollowBtnWrap, SearchResultWapper, SearchUserBio, SearchUserDetails, SearchUserInfo, SearchUserName,
+  SearchUserPicWrapper, SearchUserUsername, SearchUserWrap
+} from './Explore'
+import {
+  ModalBody, ModalScroll, Span, ModalBanner, EditForm, EditInputWrap, EditInputContent, EditInput,
+  HeaderBackWrapper, ModalCloseIcon, ModalCloseIconWrap, ModalContent, ModalEdit, ModalHeader, ModalTitle,
+  SaveModalBtn, SaveModalWrapper
+} from '../styles/global'
+import {
+  BookmarksHeaderContent, BookmarksHeaderName, BookmarksHeaderTweets, BookmarksHeaderWrapper, BookmarksWrapper
+} from './Bookmarks'
+import { ProfileHeaderBack } from './Lists'
 
 const ListPage = (props) => {
  const { state, actions } = useStore()
@@ -59,7 +74,7 @@ const ListPage = (props) => {
     toggleModal()
   }
 
-  const toggleModal = (param) => {
+  const toggleModal = (param?) => {
     if (param === 'edit') {
       setSaved(false)
     }
@@ -97,7 +112,7 @@ const ListPage = (props) => {
 
   const changeBanner = () => {
     setBannerLoading(true)
-    const file = document.getElementById('banner').files[0]
+    const file = (document.getElementById('banner') as HTMLInputElement).files[0]
     uploadImage(file)
   }
 
@@ -129,27 +144,25 @@ const ListPage = (props) => {
   }
 
   return (
-    <div>
+    <Box>
       {list ? (
-        <div>
-          <div className="bookmarks-wrapper">
-            <div className="bookmarks-header-wrapper">
-              <div className="profile-header-back">
-                <div
-                  onClick={() => window.history.back()}
-                  className="header-back-wrapper"
-                >
+        <Box>
+          <BookmarksWrapper>
+            <BookmarksHeaderWrapper>
+              <ProfileHeaderBack>
+                <HeaderBackWrapper
+                  onClick={() => window.history.back()}>
                   <ICON_ARROWBACK />
-                </div>
-              </div>
-              <div className="bookmarks-header-content">
-                <div className="bookmarks-header-name">{list.name}</div>
-                <div className="bookmarks-header-tweets">
+                </HeaderBackWrapper>
+              </ProfileHeaderBack>
+              <BookmarksHeaderContent>
+                <BookmarksHeaderName>{list.name}</BookmarksHeaderName>
+                <BookmarksHeaderTweets>
                   @{list.user.username}
-                </div>
-              </div>
-            </div>
-            <div className="listp-banner">
+                </BookmarksHeaderTweets>
+              </BookmarksHeaderContent>
+            </BookmarksHeaderWrapper>
+            <ListpBanner>
               <img
                 src={
                   saved && banner.length > 0
@@ -160,36 +173,32 @@ const ListPage = (props) => {
                 }
                 alt="list-banner"
               />
-            </div>
-            <div className="listp-details-wrap">
-              <div className="bookmarks-header-name">
+            </ListpBanner>
+            <ListpDetailsWrap>
+              <BookmarksHeaderName>
                 {saved && editName.length > 0 ? editName : list.name}
-              </div>
+              </BookmarksHeaderName>
               {list.description.length > 0 || saved ? (
-                <div className="list-description">
+                <ListDescription>
                   {saved && editDescription.length > 0
                     ? editDescription
                     : list.description}
-                </div>
+                </ListDescription>
               ) : null}
-              <div className="list-owner-wrap">
+              <ListOwnerWrap>
                 <h4>{list.user.name}</h4>
-                <div>@{list.user.username}</div>
-              </div>
-              <div
-                onClick={() => toggleModal('members')}
-                className="list-owner-wrap Members"
-              >
+                <Box>@{list.user.username}</Box>
+              </ListOwnerWrap>
+              <ListOwnerWrap member={true}
+                onClick={() => toggleModal('members')}>
                 <h4>{list.users.length}</h4>
-                <div>Members</div>
-              </div>
-              <div
-                onClick={() => toggleModal('edit')}
-                className="listp-edit-btn"
-              >
+                <Box>Members</Box>
+              </ListOwnerWrap>
+              <ListpEditBtn
+                onClick={() => toggleModal('edit')}>
                 Edit List
-              </div>
-            </div>
+              </ListpEditBtn>
+            </ListpDetailsWrap>
             {listTweets &&
               listTweets.map((t) => (
                 <TweetCard
@@ -208,77 +217,54 @@ const ListPage = (props) => {
                   likes={t.likes}
                 />
               ))}
-          </div>
-          <div
+          </BookmarksWrapper>
+          <ModalEdit
             onClick={() => toggleModal('close')}
             style={{ display: modalOpen ? 'block' : 'none' }}
-            className="modal-edit"
           >
-            <div
-              style={{ height: '572px' }}
+            <ModalContent h={572}
               onClick={(e) => handleModalClick(e)}
-              className="modal-content"
             >
-              <div
-                className={
-                  memOpen ? 'modal-header no-b-border' : 'modal-header'
-                }
-              >
-                <div className="modal-closeIcon">
-                  <div
-                    onClick={() => toggleModal('close')}
-                    className="modal-closeIcon-wrap"
-                  >
+              <ModalHeader noBorder={memOpen}>
+                <ModalCloseIcon>
+                  <ModalCloseIconWrap
+                    onClick={() => toggleModal('close')}>
                     <ICON_CLOSE />
-                  </div>
-                </div>
-                <p className="modal-title">
+                  </ModalCloseIconWrap>
+                </ModalCloseIcon>
+                <ModalTitle>
                   {memOpen ? 'List members' : 'Edit List'}
-                </p>
+                </ModalTitle>
                 {memOpen ? null : (
-                  <div className="save-modal-wrapper">
-                    <div onClick={editList} className="save-modal-btn">
+                  <SaveModalWrapper>
+                    <SaveModalBtn onClick={editList}>
                       Done
-                    </div>
-                  </div>
+                    </SaveModalBtn>
+                  </SaveModalWrapper>
                 )}
-              </div>
+              </ModalHeader>
               {memOpen ? (
-                <div className="modal-body">
-                  <div className="explore-nav-menu">
-                    <div
+                <ModalBody>
+                  <ExploreNavMenu>
+                    <ExploreNavItem active={tab == 'Members'}
                       onClick={() => setTab('Members')}
-                      className={
-                        tab == 'Members'
-                          ? `explore-nav-item activeTab`
-                          : `explore-nav-item`
-                      }
                     >
                       Members ({list.users.length})
-                    </div>
-                    <div
+                    </ExploreNavItem>
+                    <ExploreNavItem active={tab == 'Search'}
                       onClick={() => setTab('Search')}
-                      className={
-                        tab == 'Search'
-                          ? `explore-nav-item activeTab`
-                          : `explore-nav-item`
-                      }
                     >
                       Search
-                    </div>
-                  </div>
-                  <div className="modal-scroll">
+                    </ExploreNavItem>
+                  </ExploreNavMenu>
+                  <ModalScroll>
                     {tab === 'Members' ? (
                       list.users.map((u) => (
-                        <div
+                        <SearchResultWapper
                           onClick={() => goToUser(u.username)}
-                          key={u._id}
-                          className="search-result-wapper"
-                        >
-                          <Link
-                            to={`/profile/${u.username}`}
-                            className="search-userPic-wrapper"
-                          >
+                          key={u._id}>
+                          <SearchUserPicWrapper
+                            to={`/profile/${u.username}`}>
                             <img
                               style={{
                                 borderRadius: '50%',
@@ -288,17 +274,17 @@ const ListPage = (props) => {
                               height="49px"
                               src={u.profileImg}
                             />
-                          </Link>
-                          <div className="search-user-details">
-                            <div className="search-user-warp">
-                              <div className="search-user-info">
-                                <div className="search-user-name">{u.name}</div>
-                                <div className="search-user-username">
+                          </SearchUserPicWrapper>
+                          <SearchUserDetails>
+                            <SearchUserWrap>
+                              <SearchUserInfo>
+                                <SearchUserName>{u.name}</SearchUserName>
+                                <SearchUserUsername>
                                   @{u.username}
-                                </div>
-                              </div>
+                                </SearchUserUsername>
+                              </SearchUserInfo>
                               {u._id === account._id ? null : (
-                                <div
+                                <FollowBtnWrap removeSwitch={list.users.some((x) => x._id === u._id)}
                                   onClick={(e) =>
                                     addToList(
                                       e,
@@ -308,57 +294,45 @@ const ListPage = (props) => {
                                       u.name,
                                     )
                                   }
-                                  className={
-                                    list.users.some((x) => x._id === u._id)
-                                      ? 'follow-btn-wrap Remove-switch'
-                                      : 'follow-btn-wrap'
-                                  }
                                 >
-                                  <span>
-                                    <span>
+                                  <Span>
+                                    <Span>
                                       {list.users.some((x) => x._id === u._id)
                                         ? 'Remove'
                                         : 'Add'}
-                                    </span>
-                                  </span>
-                                </div>
+                                    </Span>
+                                  </Span>
+                                </FollowBtnWrap>
                               )}
-                            </div>
-                            <div className="search-user-bio">
+                            </SearchUserWrap>
+                            <SearchUserBio>
                               {/* {account.description.substring(0,160)} */}
-                            </div>
-                          </div>
-                        </div>
+                            </SearchUserBio>
+                          </SearchUserDetails>
+                        </SearchResultWapper>
                       ))
                     ) : (
-                      <div>
-                        <div
-                          style={{ borderRadius: '0' }}
-                          className="explore-search-wrapper"
-                        >
-                          <div className="explore-search-icon">
+                      <Box>
+                        <ExploreSearchWrapper br={0}>
+                          <ExploreSearchIcon>
                             <ICON_SEARCH styles={{ fill: '#1da1f2' }} />
-                          </div>
-                          <div className="explore-search-input">
+                          </ExploreSearchIcon>
+                          <ExploreSearchInput>
                             <input
                               onChange={(e) => searchOnChange(e.target.value)}
                               placeholder="Search People"
                               type="text"
                               name="search"
                             />
-                          </div>
-                        </div>
+                          </ExploreSearchInput>
+                        </ExploreSearchWrapper>
                         {resultUsers.length
                           ? resultUsers.map((u) => (
-                              <div
+                              <SearchResultWapper
                                 onClick={() => goToUser(u.username)}
-                                key={u._id}
-                                className="search-result-wapper"
-                              >
-                                <Link
-                                  to={`/profile/${u.username}`}
-                                  className="search-userPic-wrapper"
-                                >
+                                key={u._id}>
+                                <SearchUserPicWrapper
+                                  to={`/profile/${u.username}`}>
                                   <img
                                     style={{
                                       borderRadius: '50%',
@@ -368,19 +342,21 @@ const ListPage = (props) => {
                                     height="49px"
                                     src={u.profileImg}
                                   />
-                                </Link>
-                                <div className="search-user-details">
-                                  <div className="search-user-warp">
-                                    <div className="search-user-info">
-                                      <div className="search-user-name">
+                                </SearchUserPicWrapper>
+                                <SearchUserDetails>
+                                  <SearchUserWrap>
+                                    <SearchUserInfo>
+                                      <SearchUserName>
                                         {u.name}
-                                      </div>
-                                      <div className="search-user-username">
+                                      </SearchUserName>
+                                      <SearchUserUsername>
                                         @{u.username}
-                                      </div>
-                                    </div>
+                                      </SearchUserUsername>
+                                    </SearchUserInfo>
                                     {u._id === account._id ? null : (
-                                      <div
+                                      <FollowBtnWrap removeSwitch={list.users.some(
+                                        (x) => x._id === u._id,
+                                      )}
                                         onClick={(e) =>
                                           addToList(
                                             e,
@@ -390,40 +366,33 @@ const ListPage = (props) => {
                                             u.name,
                                           )
                                         }
-                                        className={
-                                          list.users.some(
-                                            (x) => x._id === u._id,
-                                          )
-                                            ? 'follow-btn-wrap Remove-switch'
-                                            : 'follow-btn-wrap'
-                                        }
                                       >
-                                        <span>
-                                          <span>
+                                        <Span>
+                                          <Span>
                                             {list.users.some(
                                               (x) => x._id === u._id,
                                             )
                                               ? 'Remove'
                                               : 'Add'}
-                                          </span>
-                                        </span>
-                                      </div>
+                                          </Span>
+                                        </Span>
+                                      </FollowBtnWrap>
                                     )}
-                                  </div>
-                                  <div className="search-user-bio">
+                                  </SearchUserWrap>
+                                  <SearchUserBio>
                                     {u.description.substring(0, 160)}
-                                  </div>
-                                </div>
-                              </div>
+                                  </SearchUserBio>
+                                </SearchUserDetails>
+                              </SearchResultWapper>
                             ))
                           : null}
-                      </div>
+                      </Box>
                     )}
-                  </div>
-                </div>
+                  </ModalScroll>
+                </ModalBody>
               ) : (
-                <div className="modal-body">
-                  <div className="modal-banner">
+                <ModalBody>
+                  <ModalBanner>
                     {list.banner.length > 0 || banner.length > 0 ? (
                       <img
                         src={
@@ -436,7 +405,7 @@ const ListPage = (props) => {
                         alt="modal-banner"
                       />
                     ) : null}
-                    <div>
+                    <Box>
                       <ICON_UPLOAD />
                       <input
                         onChange={() => changeBanner()}
@@ -445,52 +414,128 @@ const ListPage = (props) => {
                         style={{ opacity: '0' }}
                         type="file"
                       />
-                    </div>
-                  </div>
-                  <form className="edit-form">
-                    <div className="edit-input-wrap">
-                      <div className="edit-input-content">
+                    </Box>
+                  </ModalBanner>
+                  <EditForm>
+                    <EditInputWrap>
+                      <EditInputContent>
                         <label>Name</label>
-                        <input
+                        <EditInput
                           defaultValue={list.name}
                           onChange={(e) => setName(e.target.value)}
                           type="text"
                           name="name"
-                          className="edit-input"
                         />
-                      </div>
-                    </div>
-                    <div
-                      style={{ marginTop: '30px' }}
-                      className="edit-input-wrap"
-                    >
-                      <div className="edit-input-content">
+                      </EditInputContent>
+                    </EditInputWrap>
+                    <EditInputWrap mt={30}>
+                      <EditInputContent>
                         <label>Description</label>
-                        <input
+                        <EditInput
                           defaultValue={list.description}
                           onChange={(e) => setDescription(e.target.value)}
                           type="text"
                           name="description"
-                          className="edit-input"
                         />
-                      </div>
-                    </div>
-                  </form>
-                  <div onClick={deleteList} className="modal-delete-box">
+                      </EditInputContent>
+                    </EditInputWrap>
+                  </EditForm>
+                  <ModalDeleteBox onClick={deleteList}>
                     Delete List
-                  </div>
-                </div>
+                  </ModalDeleteBox>
+                </ModalBody>
               )}
-            </div>
-          </div>
-        </div>
+            </ModalContent>
+          </ModalEdit>
+        </Box>
       ) : (
-        <div className="bookmarks-wrapper">
+        <BookmarksWrapper>
           <Loader />{' '}
-        </div>
+        </BookmarksWrapper>
       )}
-    </div>
+    </Box>
   )
 }
 
 export default withRouter(ListPage)
+
+export const ListpBanner = styled(Box)`
+  max-height: 200px;
+  height: 200px;
+  width: 100%;
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+`
+
+export const ListpDetailsWrap = styled(Box)`
+  padding: 10px 10px 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid rgb(230, 236, 240);;
+`
+
+export const ListOwnerWrap = styled(Box)<{ member?: boolean }>`
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  cursor: pointer;
+  &:hover{
+    h4{text-decoration: underline;}
+  }
+  div{
+    margin-left: 5px;
+    color: rgb(101, 119, 134);
+  }
+  ${p => p.member && css`
+    &:hover{
+      text-decoration: underline;
+    }  
+  `}
+`
+
+export const ListpEditBtn = styled(Box)`
+  margin: 20px 0;
+  min-width: 92px;
+  min-height: 39px;
+  display: flex;
+  font-weight: bold;
+  color: rgb(29, 161, 242);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid rgb(29, 161, 242);
+  border-radius: 9999px;
+  transition: 0.2s ease-in-out;
+  &:hover{
+    background-color: rgba(29,161,242,0.1);
+  }
+`
+
+export const ListDescription = styled(Box)`
+  margin-top: 10px;
+`
+
+export const ModalDeleteBox = styled(Box)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(224, 36, 94);
+  border-top: 1px solid rgb(230, 236, 240);
+  border-bottom: 1px solid rgb(230, 236, 240);
+  padding: 15px;
+  min-height: 49px;
+  cursor: pointer;
+  transition: 0.1s ease-in-out;
+  will-change: background-color;
+  margin-top: 30px;
+  &:hover{
+    font-weight: 600;
+    background-color: rgba(224, 36, 94, 0.1);
+  }
+`

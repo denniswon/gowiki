@@ -1,13 +1,18 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { useStore } from '../../store/store'
-import './style.scss'
+import { useStore } from '../store/store'
 import axios from 'axios'
-import ContentEditable from 'react-contenteditable'
 import { Link } from 'react-router-dom'
-import { ICON_IMGUPLOAD } from '../../Icons'
-import { API_URL } from '../../config'
-import Loader from '../Loader'
-import TweetCard from '../TweetCard'
+import { ICON_IMGUPLOAD } from '../Icons'
+import { API_URL } from '../config'
+import Loader from './Loader'
+import TweetCard from './TweetCard'
+import styled from 'styled-components'
+import { Box, c } from 'styles'
+import {
+  CancelImage, InnerImageBox, InnerInputBox, InnerInputLinks, InputAttachWrapper, InputLinksSide,
+  TweetBtnHolder, TweetBtnSide, TweetInput, TweetInputDivider, TweetInputSide, TweetInputWrapper,
+  TweetProfileWrapper, TweetUploadImage
+} from '../styles/global'
 
 const Home = () => {
  const { state, actions } = useStore()
@@ -19,15 +24,19 @@ const Home = () => {
 
   // used for contenteditable divs on react hooks
   const tweetT = useRef('')
-  const handleChange = (evt, e) => {
+  const handleChange = (e) => {
     if (
       tweetT.current.trim().length <= 280 &&
       tweetT.current.split(/\r\n|\r|\n/).length <= 30
     ) {
-      tweetT.current = evt.target.value
+      tweetT.current = e.target.value
       setTweetText(tweetT.current)
     }
-    // document.getElementById('tweet-box').innerHTML = document.getElementById('tweet-box').innerHTML.replace(/(\#\w+)/g, '<span class="blue">$1</span>')
+    document.getElementById('tweet-box').innerHTML =
+      document.getElementById('tweet-box').innerHTML.replace(
+        /(\#\w+)/g,
+        `<span style={{ color: ${c.lightBlue}}}>$1</span>`
+      )
   }
   const [tweetText, setTweetText] = useState('')
   const [tweetImage, setTweetImage] = useState(null)
@@ -54,7 +63,7 @@ const Home = () => {
 
   const onchangefile = () => {
     setImageLoading(true)
-    const file = document.getElementById('file').files[0]
+    const file = (document.getElementById('file') as HTMLInputElement).files[0]
 
     const bodyFormData = new FormData()
     bodyFormData.append('image', file)
@@ -72,19 +81,19 @@ const Home = () => {
   }
 
   const removeImage = () => {
-    document.getElementById('file').value = ''
+    (document.getElementById('file') as HTMLInputElement).value = ''
     setTweetImage(null)
     setImageLoaded(false)
   }
 
   return (
-    <div className="Home-wrapper">
-      <div className="Home-header-wrapper">
-        <h2 className="Home-header">Latest Tweets</h2>
-      </div>
+    <HomeWrapper>
+      <HomeHeaderWrapper>
+        <HomeHeader>Latest Tweets</HomeHeader>
+      </HomeHeaderWrapper>
       {session ? (
-        <div className="Tweet-input-wrapper">
-          <div className="Tweet-profile-wrapper">
+        <TweetInputWrapper>
+          <TweetProfileWrapper>
             <Link to={`/profile/${account && account.username}`}>
               {account && (
                 <img
@@ -96,16 +105,15 @@ const Home = () => {
                 />
               )}
             </Link>
-          </div>
-          <div
+          </TweetProfileWrapper>
+          <TweetInputSide
             onClick={() => document.getElementById('tweet-box').focus()}
-            className="Tweet-input-side"
           >
-            <div className="inner-input-box">
-              <ContentEditable
+            <InnerInputBox>
+              <TweetInput
+                active={tweetText.length > 0}
                 onPaste={(e) => e.preventDefault()}
                 id="tweet-box"
-                className={tweetText.length ? 'tweet-input-active' : null}
                 onKeyDown={(e) =>
                   tweetT.current.length > 279
                     ? e.keyCode !== 8 && e.preventDefault()
@@ -115,29 +123,25 @@ const Home = () => {
                 html={tweetT.current}
                 onChange={(e) => handleChange(e)}
               />
-            </div>
-            <div>{imageLoading ? <Loader /> : null}</div>
+            </InnerInputBox>
+            <Box>{imageLoading ? <Loader /> : null}</Box>
             {tweetImage && (
-              <div className="inner-image-box">
-                <img
+              <InnerImageBox>
+                <TweetUploadImage
                   onLoad={() => setImageLoaded(true)}
-                  className="tweet-upload-image"
                   src={tweetImage}
                   alt="tweet"
                 />
                 {imageLoaded && (
-                  <span onClick={removeImage} className="cancel-image">
+                  <CancelImage onClick={removeImage}>
                     x
-                  </span>
+                  </CancelImage>
                 )}
-              </div>
+              </InnerImageBox>
             )}
-            <div className="inner-input-links">
-              <div className="input-links-side">
-                <div
-                  style={{ marginLeft: '-10px' }}
-                  className="input-attach-wrapper"
-                >
+            <InnerInputLinks>
+              <InputLinksSide>
+                <InputAttachWrapper ml={-10}>
                   <ICON_IMGUPLOAD styles={{ fill: 'rgb(29, 161, 242)' }} />
                   <input
                     title=" "
@@ -146,35 +150,28 @@ const Home = () => {
                     type="file"
                     onChange={() => onchangefile()}
                   />
-                </div>
-              </div>
-              <div className="tweet-btn-holder">
-                <div
+                </InputAttachWrapper>
+              </InputLinksSide>
+              <TweetBtnHolder>
+                <Box
                   style={{
                     fontSize: '13px',
                     color: tweetText.length >= 280 ? 'red' : null,
                   }}
                 >
                   {tweetText.length > 0 && `${tweetText.length}/280`}
-                </div>
-                <div
+                </Box>
+                <TweetBtnSide active={tweetText.length > 0}
                   onClick={submitTweet}
-                  className={
-                    tweetText.length
-                      ? 'tweet-btn-side tweet-btn-active'
-                      : 'tweet-btn-side'
-                  }
                 >
                   Tweet
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                </TweetBtnSide>
+              </TweetBtnHolder>
+            </InnerInputLinks>
+          </TweetInputSide>
+        </TweetInputWrapper>
       ) : null}
-      <div className="Tweet-input-divider"></div>
-      {/* { state.account && <TweetCard parent={t.parent} key={'1'} id={'1'} user={'1'} createdAt={'2019'} description={'t.description'}
-                images={'t.images'} replies={[]} retweets={[]} likes={[]} style={{height:'0'}} />} */}
+      <TweetInputDivider></TweetInputDivider>
       {state.tweets.length > 0 ? (
         state.tweets.map((t) => (
           <TweetCard
@@ -196,8 +193,43 @@ const Home = () => {
       ) : (
         <Loader />
       )}
-    </div>
+    </HomeWrapper>
   )
 }
 
 export default Home
+
+export const HomeWrapper = styled(Box)`
+    max-width: 600px;
+    border-right: 1px solid rgb(230, 236, 240);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 2000px;
+`
+
+export const HomeHeaderWrapper = styled(Box)`
+    position: sticky;
+    border-bottom: 1px solid rgb(230, 236, 240);
+    border-left: 1px solid rgb(230, 236, 240);
+    background-color: rgb(255, 255, 255);
+    z-index: 3;
+    top: 0px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    height: 53px;
+    min-height: 53px;
+    padding-left: 15px;
+    padding-right: 15px;
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+`
+
+export const HomeHeader = styled.h2`
+    font-weight: 800;
+    font-size: 19px;
+    color: rgb(20, 23, 26);
+    line-height: 1.3125;
+`

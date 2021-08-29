@@ -4,6 +4,42 @@ import ContentEditable from 'react-contenteditable'
 
 export const Span = styled.span``
 
+export const ChatHeight = styled(Box)<{ conversation?: boolean }>`
+  ${p => p.conversation
+    ? css`
+        height: 100%;
+        @media (max-width: 450px) {
+          height: calc(100vh - 46px) !important;
+        }
+      `
+    : css`
+        height: calc(100vh - 46px) !important;
+        @media (max-width: 888px) {
+          height: 100vh !important;
+        }}
+      `}
+`
+
+export const ChatBottomWrapper = styled(Box)<{ conversation?: boolean }>`
+${p => p.conversation
+  ? css`
+      height: 53px;
+      width: 100%;
+      max-height: 53px;
+      bottom: 0;
+      position: sticky;
+      padding: 0px 15px;
+      border-top: 1px solid rgb(230, 236, 240);
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+      @media (max-width: 450px) {
+        bottom: 50px !important;
+      }
+    `
+  : css`bottom: 50px !important;`}
+`
+
 export const BodyWrap = styled(Box)`
   display: flex;
   flex-direction: row;
@@ -15,7 +51,7 @@ export const BodyWrap = styled(Box)`
   }
 `
 
-export const Header = styled(Box)`
+export const Header = styled.nav`
   display: flex;
   justify-content: flex-end;
   position: relative;
@@ -30,7 +66,7 @@ export const Header = styled(Box)`
   }
 `
 
-export const Main = styled(Box)`
+export const Main = styled.main`
   width: 990px;
   display: flex;
   justify-content: space-between;
@@ -45,10 +81,9 @@ export const Main = styled(Box)`
 export const MiddleSection = styled(Box)`
   max-width: 600px;
   min-height: 100vh;
-`
-
-export const MsWidth = styled(Box)`
-  width: 100%;
+  @media (max-width: 888px) {
+    width: 100%;
+  }
 `
 
 export const RightSection = styled(Box)`
@@ -93,7 +128,7 @@ export const ModalContent = styled(Box)`
   overflow: hidden;
 `
 
-export const ModalHeader = styled(Box)`
+export const ModalHeader = styled(Box)<{ noBorder?: boolean }>`
   height: 53px;
   z-index: 3;
   display: flex;
@@ -102,7 +137,9 @@ export const ModalHeader = styled(Box)`
   border-bottom: 1px solid rgb(204, 214, 221);
   max-width: 1000px;
   width: 100%;
-
+  ${p => p.noBorder && css`
+    border-bottom: 1px solid transparent !important;
+  `}
 `
 
 export const ModalCloseIcon = styled(Box)`
@@ -303,7 +340,7 @@ export const EditForm = styled.form`
   width: 100%;
 `
 
-export const EditInput = styled(Box)`
+export const EditInput = styled.input`
   background-color: inherit;
   border: inherit;
   &:focus = {
@@ -436,9 +473,9 @@ export const TweetBtnSide = styled(Box)<{ active?: boolean }>`
   align-items: center;
   color: #fff;
   font-weight: 700;
-  // cursor: pointer;
   opacity: 0export const 5;
   transition: 0export const 15s ease-in-out;
+
   ${p => p.active && css`
     cursor: pointer;
     opacity: 1;
@@ -552,6 +589,13 @@ export const HeaderBackWrapper = styled(Box)`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  svg {
+    height: 1.5em;
+    fill: rgb(29,161,242);
+  }
+  &:hover {
+    background-color: rgba(29,161,242,0.1);
+  }
 `
 
 export const NavTweet = styled(Box)`

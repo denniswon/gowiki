@@ -12,6 +12,7 @@ export interface State {
   recent_tweets: any[],
   lists: any[],
   list: any,
+  listTweets: any[],
   trends: any[],
   result: any[],
   tagTweets: any[],
@@ -21,7 +22,7 @@ export interface State {
   suggestions: any[],
   top: string,
   msg: string,
-  conversations: any[],
+  conversations: { conversations: any[] },
   conversation: any,
   error: boolean,
 }
@@ -37,6 +38,7 @@ const initialState: State = {
   recent_tweets: [],
   lists: [],
   list: null,
+  listTweets: [],
   trends: [],
   result: [],
   tagTweets: [],
@@ -46,7 +48,7 @@ const initialState: State = {
   suggestions: [],
   top: '-100px',
   msg: '',
-  conversations: null,
+  conversations: { conversations: [] },
   conversation: null,
   error: false,
 }
