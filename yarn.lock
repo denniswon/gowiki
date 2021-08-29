@@ -1389,7 +1389,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.11.2":
+"@babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.13":
   version: 7.15.3
   resolution: "@babel/runtime@npm:7.15.3"
   dependencies:
@@ -2428,34 +2428,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-router-dom@npm:^4.0.7":
-  version: 4.3.5
-  resolution: "@types/react-router-dom@npm:4.3.5"
+"@types/react-router-dom@npm:^5.1.8":
+  version: 5.1.8
+  resolution: "@types/react-router-dom@npm:5.1.8"
   dependencies:
     "@types/history": "*"
     "@types/react": "*"
     "@types/react-router": "*"
-  checksum: 9eb9af96ff7d4037498fc1e6c4b0492dd611fae9b66e2fac9f426462bf718e6680cfccef72c8306fd9d92100e4e9bb8f3bf01d44b90fa57df81f485320e10e93
+  checksum: f647bc32a7b13614375714890521327168fb54f41d2acf726f5a9a16f75335da376bd399db99e8e2865dbeb6035ec2af5769936f3b76550095340d956cf4a6c6
   languageName: node
   linkType: hard
 
-"@types/react-router@npm:*":
+"@types/react-router@npm:*, @types/react-router@npm:^5.1.16":
   version: 5.1.16
   resolution: "@types/react-router@npm:5.1.16"
   dependencies:
     "@types/history": "*"
     "@types/react": "*"
   checksum: f8a286dfb328d66a635d24df23876a6fab0dc1dcc357a98709439ba096812bf647cee966d3d42d7fb00a3f355f5a991c0608ad3e7fb5063ea86eea8ea7542144
-  languageName: node
-  linkType: hard
-
-"@types/react-router@npm:^4.0.31":
-  version: 4.4.5
-  resolution: "@types/react-router@npm:4.4.5"
-  dependencies:
-    "@types/history": "*"
-    "@types/react": "*"
-  checksum: 770f80708a256f6b5efcbeaaecba2021f75ed012cfd69d18f3e898fe8af9b396f3f24a986db2c4d111959b744eef0abca1ba08012dffd5b2c6a3c609a5fbf1fe
   languageName: node
   linkType: hard
 
@@ -3564,8 +3554,8 @@ __metadata:
     "@types/react-dnd": ^3.0.2
     "@types/react-dropzone": ^5.1.0
     "@types/react-modal": ^3.2.1
-    "@types/react-router": ^4.0.31
-    "@types/react-router-dom": ^4.0.7
+    "@types/react-router": ^5.1.16
+    "@types/react-router-dom": ^5.1.8
     "@types/react-select": ^3.0.4
     "@types/react-table": ^6.7.18
     "@types/react-test-renderer": ^16.9.0
@@ -3645,8 +3635,8 @@ __metadata:
     react-perfect-scrollbar: ^1.4.2
     react-popper: ^2.2.3
     react-responsive: ^8.1.0
-    react-router: ^5.1.0
-    react-router-dom: ^5.1.0
+    react-router: ^5.2.1
+    react-router-dom: ^5.2.1
     react-scrollbars-custom: ^3.1.3
     react-select: ^3.0.4
     react-spring: ^8.0.27
@@ -14210,28 +14200,28 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-router-dom@npm:^5.1.0":
-  version: 5.2.0
-  resolution: "react-router-dom@npm:5.2.0"
+"react-router-dom@npm:^5.2.1":
+  version: 5.2.1
+  resolution: "react-router-dom@npm:5.2.1"
   dependencies:
-    "@babel/runtime": ^7.1.2
+    "@babel/runtime": ^7.12.13
     history: ^4.9.0
     loose-envify: ^1.3.1
     prop-types: ^15.6.2
-    react-router: 5.2.0
+    react-router: 5.2.1
     tiny-invariant: ^1.0.2
     tiny-warning: ^1.0.0
   peerDependencies:
     react: ">=15"
-  checksum: 9ad2d72630491f324a0f0c1dbcc3dc04d8d7cee7cb9dc9effd115fe736ba06104360a78a624170f863738d77e487d459864206a79d91d3c9663cf1dadb3b637f
+  checksum: a9664a1ef7b795df30eb00e5e4efd64920678ce620548e3f3e4a1fa23ef0a188bfbbff3e9af6402eb822629b2586e15d5bd62269b8b7d5e3705a46815cd9d045
   languageName: node
   linkType: hard
 
-"react-router@npm:5.2.0, react-router@npm:^5.1.0":
-  version: 5.2.0
-  resolution: "react-router@npm:5.2.0"
+"react-router@npm:5.2.1, react-router@npm:^5.2.1":
+  version: 5.2.1
+  resolution: "react-router@npm:5.2.1"
   dependencies:
-    "@babel/runtime": ^7.1.2
+    "@babel/runtime": ^7.12.13
     history: ^4.9.0
     hoist-non-react-statics: ^3.1.0
     loose-envify: ^1.3.1
@@ -14243,7 +14233,7 @@ __metadata:
     tiny-warning: ^1.0.0
   peerDependencies:
     react: ">=15"
-  checksum: 4437eaa9bab02d46a7d6ea4915731c1f31642d6c3e3f7b9f951f5c6a9a73f35d4deb43a2d6b4be85f27816a20de96c3b9a9239f4b7e9136742106794ad20e95c
+  checksum: fd2fb21a46caabd4cc8ebaeb54c1e74733658e90eee50fd585c52e37110576ac479072d919b8a422586c361f7939c2d43dbf6d072700f6c8342808839948088a
   languageName: node
   linkType: hard
 

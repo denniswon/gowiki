@@ -13,7 +13,8 @@ import styled from 'styled-components'
 import { Box } from 'styles'
 import {
   Span, ModalEdit, ModalContent, ModalCloseIcon, ModalCloseIconWrap, ModalHeader, ModalTitle,
-  SaveModalBtn, SaveModalWrapper, ModalBody, EditForm, EditInputWrap, EditInputContent, ModalBanner
+  SaveModalBtn, SaveModalWrapper, ModalBody, EditForm, EditInputWrap, EditInputContent, ModalBanner,
+  HeaderBackWrapper
 } from '../styles/global'
 import {
   BookmarksWrapper, BookmarksHeaderWrapper, BookmarksHeaderContent, BookmarksHeaderName,
@@ -92,12 +93,11 @@ const Lists = (props) => {
       <BookmarksWrapper>
         <BookmarksHeaderWrapper>
           <ProfileHeaderBack>
-            <HeaderBackWrapper
+            <ListHeaderBackWrapper
               onClick={() => window.history.back()}
-              className="header-back-wrapper"
             >
               <ICON_ARROWBACK />
-            </HeaderBackWrapper>
+            </ListHeaderBackWrapper>
           </ProfileHeaderBack>
           <BookmarksHeaderContent>
             <BookmarksHeaderName>Your Lists</BookmarksHeaderName>
@@ -208,20 +208,20 @@ const Lists = (props) => {
 
 export default withRouter(Lists)
 
-const ProfileHeaderBack = styled(Box)`
+export const ProfileHeaderBack = styled(Box)`
   min-width: 55px;
   min-height: 30px;
   justify-content: center;
   align-items: flex-start;
 `
 
-const HeaderBackWrapper = styled(Box)`
+export const ListHeaderBackWrapper = styled(HeaderBackWrapper)`
   &:hover{
     background-color: rgba(29,161,242,0.1);
   }
 `
 
-const ListCardWrapper = styled(Link)`
+export const ListCardWrapper = styled(Link)`
   padding: 10px 15px;
   border-bottom: 1px solid rgb(230, 236, 240);
   display: flex;
@@ -233,7 +233,7 @@ const ListCardWrapper = styled(Link)`
   }
 `
 
-const ListImgWrap = styled(Box)`
+export const ListImgWrap = styled(Box)`
   margin-right: 15px;
   height: 49px;
   width: 49px;
@@ -246,7 +246,7 @@ const ListImgWrap = styled(Box)`
   }
 `
 
-const ListContentWrap = styled(Box)`
+export const ListContentWrap = styled(Box)`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -254,7 +254,7 @@ const ListContentWrap = styled(Box)`
   align-items: flex-start;
 `
 
-const ListDetailsWrap = styled(Box)`
+export const ListDetailsWrap = styled(Box)`
   display: flex;
   align-items: center;
   margin-top: 2px;
@@ -266,7 +266,7 @@ const ListDetailsWrap = styled(Box)`
   }
 `
 
-const NewlistIconWrap = styled(Box)`
+export const NewlistIconWrap = styled(Box)`
   display: flex;
   margin-left: auto;
   span{

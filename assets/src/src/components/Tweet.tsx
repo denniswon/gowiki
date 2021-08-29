@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { withRouter, useHistory, Link } from 'react-router-dom'
-import { useStore } from '../../store/store'
+import { useStore } from '../store/store'
 import './style.scss'
 import moment from 'moment'
-import Loader from '../Loader'
+import Loader from './Loader'
 import {
   ICON_ARROWBACK,
   ICON_HEART,
@@ -15,11 +15,22 @@ import {
   ICON_BOOKMARKFILL,
   ICON_IMGUPLOAD,
   ICON_CLOSE,
-} from '../../Icons'
+} from '../Icons'
 import axios from 'axios'
-import { API_URL } from '../../config'
-import ContentEditable from 'react-contenteditable'
-import TweetCard from '../TweetCard'
+import { API_URL } from '../config'
+import TweetCard, {
+  CardContentHeader, CardContentWrapper, CardHeaderDate, CardHeaderDetail, CardHeaderDot, CardHeaderUser,
+  CardHeaderUsername, CardUserPicWrapper, MainTweetUser, ReplyContentWrapper, ReplyToUser, ReplyTweetUsername
+} from './TweetCard'
+import styled from 'styled-components'
+import { Box, m } from 'styles'
+import {
+  CancelImage, CardContentInfo, HeaderBackWrapper, InnerImageBox, InnerInputBox, InnerInputLinks, InputAttachWrapper,
+  InputLinksSide, ModalBody, ModalCloseIcon, ModalCloseIconWrap, ModalContent, ModalEdit, ModalHeader, ModalTitle,
+  TweetBtnHolder, TweetBtnSide, TweetInput, TweetInputSide, TweetInputWrapper, TweetProfileWrapper, TweetUploadImage
+} from '../styles/global'
+import { CardIcon } from './TweetCard'
+import { ProfileHeaderBack } from './Lists'
 
 const TweetPage = (props) => {
   const history = useHistory()
@@ -83,17 +94,17 @@ const TweetPage = (props) => {
   }
 
   const onchangeImage = () => {
-    const file = document.getElementById('image').files[0]
+    const file = (document.getElementById('img') as HTMLInputElement).files[0]
     uploadImage(file)
   }
 
   const removeImage = () => {
-    document.getElementById('image').value = ''
+    (document.getElementById('img') as HTMLInputElement).value = ''
     setReplyImg(null)
     setImageLoaded(false)
   }
 
-  const toggleModal = (e, type) => {
+  const toggleModal = (e?, type?) => {
     if (e) {
       e.stopPropagation()
     }
@@ -143,18 +154,18 @@ const TweetPage = (props) => {
   return (
     <>
       {tweet ? (
-        <div className="tweet-wrapper">
-          <div className="tweet-header-wrapper">
-            <div className="profile-header-back">
-              <div onClick={() => goBack()} className="header-back-wrapper">
+        <TweetWrapper>
+          <TweetHeaderWrapper>
+            <ProfileHeaderBack>
+              <TweetHeaderBackWrapper onClick={() => goBack()}>
                 <ICON_ARROWBACK />
-              </div>
-            </div>
-            <div className="tweet-header-content"> Tweet </div>
-          </div>
-          <div className="tweet-body-wrapper">
-            <div className="tweet-header-content">
-              <div className="tweet-user-pic">
+              </TweetHeaderBackWrapper>
+            </ProfileHeaderBack>
+            <TweetHeaderContent> Tweet </TweetHeaderContent>
+          </TweetHeaderWrapper>
+          <TweetBodyWrapper>
+            <TweetHeaderContent>
+              <TweetUserPic>
                 <Link to={`/profile/${tweet.user.username}`}>
                   <img
                     alt=""
@@ -164,16 +175,16 @@ const TweetPage = (props) => {
                     src={tweet.user.profileImg}
                   />
                 </Link>
-              </div>
-              <div className="tweet-user-wrap">
-                <div className="tweet-user-name">{tweet.user.name}</div>
-                <div className="tweet-username">@{tweet.user.username}</div>
-              </div>
-            </div>
-            <div className="tweet-content">{tweet.description}</div>
+              </TweetUserPic>
+              <TweetUserWrap>
+                <TweetUsername>{tweet.user.name}</TweetUsername>
+                <TweetUsername>@{tweet.user.username}</TweetUsername>
+              </TweetUserWrap>
+            </TweetHeaderContent>
+            <TweetContent>{tweet.description}</TweetContent>
             {tweet.images[0] ? (
-              <div className="tweet-image-wrapper">
-                <div
+              <TweetImageWrapper>
+                <Box
                   style={{
                     backgroundImage: `url(${tweet.images[0]})`,
                     paddingBottom: `${
@@ -181,30 +192,29 @@ const TweetPage = (props) => {
                       100 / (image.width / image.height))
                     }%`,
                   }}
-                ></div>
-              </div>
+                />
+              </TweetImageWrapper>
             ) : null}
-            <div className="tweet-date">
+            <TweetDate>
               {moment(tweet.createdAt).format('h:mm A · MMM D, YYYY')}
-            </div>
-            <div className="tweet-stats">
-              <div className="int-num"> {tweet.retweets.length} </div>
-              <div className="int-text"> Retweets </div>
-              <div className="int-num"> {tweet.likes.length} </div>
-              <div className="int-text"> Likes </div>
-            </div>
-            <div className="tweet-interactions">
-              <div onClick={() => toggleModal()} className="tweet-int-icon">
-                <div className="card-icon reply-icon">
+            </TweetDate>
+            <TweetStats>
+              <IntNum> {tweet.retweets.length} </IntNum>
+              <IntText> Retweets </IntText>
+              <IntNum> {tweet.likes.length} </IntNum>
+              <IntText> Likes </IntText>
+            </TweetStats>
+            <TweetInteractions>
+              <TweetIntIcon onClick={() => toggleModal()}>
+                <CardIcon className="reply-icon">
                   {' '}
                   <ICON_REPLY />{' '}
-                </div>
-              </div>
-              <div
+                </CardIcon>
+              </TweetIntIcon>
+              <TweetIntIcon
                 onClick={() => retweet(tweet._id)}
-                className="tweet-int-icon"
               >
-                <div className="card-icon retweet-icon">
+                <CardIcon className="retweet-icon">
                   <ICON_RETWEET
                     styles={
                       account && account.retweets.includes(tweet._id)
@@ -212,33 +222,31 @@ const TweetPage = (props) => {
                         : { fill: 'rgb(101, 119, 134)' }
                     }
                   />
-                </div>
-              </div>
-              <div
+                </CardIcon>
+              </TweetIntIcon>
+              <TweetIntIcon
                 onClick={() => likeTweet(tweet._id)}
-                className="tweet-int-icon"
               >
-                <div className="card-icon heart-icon">
+                <CardIcon className="heart-icon">
                   {account && account.likes.includes(tweet._id) ? (
                     <ICON_HEARTFULL styles={{ fill: 'rgb(224, 36, 94)' }} />
                   ) : (
                     <ICON_HEART />
                   )}{' '}
-                </div>
-              </div>
-              <div
+                </CardIcon>
+              </TweetIntIcon>
+              <TweetIntIcon
                 onClick={() =>
                   account && account.username === tweet.user.username
                     ? deleteTweet(tweet._id)
                     : bookmarkTweet(tweet._id)
                 }
-                className="tweet-int-icon"
               >
-                <div
+                <CardIcon
                   className={
                     account && account.username === tweet.user.username
-                      ? 'card-icon delete-icon'
-                      : 'card-icon share-icon'
+                      ? 'delete-icon'
+                      : 'share-icon'
                   }
                 >
                   {account && account.username === tweet.user.username ? (
@@ -248,10 +256,10 @@ const TweetPage = (props) => {
                   ) : (
                     <ICON_BOOKMARK styles={{ fill: 'rgb(101, 119, 134)' }} />
                   )}
-                </div>
-              </div>
-            </div>
-          </div>
+                </CardIcon>
+              </TweetIntIcon>
+            </TweetInteractions>
+          </TweetBodyWrapper>
 
           {tweet.replies.map((r) => (
             <TweetCard
@@ -270,39 +278,36 @@ const TweetPage = (props) => {
               likes={r.likes}
             />
           ))}
-        </div>
+        </TweetWrapper>
       ) : (
-        <div className="tweet-wrapper">
+        <TweetWrapper>
           <Loader />
-        </div>
+        </TweetWrapper>
       )}
 
       {tweet && account ? (
-        <div
+        <ModalEdit
           onClick={() => toggleModal()}
           style={{ display: modalOpen ? 'block' : 'none' }}
-          className="modal-edit"
         >
           {modalOpen ? (
-            <div
+            <ModalContent
               style={{ minHeight: '379px', height: 'initial' }}
               onClick={(e) => handleModalClick(e)}
-              className="modal-content"
             >
-              <div className="modal-header">
-                <div className="modal-closeIcon">
-                  <div
+              <ModalHeader>
+                <ModalCloseIcon>
+                  <ModalCloseIconWrap
                     onClick={() => toggleModal()}
-                    className="modal-closeIcon-wrap"
                   >
                     <ICON_CLOSE />
-                  </div>
-                </div>
-                <p className="modal-title">Reply</p>
-              </div>
-              <div style={{ marginTop: '5px' }} className="modal-body">
-                <div className="reply-content-wrapper">
-                  <div className="card-userPic-wrapper">
+                  </ModalCloseIconWrap>
+                </ModalCloseIcon>
+                <ModalTitle>Reply</ModalTitle>
+              </ModalHeader>
+              <ModalBody mt={5}>
+                <ReplyContentWrapper>
+                  <CardUserPicWrapper>
                     <Link
                       onClick={(e) => e.stopPropagation()}
                       to={`/profile/${tweet.user.username}`}
@@ -315,50 +320,47 @@ const TweetPage = (props) => {
                         src={tweet.user.profileImg}
                       />
                     </Link>
-                  </div>
-                  <div className="card-content-wrapper">
-                    <div className="card-content-header">
-                      <div className="card-header-detail">
-                        <span className="card-header-user">
+                  </CardUserPicWrapper>
+                  <CardContentWrapper>
+                    <CardContentHeader>
+                      <CardHeaderDetail>
+                        <CardHeaderUser>
                           <Link
                             onClick={(e) => e.stopPropagation()}
                             to={`/profile/${tweet.user.username}`}
                           >
                             {tweet.user.name}
                           </Link>
-                        </span>
-                        <span className="card-header-username">
+                        </CardHeaderUser>
+                        <CardHeaderUsername>
                           <Link
                             onClick={(e) => e.stopPropagation()}
                             to={`/profile/${tweet.user.username}`}
                           >
                             {`@${tweet.user.username}`}
                           </Link>
-                        </span>
-                        <span className="card-header-dot">·</span>
-                        <span className="card-header-date">
+                        </CardHeaderUsername>
+                        <CardHeaderDot>·</CardHeaderDot>
+                        <CardHeaderDate>
                           {/* <Link onClick={(e)=>e.stopPropagation()} to={`/profile/${props.user.username}`}> */}
                           {/* {moment(parent? props.parent.createdAt : props.createdAt).fromNow(true).replace(' ','').replace('an','1').replace('minutes','m').replace('hour','h').replace('hs','h')} */}
                           {moment(tweet.createdAt).fromNow()}
                           {/* </Link> */}
-                        </span>
-                      </div>
-                    </div>
-                    <div className="card-content-info">{tweet.description}</div>
-                    <div className="reply-to-user">
-                      <span className="reply-tweet-username">Replying to</span>
-                      <span className="main-tweet-user">
+                        </CardHeaderDate>
+                      </CardHeaderDetail>
+                    </CardContentHeader>
+                    <CardContentInfo>{tweet.description}</CardContentInfo>
+                    <ReplyToUser>
+                      <ReplyTweetUsername>Replying to</ReplyTweetUsername>
+                      <MainTweetUser>
                         @{tweet.user.username}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  style={{ position: 'relative' }}
-                  className="Tweet-input-wrapper"
-                >
-                  <div className="Tweet-profile-wrapper">
-                    <div>
+                      </MainTweetUser>
+                    </ReplyToUser>
+                  </CardContentWrapper>
+                </ReplyContentWrapper>
+                <TweetInputWrapper prel>
+                  <TweetProfileWrapper>
+                    <Box>
                       <img
                         alt=""
                         style={{ borderRadius: '50%', minWidth: '49px' }}
@@ -366,94 +368,243 @@ const TweetPage = (props) => {
                         height="49px"
                         src={account.profileImg}
                       />
-                    </div>
-                  </div>
-                  <div
+                    </Box>
+                  </TweetProfileWrapper>
+                  <TweetInputSide minh={180}
                     onClick={() => document.getElementById('replyBox').focus()}
-                    className="Tweet-input-side"
                   >
-                    <div className="inner-input-box">
-                      <ContentEditable
+                    <InnerInputBox>
+                      <TweetInput
                         onKeyDown={(e) =>
                           tweetT.current.length > 279
                             ? e.keyCode !== 8 && e.preventDefault()
                             : null
                         }
-                        id="replyBox"
                         onPaste={(e) => e.preventDefault()}
                         id="replyBox"
-                        style={{ minHeight: '120px' }}
-                        className={
-                          replyText.length ? 'tweet-input-active' : null
-                        }
+                        active={replyText.length > 0}
                         placeholder="Tweet your reply"
                         html={tweetT.current}
                         onChange={handleChange}
                       />
-                    </div>
+                    </InnerInputBox>
                     {replyImage && (
-                      <div className="inner-image-box">
-                        <img
+                      <InnerImageBox>
+                        <TweetUploadImage
                           onLoad={() => setImageLoaded(true)}
-                          className="tweet-upload-image"
                           src={replyImage}
-                          alt="tweet"
+                          alt="tweet image"
                         />
                         {imageLoaded && (
-                          <span onClick={removeImage} className="cancel-image">
+                          <CancelImage onClick={removeImage}>
                             x
-                          </span>
+                          </CancelImage>
                         )}
-                      </div>
+                      </InnerImageBox>
                     )}
-                    <div className="inner-input-links">
-                      <div className="input-links-side">
-                        <div
-                          style={{ marginLeft: '-10px' }}
-                          className="input-attach-wrapper"
-                        >
+                    <InnerInputLinks>
+                      <InputLinksSide>
+                        <InputAttachWrapper mb={-10}>
                           <ICON_IMGUPLOAD
                             styles={{ fill: 'rgb(29, 161, 242)' }}
                           />
                           <input
                             title=" "
-                            id="image"
+                            id="img"
                             style={{ opacity: '0' }}
                             type="file"
                             onChange={() => onchangeImage()}
                           />
-                        </div>
-                      </div>
-                      <div className="tweet-btn-holder">
-                        <div
-                          style={{
-                            fontSize: '13px',
-                            color: replyText.length >= 280 ? 'red' : null,
-                          }}
-                        >
+                        </InputAttachWrapper>
+                      </InputLinksSide>
+                      <TweetBtnHolder>
+                        <m.Text fs={13} color={replyText.length >= 280 ? 'red' : null}>
                           {replyText.length > 0 && `${replyText.length}/280`}
-                        </div>
-                        <div
-                          onClick={() => replyTweet('parent')}
-                          className={
-                            replyText.length
-                              ? 'tweet-btn-side tweet-btn-active'
-                              : 'tweet-btn-side'
+                        </m.Text>
+                        <TweetBtnSide
+                          onClick={() =>
+                            replyTweet(
+                              parent
+                                ? 'parent'
+                                : props.retweet
+                                ? 'retweet'
+                                : 'none',
+                            )
                           }
-                        >
+                          active={replyText.length > 0}>
                           Reply
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+                        </TweetBtnSide>
+                      </TweetBtnHolder>
+                    </InnerInputLinks>
+                  </TweetInputSide>
+                </TweetInputWrapper>
+              </ModalBody>
+            </ModalContent>
           ) : null}
-        </div>
+        </ModalEdit>
       ) : null}
     </>
   )
 }
 
 export default withRouter(TweetPage)
+
+export const TweetWrapper = styled(Box)`
+  max-width: 600px;
+  border-right: 1px solid rgb(230, 236, 240);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+`
+
+export const TweetHeaderWrapper = styled(Box)`
+  position: sticky;
+  border-bottom: 1px solid rgb(230, 236, 240);
+  border-left: 1px solid rgb(230, 236, 240);
+  background-color: #fff;
+  z-index: 3;
+  top: 0px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  height: 53px;
+  min-height: 53px;
+  padding-left: 15px;
+  padding-right: 15px;
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+`
+
+export const TweetHeaderBackWrapper = styled(HeaderBackWrapper)`
+  svg {
+    height: 1.5em;
+    fill: rgb(29,161,242);
+  }
+`
+
+export const TweetHeaderContent = styled(Box)`
+  font-weight: 800;
+  font-size: 19px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+`
+
+export const TweetBodyWrapper = styled(Box)`
+  padding: 0 15px;
+  border-bottom: 1px solid rgb(230, 236, 240);
+`
+
+export const TweetUserPic = styled(Box)`
+  flex-basis: 49px;
+  margin-right: 10px;
+  img {
+    object-fit: cover;
+  }
+`
+
+export const TweetUserWrap = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center
+`
+
+export const TweetUserName = styled(Box)`
+  cursor: pointer;
+  font-size: 15.5px;
+  font-weight: 400;
+  color: rgb(101, 119, 134);
+  &:hover {
+    text-decoration: underline;
+  }
+`
+
+export const TweetUsername = styled(Box)`
+  font-size: 15.5px;
+  font-weight: 400;
+  color: rgb(101, 119, 134);
+`
+
+export const TweetContent = styled(Box)`
+  margin-top: 10px;
+  font-size: 23px;
+  margin-bottom: 10px;
+  word-break: break-word;
+`
+
+export const TweetDate = styled(Box)`
+  margin: 15px 0;
+  font-size: 15px;
+  color: rgb(101, 119, 134);
+`
+
+export const TweetStats = styled(Box)`
+  display: flex;
+  padding: 15px 5px;
+  border-top: 1px solid rgb(230, 236, 240);
+  border-bottom: 1px solid rgb(230, 236, 240);
+`
+
+export const IntNum = styled(Box)`
+  font-weight: bold;
+  margin-right: 5px;
+`
+
+export const IntText = styled(Box)`
+  color: rgb(101, 119, 134);
+  margin-right: 20px;
+`
+
+export const TweetInteractions = styled(Box)`
+  display: flex;
+  justify-content: space-evenly;
+`
+
+export const TweetIntIcon = styled(Box)`
+  min-height: 49px;
+  width: 100%;
+  padding: 0 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+export const TweetCardIcon = styled(CardIcon)`
+  svg {
+    height: 22.5px;
+    width: 22.5px;
+    fill: rgb(101, 119, 134);
+  }
+`
+
+export const TweetRepliesWrapper = styled(Box)`
+  padding: 10px 15px 0 15px;
+  transition: 0.2s ease-in-out;
+  display: flex;
+  border-bottom: 1px solid rgb(230, 236, 240);
+  cursor: pointer;
+  &:hover {
+      background-color: rgb(245, 248, 250);
+  }
+`
+
+export const TweetImageWrapper = styled(Box)`
+  overflow: hidden;
+  max-height: 730px;
+
+  div {
+    border-radius: 14px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-size: cover;
+  }
+`

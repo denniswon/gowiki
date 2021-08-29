@@ -31,11 +31,11 @@ type PathParamsType = {
 
 type Props = RouteComponentProps<PathParamsType> & {
   history: any
-  replyTo: any
+  replyTo?: any
   retweet: any
   username: string
   name: string
-  parent: any
+  parent?: any
   key: string
   id: string
   user: any
@@ -268,29 +268,29 @@ const TweetCard = React.memo(function TweetCard(props: Props) {
           <CardUserPicWrapper
             style={{ display: 'flex', flexDirection: 'column' }}
           >
-            {props.parent.parent ? (
+            {props.parent?.parent ? (
               <Box mt={17} />
             ) : null}
             <Link
               onClick={(e) => e.stopPropagation()}
-              to={`/profile/${props.parent.user.username}`}
+              to={`/profile/${props.parent?.user.username}`}
             >
               <img
                 alt=""
                 style={{ borderRadius: '50%', minWidth: '49px' }}
                 width="100%"
                 height="49px"
-                src={props.parent.user.profileImg}
+                src={props.parent?.user.profileImg}
               />
             </Link>
             <TweetReplyThread />
           </CardUserPicWrapper>
           <CardContentWrapper>
-            {props.parent.parent ? (
+            {props.parent?.parent ? (
               <UserReplied
-                onClick={(e) => goToReply(e, props.parent.parent._id)}
+                onClick={(e) => goToReply(e, props.parent?.parent?._id)}
               >
-                Replying to @{props.parent.parent.username}
+                Replying to @{props.parent?.parent?.username}
               </UserReplied>
             ) : null}
             <CardContentHeader>
@@ -298,33 +298,33 @@ const TweetCard = React.memo(function TweetCard(props: Props) {
                 <CardHeaderUser>
                   <Link
                     onClick={(e) => e.stopPropagation()}
-                    to={`/profile/${props.parent.user.username}`}
+                    to={`/profile/${props.parent?.user.username}`}
                   >
-                    {props.parent.user.name}
+                    {props.parent?.user.name}
                   </Link>
                 </CardHeaderUser>
                 <CardHeaderUsername>
                   <Link
                     onClick={(e) => e.stopPropagation()}
-                    to={`/profile/${props.parent.user.username}`}
+                    to={`/profile/${props.parent?.user.username}`}
                   >
-                    {`@${props.parent.user.username}`}
+                    {`@${props.parent?.user.username}`}
                   </Link>
                 </CardHeaderUsername>
                 <CardHeaderDot>·</CardHeaderDot>
                 <CardHeaderDate>
-                  {/* <Link to={`/profile/${props.parent.user.username}`}> */}
-                  {moment(props.parent.createdAt).fromNow(true)}
+                  {/* <Link to={`/profile/${props.parent?.user.username}`}> */}
+                  {moment(props.parent?.createdAt).fromNow(true)}
                   {/* </Link> */}
                 </CardHeaderDate>
               </CardHeaderDetail>
               <CardHeaderMore />
             </CardContentHeader>
-            <CardContentInfo>{props.parent.description}</CardContentInfo>
-            {props.parent.images[0] && (
+            <CardContentInfo>{props.parent?.description}</CardContentInfo>
+            {props.parent?.images[0] && (
               <CardContentImages>
                 <CardImageLink>
-                  <img alt="" src={props.parent.images[0]} />
+                  <img alt="" src={props.parent?.images[0]} />
                 </CardImageLink>
               </CardContentImages>
             )}
@@ -750,7 +750,7 @@ const TweetCard = React.memo(function TweetCard(props: Props) {
                       onClick={(e) => e.stopPropagation()}
                       to={`/profile/${
                         parent
-                          ? props.parent.user.username
+                          ? props.parent?.user.username
                           : props.user.username
                       }`}
                     >
@@ -761,7 +761,7 @@ const TweetCard = React.memo(function TweetCard(props: Props) {
                         height="49px"
                         src={
                           parent
-                            ? props.parent.user.profileImg
+                            ? props.parent?.user.profileImg
                             : props.user.profileImg
                         }
                       />
@@ -775,11 +775,11 @@ const TweetCard = React.memo(function TweetCard(props: Props) {
                             onClick={(e) => e.stopPropagation()}
                             to={`/profile/${
                               parent
-                                ? props.parent.user.username
+                                ? props.parent?.user.username
                                 : props.user.username
                             }`}
                           >
-                            {parent ? props.parent.user.name : props.user.name}
+                            {parent ? props.parent?.user.name : props.user.name}
                           </Link>
                         </CardHeaderUser>
                         <CardHeaderUsername>
@@ -787,26 +787,26 @@ const TweetCard = React.memo(function TweetCard(props: Props) {
                             onClick={(e) => e.stopPropagation()}
                             to={`/profile/${
                               parent
-                                ? props.parent.user.username
+                                ? props.parent?.user.username
                                 : props.user.username
                             }`}
                           >
                             {parent
-                              ? `@${props.parent.user.username}`
+                              ? `@${props.parent?.user.username}`
                               : `@${props.user.username}`}
                           </Link>
                         </CardHeaderUsername>
                         <CardHeaderDot>·</CardHeaderDot>
                         <CardHeaderDate>
                           {moment(
-                            parent ? props.parent.createdAt : props.createdAt,
+                            parent ? props.parent?.createdAt : props.createdAt,
                           ).fromNow()}
                         </CardHeaderDate>
                       </CardHeaderDetail>
                     </CardContentHeader>
                     <CardContentInfo>
                       {parent
-                        ? props.parent.description
+                        ? props.parent?.description
                         : props.retweet
                         ? props.retweet.description
                         : props.description}
@@ -816,7 +816,7 @@ const TweetCard = React.memo(function TweetCard(props: Props) {
                       <MainTweetUser>
                         @
                         {parent
-                          ? props.parent.user.username
+                          ? props.parent?.user.username
                           : props.user.username}
                       </MainTweetUser>
                     </ReplyToUser>
@@ -914,7 +914,7 @@ const TweetCard = React.memo(function TweetCard(props: Props) {
 export default withRouter(TweetCard)
 
 
-const TweetCardWrapper = styled(Box)`
+export const TweetCardWrapper = styled(Box)`
   border-bottom: 1px solid rgb(230, 236, 240);
   display: flex;
   transition: 0.2s ease-in-out;
@@ -926,7 +926,7 @@ const TweetCardWrapper = styled(Box)`
   }
 `
 
-const CardUserPicWrapper = styled(Box)`
+export const CardUserPicWrapper = styled(Box)`
   flex-basis: 49px;
   margin-right: 10px;  
   display: flex;
@@ -936,47 +936,47 @@ const CardUserPicWrapper = styled(Box)`
   }
 `
 
-const CardContentWrapper = styled(Box)`
+export const CardContentWrapper = styled(Box)`
   max-width: calc(100% - 60px);
   flex-basis: calc(100% - 49px);
 `
 
-const CardContentHeader = styled(Box)`
+export const CardContentHeader = styled(Box)`
   margin-bottom: 2px;
   display: flex;
   justify-content: space-between;
 `
 
-const CardHeaderDetail = styled(Box)`
+export const CardHeaderDetail = styled(Box)`
 `
 
-const CardHeaderUser = styled.span`
+export const CardHeaderUser = styled.span`
   font-weight: bold;
   &:hover{
     text-decoration: underline;
   }
 `
 
-const CardHeaderUsername = styled.span`
+export const CardHeaderUsername = styled.span`
   margin-left: 5px;
 `
 
-const CardHeaderDot = styled.span`
+export const CardHeaderDot = styled.span`
   padding: 0 5px;
   color: rgb(101, 119, 134)
 `
 
-const CardHeaderDate = styled.span`
+export const CardHeaderDate = styled.span`
   color: rgb(101, 119, 134)
   &:hover{
     text-decoration: underline;
   }
 `
 
-const CardHeaderMore = styled(Box)`
+export const CardHeaderMore = styled(Box)`
 `
 
-const CardContentImages = styled(Box)`
+export const CardContentImages = styled(Box)`
   margin-top: 10px;
   border: 1px solid rgb(204, 214, 221);
   border-radius: 14px;
@@ -984,7 +984,7 @@ const CardContentImages = styled(Box)`
   // flex-direction: column;
 `
 
-const CardImageLink = styled(Box)`
+export const CardImageLink = styled(Box)`
   cursor: pointer;
   display: block;
   max-height: 253px;
@@ -999,7 +999,7 @@ const CardImageLink = styled(Box)`
   }
 `
 
-const CardButtonsWrapper = styled(Box)`
+export const CardButtonsWrapper = styled(Box)`
   margin-left: -5px;
   margin-top: 5px;
   max-width: 425px;
@@ -1009,14 +1009,14 @@ const CardButtonsWrapper = styled(Box)`
   margin-bottom: -5px;
 `
 
-const CardButtonWrap = styled(Box)`
+export const CardButtonWrap = styled(Box)`
   display: flex;
   justify-content: flex-start;
   align-items: center;
   color: rgb(134, 120, 101);
   &:hover{
     .reply-icon{
-      const CardButtonWrap{color: rgb(212, 11, 11) !important}
+      export const CardButtonWrap{color: rgb(212, 11, 11) !important}
       background-color: rgba(29, 161, 242,0.1);
       svg{ fill: rgb(29, 161, 242) !important; }
     }
@@ -1025,7 +1025,6 @@ const CardButtonWrap = styled(Box)`
       svg{ fill: rgb(23, 191, 99) !important; }
     }
     .heart-icon{
-      
       background-color: rgba(224, 36, 94,0.1);
       svg{ fill: rgb(224, 36, 94) !important; }
     }
@@ -1049,7 +1048,7 @@ const CardButtonWrap = styled(Box)`
   }
 `
 
-const CardIcon = styled(Box)`
+export const CardIcon = styled(Box)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1057,50 +1056,50 @@ const CardIcon = styled(Box)`
   border-radius: 50%;
   transition: 0.2s ease-in-out;
   will-change: background-color;
-  svg{
+  svg {
     width: 18.75px;
     height: 18.75px;
   }
 `
 
-const CardIconValue = styled(Box)`
+export const CardIconValue = styled(Box)`
   margin-left: 3px;
   font-size: 13px;
 `
 
 /////////reply modal
-const ReplyContentWrapper = styled(Box)`
+export const ReplyContentWrapper = styled(Box)`
   display: flex;
   padding: 10px 15px;
 `
 
-const ReplyTweetUsername = styled.span`
+export const ReplyTweetUsername = styled.span`
   font-size: 15.5px;
   margin-right: 5px;
   color: rgb(101, 119, 134);
 `
 
-const MainTweetUser = styled.span`
+export const MainTweetUser = styled.span`
   color: rgb(27, 149, 224);
   &:hover{ text-decoration: underline;}
 `
 
-const ReplyToUser = styled(Box)`
+export const ReplyToUser = styled(Box)`
   margin-top: 15px;
 `
 
-// const ReplyThread = styled(Box)`
+// export const ReplyThread = styled(Box)`
 //   border-right: 2px solid #ccd6dd;
 //   text-align: center;
 //   height: 100%;
 //   width: 100%;
 // `
 
-const ReplyToWrapper = styled(Box)`
+export const ReplyToWrapper = styled(Box)`
   margin-bottom: 2px;
 `
 
-const UserRetweetIcon = styled(Box)`
+export const UserRetweetIcon = styled(Box)`
   display: flex;
   justify-content: flex-end;
   margin-bottom: 5px;
@@ -1111,7 +1110,7 @@ const UserRetweetIcon = styled(Box)`
   }
 `
 
-const UserRetweeted = styled(Box)`
+export const UserRetweeted = styled(Box)`
   color: rgb(101, 119, 134);
   font-size: 13px;
   margin-bottom: 5px;
@@ -1120,7 +1119,7 @@ const UserRetweeted = styled(Box)`
   }
 `
 
-const TweetReplyThread = styled(Box)`
+export const TweetReplyThread = styled(Box)`
   margin-top: 2px;
   width: 2px;
   background-color: rgb(204, 214, 221);
@@ -1129,7 +1128,7 @@ const TweetReplyThread = styled(Box)`
   margin-top: -5px;
 `
 
-const UserReplied = styled(Box)`
+export const UserReplied = styled(Box)`
   color: rgb(101, 119, 134);
   font-size: 13px;
   margin-bottom: 5px;
